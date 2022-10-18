@@ -13,6 +13,7 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./navbarMainElements";
+import TuneIcon from '@material-ui/icons/Tune';
 
 const NavbarMain = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -47,7 +48,7 @@ const NavbarMain = ({ toggle }) => {
             <NavMenu>
               <NavItem>
                 <NavLinks
-                  to="/main-page"
+                  to="main-page"
                   smooth={true}
                   duration={500}
                   spy={true}
@@ -59,7 +60,7 @@ const NavbarMain = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to="/forum"
+                  to="forum"
                   smooth={true}
                   duration={500}
                   spy={true}
@@ -71,7 +72,7 @@ const NavbarMain = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to="/submit-results"
+                  to="submit-results"
                   smooth={true}
                   duration={500}
                   spy={true}
@@ -83,7 +84,7 @@ const NavbarMain = ({ toggle }) => {
               </NavItem>
             </NavMenu>
             <NavBtn>
-              <NavBtnLink to="/settings">Settings</NavBtnLink>
+              <NavBtnLink to="/settings"><TuneIcon /></NavBtnLink>
             </NavBtn>
           </NavbarContainer>
         </Nav>
