@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaBars, GrUserSettings } from "react-icons/fa";
+import { FaBars} from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
 import {
@@ -13,7 +13,6 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./navbarMainElements";
-import SettingsIcon from '@material-ui/icons/Settings';
 
 const NavbarMain = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -84,7 +83,7 @@ const NavbarMain = ({ toggle }) => {
               </NavItem>
             </NavMenu>
             <NavBtn>
-              <NavBtnLink to="/settings"><SettingsIcon /></NavBtnLink>
+              <NavBtnLink to="/settings"><i class="bi bi-gear-fill"></i></NavBtnLink>
             </NavBtn>
           </NavbarContainer>
         </Nav>
