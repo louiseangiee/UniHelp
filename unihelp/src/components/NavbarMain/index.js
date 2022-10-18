@@ -54,18 +54,6 @@ const NavbarMain = ({ toggle }) => {
                   exact="true"
                   offset={-80}
                 >
-                  Overview
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks
-                  to="/myUni"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
                   MyUni
                 </NavLinks>
               </NavItem>
@@ -79,6 +67,18 @@ const NavbarMain = ({ toggle }) => {
                   offset={-80}
                 >
                   Forum
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks
+                  to="/submit-results"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                >
+                  Submit Results
                 </NavLinks>
               </NavItem>
             </NavMenu>
