@@ -13,7 +13,7 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./navbarMainElements";
-import TuneIcon from '@material-ui/icons/Tune';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const NavbarMain = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -84,7 +84,7 @@ const NavbarMain = ({ toggle }) => {
               </NavItem>
             </NavMenu>
             <NavBtn>
-              <NavBtnLink to="/settings"><TuneIcon /></NavBtnLink>
+              <NavBtnLink to="/settings"><SettingsIcon /></NavBtnLink>
             </NavBtn>
           </NavbarContainer>
         </Nav>
