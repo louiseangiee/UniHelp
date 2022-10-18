@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavbarMain from '../components/NavbarMain';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
+import Services from '../components/Services';
 
 function MainPage() {
   const [isOpen, setIsOpen]  = useState(false);
@@ -13,6 +14,7 @@ function MainPage() {
    <>
     <Sidebar isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
+    <Services />
     <Footer />
    </> 
   )
