@@ -3,7 +3,7 @@ import NavbarMain from '../components/NavbarMain';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import Services from '../components/Services';
-import SchoolTabs from '../components/SchoolTabs';
+// import SchoolTabs from '../components/SchoolTabs';
 
 function MainPage() {
   const [isOpen, setIsOpen]  = useState(false);
@@ -16,6 +16,7 @@ function MainPage() {
     <Sidebar isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     {/* <SchoolTabs /> */}
+    
     <Services />
     <Footer />
    </> 
