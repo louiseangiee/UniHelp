@@ -12,56 +12,65 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     font-size: 18px;
-    padding: 15px;
-    height: 30px;
-    width: 300px;
-    border: solid 3px black;
+    padding: 25px;
+    height: 50px;
+    width: 80%;
+    border: solid 1px #38457c;
+    border-radius: 20px;
   }
   
   .searchIcon {
-    height: 50px;
-    width: 50px;
-    
+    height: 80px;
+    width: 80px;
     place-items: center;
     
   }
   
   input:focus {
     outline: none;
+    
   }
   .searchIcon svg {
-    font-size: 35px;
+    font-size: 50px;
+    color: #FFE052;
   }
   
   .dataResult {
-    margin-top: 5px;
-    width: 400px;
+    
+    /* margin-top: 5px; */
+    width: 83%;
     height: 200px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     overflow: hidden;
     overflow-y: auto;
-    display: block;
-    margin: auto;
-
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
     
+
   }
   
   .dataResult::-webkit-scrollbar {
-    display: flex;
+    display: block;
     justify-content: center;
+
   }
   
   .dataResult .dataItem {
     width: 100%;
     height: 50px;
+    margin: 10px;
     display: flex;
-    align-items: center;
+    text-align: center;
     color: black;
   }
   
   .dataItem p {
     margin-left: 10px;
+    
   }
   a {
     text-decoration: none;
@@ -74,3 +83,21 @@
   #clearBtn {
     cursor: pointer;
   }
+
+  #searchBar{
+    padding: 1rem;
+    background-color: #5271ff;
+  }
+
+  #schoolSelection{
+    padding: 20px;
+    
+    
+  }
+  .header{
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 8.5%;
+  }
+
+ 
