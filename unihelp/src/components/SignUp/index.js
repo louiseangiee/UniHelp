@@ -11,6 +11,7 @@ import {
   FormButton,
   Text
 } from './SignupElements';
+import { useSignup } from '../../../hooks/useSignup';
 
 const SignUp = () => {
   return (
@@ -19,7 +20,7 @@ const SignUp = () => {
         <FormWrap>
           <Icon to='/'>UniHelp</Icon>
           <FormContent>
-            <Form action='/main-page'>
+            <Form action='/signin'>
               <FormH1>Sign up for your account</FormH1>
               <FormLabel htmlFor='for'>Email</FormLabel>
               <FormInput type='email' required />
