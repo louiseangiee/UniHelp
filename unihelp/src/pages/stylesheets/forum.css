@@ -1,0 +1,31 @@
+#schoolSelection{
+    padding: 20px;
+    
+    
+  }
+  .header{
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 8.5%;
+    padding: 20px;
+  }
+
+  #cardRow{
+    margin: auto;
+    width: 60%;
+  }
+
+  .CardSchoolTitle{
+
+    font-weight: bolder;
+    padding: 20px;
+    font-size: 20px;
+  }
+
+.logos{
+    height: 200px;
+    width: 160px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+}

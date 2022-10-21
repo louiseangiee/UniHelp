@@ -36,7 +36,7 @@
   }
   
   .dataResult {
-    
+    z-index: 1;
     /* margin-top: 5px; */
     width: 83%;
     height: 200px;
@@ -89,15 +89,6 @@
     background-color: #5271ff;
   }
 
-  #schoolSelection{
-    padding: 20px;
-    
-    
-  }
-  .header{
-    font-weight: bold;
-    font-size: 25px;
-    margin-left: 8.5%;
-  }
-
+ 
+  
  
