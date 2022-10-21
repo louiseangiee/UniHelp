@@ -11,7 +11,6 @@ import {
   FormButton,
   Text
 } from './SignupElements';
-import { useSignup } from '../../../hooks/useSignup';
 
 const SignUp = () => {
   return (
