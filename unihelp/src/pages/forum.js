@@ -3,7 +3,7 @@ import NavbarMain from '../components/NavbarMain';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
-import tempfiletest from "../database/tempfiletest.json";
+import tempfiletest from "../database/SearchbartestFile.json";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './stylesheets/forum.css';
