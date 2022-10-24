@@ -14,6 +14,7 @@ import {
   NavBtnLinkSignUp,
   NavBtnLinkSignIn,
 } from "./navbarElements";
+// import logo from "logos/Unihelp_white.png";
 
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -40,7 +41,7 @@ const Navbar = ({ toggle }) => {
         <Nav scrollNav={scrollNav}>
           <NavbarContainer>
             <NavLogo onClick={toggleHome} to="/">
-              UniHelp
+              <img src={"logos/Unihelp_white.png"} width="80" />
             </NavLogo>
             <MobileIcon onClick={toggle}>
               <FaBars />
