@@ -10,17 +10,17 @@ import {
   FormInput,
   FormButton,
   Text
-} from './SigninElements';
+} from './SignupElements';
 
-const SignIn = () => {
+const SignUp = () => {
   return (
     <>
       <Container>
         <FormWrap>
           <Icon to='/'>UniHelp</Icon>
           <FormContent>
-            <Form action='/main-page'>
-              <FormH1>Sign in to your account</FormH1>
+            <Form action='/signin'>
+              <FormH1>Sign up for your account</FormH1>
               <FormLabel htmlFor='for'>Email</FormLabel>
               <FormInput type='email' required />
               <FormLabel htmlFor='for'>Password</FormLabel>
@@ -35,6 +35,5 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
-
+export default SignUp;
 
