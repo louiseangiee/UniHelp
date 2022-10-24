@@ -5,6 +5,7 @@ import {Link } from "react-router-dom";
 
 
 
+
 import {
   InfoContainer,
   InfoWrapper,
@@ -20,7 +21,96 @@ import {
   Img
 } from './InfoElements';
 
-const InfoSection = ({
+const InfoSection1 = ({
+  lightBg,
+  imgStart,
+  topLine,
+  lightText,
+  headline,
+  description,
+  buttonLabel,
+  img,
+  alt,
+  id,
+  primary,
+  darkText,
+  dark,
+  dark2
+}) => {
+  console.log(primary);
+  return (
+    <>
+      <InfoContainer lightBg={lightBg} id={id}>
+        <InfoWrapper>
+          <InfoRow imgStart={imgStart}>
+            <Column1>
+              <TextWrapper>
+                <TopLine>{topLine}</TopLine>
+                <Heading lightText={lightText}>{headline}</Heading>
+                <Subtitle darkText={darkText}>{description}</Subtitle>
+                <BtnWrap>
+                  <NavBtnLink
+                    to='/signin'
+                  >
+                    {buttonLabel}                
+                  </NavBtnLink>
+                </BtnWrap>
+              </TextWrapper>
+            </Column1>
+            <Column2>
+              <ImgWrap>
+                <Img src={img} alt={alt} />
+              </ImgWrap>
+            </Column2>
+          </InfoRow>
+        </InfoWrapper>
+      </InfoContainer>
+    </>
+  );
+};
+
+const InfoSection2 = ({
+  lightBg,
+  imgStart,
+  topLine,
+  lightText,
+  headline,
+  description,
+  buttonLabel,
+  img,
+  alt,
+  id,
+  primary,
+  darkText,
+  dark,
+  dark2
+}) => {
+  console.log(primary);
+  return (
+    <>
+      <InfoContainer lightBg={lightBg} id={id}>
+        <InfoWrapper>
+          <InfoRow imgStart={imgStart}>
+            <Column1>
+              <TextWrapper>
+                <TopLine>{topLine}</TopLine>
+                <Heading lightText={lightText}>{headline}</Heading>
+                <Subtitle darkText={darkText}>{description}</Subtitle>
+              </TextWrapper>
+            </Column1>
+            <Column2>
+              <ImgWrap>
+                <Img src={img} alt={alt} />
+              </ImgWrap>
+            </Column2>
+          </InfoRow>
+        </InfoWrapper>
+      </InfoContainer>
+    </>
+  );
+};
+
+const InfoSection3 = ({
   lightBg,
   imgStart,
   topLine,
@@ -68,4 +158,6 @@ const InfoSection = ({
   );
 };
 
-export default InfoSection;
+
+export {InfoSection1,InfoSection2,InfoSection3};
+
