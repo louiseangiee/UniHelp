@@ -26,7 +26,7 @@ const Footer = () => {
         <SocialMedia>
           <SocialMediaWrap>
             <SocialLogo to='/' onClick={toggleHome}>
-              UniHelp
+            <img src={"logos/Unihelp_white.png"} width="80" />
             </SocialLogo>
             <WebsiteRights>UniHelp © 2022 All rights reserved.</WebsiteRights>
           </SocialMediaWrap>
