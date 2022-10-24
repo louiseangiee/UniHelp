@@ -1,4 +1,3 @@
-import { Link as LinkS } from 'react-scroll';
 import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -80,7 +79,7 @@ export const NavBtn = styled.nav`
   }
 `;
 
-export const NavLinks = styled(LinkS)`
+export const NavLinks = styled(LinkR)`
   color: #fff;
   display: flex;
   align-items: center;
@@ -89,7 +88,7 @@ export const NavLinks = styled(LinkS)`
   height: 100%;
   cursor: pointer;
 
-  &.active {
+  &:hover {
     border-bottom: 3px solid #FFE052;
   }
 `;
