@@ -41,7 +41,7 @@ const NavbarMain = ({ toggle }) => {
         <Nav scrollNav={scrollNav}>
           <NavbarContainer>
             <NavLogo onClick={toggleHome}>
-              UniHelp
+            <img src={"logos/Unihelp_white.png"} width="80" />
             </NavLogo>
             <MobileIcon onClick={toggle}>
               <FaBars />

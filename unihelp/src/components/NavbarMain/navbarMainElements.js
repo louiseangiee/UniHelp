@@ -61,7 +61,7 @@ export const NavMenu = styled.ul`
   list-style: none;
   text-align: center;
   margin-right: -22px;
-  
+
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -86,8 +86,8 @@ export const Nava = styled(NavLink)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  margin-top: 12px;
-  padding: 1.8rem 1rem;
+  margin-top: 11px;
+  padding: 1.9rem 1rem;
   cursor: pointer;
 
 
