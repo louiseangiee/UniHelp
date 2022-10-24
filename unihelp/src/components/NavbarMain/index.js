@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { FaBars} from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
+import { NavLink } from 'react-router-dom';
+
 import {
   MobileIcon,
   Nav,
   NavbarContainer,
   NavItem,
-  NavLinks,
   NavLogo,
   NavMenu,
   NavBtn,
   NavBtnLink,
+  Nava
 } from "./navbarMainElements";
 
 const NavbarMain = ({ toggle }) => {
@@ -38,48 +40,38 @@ const NavbarMain = ({ toggle }) => {
       <IconContext.Provider value={{ color: "#fff" }}>
         <Nav scrollNav={scrollNav}>
           <NavbarContainer>
-            <NavLogo onClick={toggleHome} to="/main-page">
-              UniHelp
+            <NavLogo onClick={toggleHome}>
+            <img src={"logos/Unihelp_white.png"} width="80" />
             </NavLogo>
             <MobileIcon onClick={toggle}>
               <FaBars />
             </MobileIcon>
             <NavMenu>
+
               <NavItem>
-                <NavLinks
-                  to="main-page"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  MyUni
-                </NavLinks>
+                  <Nava
+                    activeStyle={{ borderBottom: '3px solid #FFE052' }}
+                    to="main-page"
+                  >
+                    MyUni
+                  
+                  </Nava>
               </NavItem>
               <NavItem>
-                <NavLinks
-                  to="forum"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  Forum
-                </NavLinks>
+                  <Nava
+                    activeStyle={{ borderBottom: '3px solid #FFE052'}}
+                    to="forum"
+                  >
+                    Forum
+                  </Nava>
               </NavItem>
               <NavItem>
-                <NavLinks
-                  to="submit-results"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  Submit Results
-                </NavLinks>
+                  <Nava
+                    activeStyle={{ borderBottom: '3px solid #FFE052' }}
+                    to="submit-results"
+                  >
+                    Submit Results
+                  </Nava>
               </NavItem>
             </NavMenu>
             <NavBtn>
