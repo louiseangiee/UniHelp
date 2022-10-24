@@ -1,6 +1,5 @@
-
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   min-height: 692px;
@@ -10,14 +9,14 @@ export const Container = styled.div`
   right: 0;
   top: 0;
   z-index: 0;
-  overflow: hidden;
-  background:  #5271FF;
+  overflow: auto;
+  background: #5271ff;
 `;
 
 export const FormWrap = styled.div`
   height: 100%;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   justify-content: center;
   margin-top: 20px;
 
@@ -27,12 +26,16 @@ export const FormWrap = styled.div`
 `;
 
 export const Icon = styled(Link)`
-  margin-left: 32px;
-  margin-top: 32px;
+  // margin-left: 32px;
+  // margin-top: 32px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
   text-decoration: none;
   color: #fff;
   font-weight: 700;
   font-size: 32px;
+  // padding-top: 20px;
 
   @media screen and (max-width: 480px) {
     margin-left: 16px;
@@ -42,6 +45,7 @@ export const Icon = styled(Link)`
 
 export const FormContent = styled.div`
   height: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,13 +57,14 @@ export const FormContent = styled.div`
 
 export const Form = styled.form`
   background: #fff;
-  max-width: 1000px;
-  height: auto;
+  width: 1000px;
+  height: 1000px;
   width: 100%;
   z-index: 1;
   display: grid;
-  margin: 20px auto;
-  padding: 80px 32px;
+  margin: 10px auto;
+  padding: 10px 32px;
+  padding-bottom: 0;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
 
@@ -69,6 +74,7 @@ export const Form = styled.form`
 `;
 
 export const FormH1 = styled.h1`
+  margin-top: 8px;
   margin-bottom: 16px;
   color: #010101;
   font-size: 20px;
@@ -86,11 +92,11 @@ export const FormInput = styled.input`
   margin-bottom: 16px;
   border: none;
   border-radius: 4px;
-  background: #ECECEC;
+  background: #ececec;
 `;
 
 export const FormButton = styled.button`
-  background: #5271FF;
+  background: #5271ff;
   padding: 8px 0;
   border: none;
   border-radius: 4px;
@@ -110,7 +116,7 @@ export const Select = styled.select`
   margin-bottom: 16px;
   border: none;
   border-radius: 4px;
-  background: #ECECEC;
+  background: #ececec;
 
   option {
     color: black;

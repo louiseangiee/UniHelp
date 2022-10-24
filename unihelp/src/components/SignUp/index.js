@@ -39,7 +39,7 @@ const SignUp = () => {
     <>
       <Container>
         <FormWrap>
-          {/* <Icon to="/"><img src={"logos/Unihelp_white.png"} height="80"></img></Icon> */}
+          <Icon to="/"><img src={"logos/Unihelp_white.png"} height="80"></img></Icon>
           <FormContent>
             <Form onSubmit={handleSubmit}>
               <FormH1>Sign up for your account</FormH1>
