@@ -51,8 +51,16 @@ function Settings() {
                 <option>Indonesian Ujian Nasional</option>
                 <option>SAT</option>
                 <option>ACT</option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group className="mb-3 col-6" controlId="select">
+              <Form.Label>English Proficiency Test</Form.Label>
+              <Form.Control as="select">
+                <option disabled selected>-- select an option --</option>
                 <option>IELTS</option>
                 <option>TOEFL</option>
+                <option>TOEIC</option>
               </Form.Control>
             </Form.Group>
 
