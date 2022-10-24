@@ -25,7 +25,6 @@ export const homeObjOne = {
     headline: 'Find The Requirements You Need to Apply',
     description:
       'We have a myriad of university application requirements data from universities all around Singapore',
-    buttonLabel: 'Learn More',
     imgStart: true,
     img: require('../../images/svg-2.svg'),
     alt: 'Piggybank',

@@ -19,23 +19,23 @@ const Services = () => {
       <ServicesWrapper>
         <ServicesCard>
           <ServicesIcon src={Icon1} />
-          <ServicesH2>Overview</ServicesH2>
+          <ServicesH2>MyUni</ServicesH2>
           <ServicesP>
-            Description Bla Bla Bla
+            View your application progress with our tracker
           </ServicesP>
         </ServicesCard>
         <ServicesCard>
           <ServicesIcon src={Icon2} />
-          <ServicesH2>MyUni</ServicesH2>
+          <ServicesH2>Forum</ServicesH2>
           <ServicesP>
-            Description Bla Bla Bla
+            Read others' thoughts about the universities
           </ServicesP>
         </ServicesCard>
         <ServicesCard>
           <ServicesIcon src={Icon3} />
-          <ServicesH2>Forum</ServicesH2>
+          <ServicesH2>Submit Result</ServicesH2>
           <ServicesP>
-            Description Bla Bla Bla
+            Help others' application process with your data
           </ServicesP>
         </ServicesCard>
       </ServicesWrapper>

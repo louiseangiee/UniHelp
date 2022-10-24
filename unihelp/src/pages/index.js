@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
-import InfoSection from '../components/InfoSection';
+import {InfoSection1,InfoSection2,InfoSection3} from '../components/InfoSection';
 import {
   homeObjOne,
   homeObjTwo,
@@ -22,10 +22,10 @@ function Home() {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       <HeroSection />
-      <InfoSection {...homeObjOne} />
-      <InfoSection {...homeObjTwo} />
+      <InfoSection1 {...homeObjOne} />
+      <InfoSection2 {...homeObjTwo} />
       <Services />
-      <InfoSection {...homeObjThree} />
+      <InfoSection3 {...homeObjThree} />
       <Footer />
     </>
   );
