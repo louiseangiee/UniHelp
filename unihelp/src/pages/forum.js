@@ -3,12 +3,18 @@ import NavbarMain from '../components/NavbarMain';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
+
+
+//These two files need to be changed
 import tempfiletest from "../database/SearchbartestFile.json";
+
+
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './stylesheets/forum.css';
 import Overlay from 'react-bootstrap/Overlay';
-
+import FilterForums from '../components/SchoolFilterCards';
 
 
 
@@ -50,7 +56,7 @@ function Forum() {
               <Card.Body>
                 <Card.Img variant='top' className="img-fluid " class = "logos" src = "logos/nus_logo.jpg"/>
                 <Card.Title id = "NUS title" class = "CardSchoolTitle" style={{textAlign: 'center'}}> NUS </Card.Title>
-                <a onClick={handleClick} className='stretched-link' href='#'></a>
+                <a onClick={handleClick} name = "NUS" className='stretched-link' href='#'></a>
               </Card.Body>
             </Card>
         </div>
@@ -59,7 +65,7 @@ function Forum() {
               <Card.Body>
               <Card.Img variant='top' className="img-fluid " class = "logos" src = "logos/ntu_logo.jpg"/>
                 <Card.Title id = "NTU title" class = "CardSchoolTitle" style={{textAlign: 'center'}}> NTU </Card.Title>
-                <a onClick={handleClick} className='stretched-link' href='#'></a>
+                <a onClick={handleClick} name = "NTU" className='stretched-link' href='#'></a>
               </Card.Body>
             </Card>
         </div>
@@ -68,7 +74,7 @@ function Forum() {
               <Card.Body>
               <Card.Img variant='top' className="img-fluid " class = "logos" src = "logos/smu_logo.jpg"/>
                 <Card.Title id = "SMU title" class = "CardSchoolTitle" style={{textAlign: 'center'}}> SMU </Card.Title>
-                <a onClick={handleClick} className='stretched-link' href='#'> </a>
+                <a onClick={handleClick} name = "SMU" className='stretched-link' href='#'> </a>
               </Card.Body>
             </Card>
         </div>
@@ -78,7 +84,7 @@ function Forum() {
     </div>
 
     <div id="forumBoxes">
-     
+        <FilterForums></FilterForums>
     </div>
 
 
