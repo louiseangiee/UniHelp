@@ -1,5 +1,11 @@
 import React from 'react';
 import { Button } from '../ButtonElements';
+import { NavBtnLink } from '../ButtonElements';
+import {Link } from "react-router-dom";
+
+
+
+
 import {
   InfoContainer,
   InfoWrapper,
@@ -15,7 +21,7 @@ import {
   Img
 } from './InfoElements';
 
-const InfoSection = ({
+const InfoSection1 = ({
   lightBg,
   imgStart,
   topLine,
@@ -43,19 +49,11 @@ const InfoSection = ({
                 <Heading lightText={lightText}>{headline}</Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
-                  <Button
-                    to='home'
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    exact='true'
-                    offset={-80}
-                    primary={primary ? 1 : 0}
-                    dark={dark ? 1 : 0}
-                    dark2={dark2 ? 1 : 0}
+                  <NavBtnLink
+                    to='/signin'
                   >
-                    {buttonLabel}
-                  </Button>
+                    {buttonLabel}                
+                  </NavBtnLink>
                 </BtnWrap>
               </TextWrapper>
             </Column1>
@@ -71,4 +69,95 @@ const InfoSection = ({
   );
 };
 
-export default InfoSection;
+const InfoSection2 = ({
+  lightBg,
+  imgStart,
+  topLine,
+  lightText,
+  headline,
+  description,
+  buttonLabel,
+  img,
+  alt,
+  id,
+  primary,
+  darkText,
+  dark,
+  dark2
+}) => {
+  console.log(primary);
+  return (
+    <>
+      <InfoContainer lightBg={lightBg} id={id}>
+        <InfoWrapper>
+          <InfoRow imgStart={imgStart}>
+            <Column1>
+              <TextWrapper>
+                <TopLine>{topLine}</TopLine>
+                <Heading lightText={lightText}>{headline}</Heading>
+                <Subtitle darkText={darkText}>{description}</Subtitle>
+              </TextWrapper>
+            </Column1>
+            <Column2>
+              <ImgWrap>
+                <Img src={img} alt={alt} />
+              </ImgWrap>
+            </Column2>
+          </InfoRow>
+        </InfoWrapper>
+      </InfoContainer>
+    </>
+  );
+};
+
+const InfoSection3 = ({
+  lightBg,
+  imgStart,
+  topLine,
+  lightText,
+  headline,
+  description,
+  buttonLabel,
+  img,
+  alt,
+  id,
+  primary,
+  darkText,
+  dark,
+  dark2
+}) => {
+  console.log(primary);
+  return (
+    <>
+      <InfoContainer lightBg={lightBg} id={id}>
+        <InfoWrapper>
+          <InfoRow imgStart={imgStart}>
+            <Column1>
+              <TextWrapper>
+                <TopLine>{topLine}</TopLine>
+                <Heading lightText={lightText}>{headline}</Heading>
+                <Subtitle darkText={darkText}>{description}</Subtitle>
+                <BtnWrap>
+                  <NavBtnLink
+                    to='/signup'
+                  >
+                    {buttonLabel}                
+                  </NavBtnLink>
+                </BtnWrap>
+              </TextWrapper>
+            </Column1>
+            <Column2>
+              <ImgWrap>
+                <Img src={img} alt={alt} />
+              </ImgWrap>
+            </Column2>
+          </InfoRow>
+        </InfoWrapper>
+      </InfoContainer>
+    </>
+  );
+};
+
+
+export {InfoSection1,InfoSection2,InfoSection3};
+

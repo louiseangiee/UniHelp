@@ -39,6 +39,11 @@ export const NavLogo = styled(LinkR)`
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: ${({ scrollNav }) => (scrollNav ? '#5271ff' : 'transparent')};
+    color: #FFE052;
+  }
 `;
 
 export const MobileIcon = styled.div`
@@ -86,15 +91,41 @@ export const NavLinks = styled(LinkS)`
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
-  height: 100%;
+  height: 110%;
   cursor: pointer;
 
   &.active {
     border-bottom: 3px solid #FFE052;
   }
+  
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: ${({ scrollNav }) => (scrollNav ? '#5271ff' : 'transparent')};
+    color: #FFE052;
+  }
 `;
 
-export const NavBtnLink = styled(LinkR)`
+export const NavBtnLinkSignUp = styled(LinkR)`
+  border-radius: 50px;
+  background: #FFE052;
+  white-space: nowrap;
+  padding: 10px 22px;
+  color: #000;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
+  }
+`;
+
+export const NavBtnLinkSignIn = styled(LinkR)`
   border-radius: 50px;
   background: #5271ff;
   white-space: nowrap;
@@ -113,3 +144,5 @@ export const NavBtnLink = styled(LinkR)`
     color: #010606;
   }
 `;
+
+

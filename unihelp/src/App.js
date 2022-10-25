@@ -10,6 +10,7 @@ import SubmitResults from './pages/submitResults';
 import Forum from './pages/forum';
 import Settings from './pages/settings';
 
+
 function App() {
   return (
     <Router>
@@ -21,6 +22,7 @@ function App() {
         <Route path='/forum' component={Forum} exact />
         <Route path='/submit-results' component={SubmitResults} exact />
         <Route path='/settings' component={Settings} exact />
+        
       </Switch>
     </Router>
   );

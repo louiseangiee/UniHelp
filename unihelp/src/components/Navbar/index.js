@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { FaBars } from 'react-icons/fa';
-import { IconContext } from 'react-icons/lib';
-import { animateScroll as scroll } from 'react-scroll';
+import React, { useState, useEffect } from "react";
+import { FaBars } from "react-icons/fa";
+import { IconContext } from "react-icons/lib";
+import { animateScroll as scroll } from "react-scroll";
 import {
   MobileIcon,
   Nav,
@@ -11,8 +11,10 @@ import {
   NavLogo,
   NavMenu,
   NavBtn,
-  NavBtnLink
-} from './navbarElements';
+  NavBtnLinkSignUp,
+  NavBtnLinkSignIn,
+} from "./navbarElements";
+// import logo from "logos/Unihelp_white.png";
 
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -26,7 +28,7 @@ const Navbar = ({ toggle }) => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', changeNav);
+    window.addEventListener("scroll", changeNav);
   }, []);
 
   const toggleHome = () => {
@@ -35,11 +37,11 @@ const Navbar = ({ toggle }) => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#fff' }}>
+      <IconContext.Provider value={{ color: "#fff" }}>
         <Nav scrollNav={scrollNav}>
           <NavbarContainer>
-            <NavLogo onClick={toggleHome} to='/'>
-              UniHelp
+            <NavLogo onClick={toggleHome} to="/">
+              <img src={"logos/Unihelp_white.png"} width="80" />
             </NavLogo>
             <MobileIcon onClick={toggle}>
               <FaBars />
@@ -47,11 +49,11 @@ const Navbar = ({ toggle }) => {
             <NavMenu>
               <NavItem>
                 <NavLinks
-                  to='about'
+                  to="about"
                   smooth={true}
                   duration={500}
                   spy={true}
-                  exact='true'
+                  exact="true"
                   offset={-80}
                 >
                   About
@@ -59,11 +61,11 @@ const Navbar = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to='discover'
+                  to="discover"
                   smooth={true}
                   duration={500}
                   spy={true}
-                  exact='true'
+                  exact="true"
                   offset={-80}
                 >
                   Discover
@@ -71,17 +73,17 @@ const Navbar = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to='services'
+                  to="services"
                   smooth={true}
                   duration={500}
                   spy={true}
-                  exact='true'
+                  exact="true"
                   offset={-80}
                 >
                   Services
                 </NavLinks>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLinks
                   to='signup'
                   smooth={true}
@@ -92,10 +94,12 @@ const Navbar = ({ toggle }) => {
                 >
                   Sign Up
                 </NavLinks>
-              </NavItem>
+              </NavItem> */}
             </NavMenu>
             <NavBtn>
-              <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+              <NavBtnLinkSignUp to="/signup" className="SignUp">Sign Up</NavBtnLinkSignUp>
+              &nbsp;&nbsp;&nbsp;
+              <NavBtnLinkSignIn to="/signin" className="SignIn">Sign In</NavBtnLinkSignIn>
             </NavBtn>
           </NavbarContainer>
         </Nav>
