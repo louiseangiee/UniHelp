@@ -92,6 +92,12 @@ export const NavLinks = styled(LinkS)`
   &.active {
     border-bottom: 3px solid #FFE052;
   }
+  
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #5271ff;
+    color: #FFE052;
+  }
 `;
 
 export const NavBtnLinkSignUp = styled(LinkR)`

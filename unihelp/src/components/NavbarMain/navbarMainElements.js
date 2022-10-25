@@ -90,6 +90,11 @@ export const Nava = styled(NavLink)`
   padding: 1.9rem 1rem;
   cursor: pointer;
 
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #5271ff;
+    color: #FFE052;
+  }
 
 `;
 
