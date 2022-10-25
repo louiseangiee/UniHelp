@@ -42,7 +42,7 @@ function Settings() {
               </Form.Control>
             </Form.Group>
 
-            <Form.Group className="mb-3 col-6" controlId="select">
+            <Form.Group className="mb-3 col-lg-6" controlId="select">
               <Form.Label>High School Qualification</Form.Label>
               <Form.Control as="select">
                 <option disabled selected>-- select an option --</option>
@@ -54,7 +54,7 @@ function Settings() {
               </Form.Control>
             </Form.Group>
 
-            <Form.Group className="mb-3 col-6" controlId="select">
+            <Form.Group className="mb-3 col-lg-6" controlId="select">
               <Form.Label>English Proficiency Test</Form.Label>
               <Form.Control as="select">
                 <option disabled selected>-- select an option --</option>
