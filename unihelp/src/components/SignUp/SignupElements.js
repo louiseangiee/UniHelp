@@ -26,8 +26,6 @@ export const FormWrap = styled.div`
 `;
 
 export const Icon = styled(Link)`
-  // margin-left: 32px;
-  // margin-top: 32px;
   position: absolute;
   top: 10px;
   left: 10px;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Container,
   FormWrap,
@@ -17,16 +18,16 @@ const SignIn = () => {
     <>
       <Container>
         <FormWrap>
-          <Icon to='/'>UniHelp</Icon>
+          <Icon to='/'><img src={"logos/Unihelp_white.png"} height="80"></img></Icon>
           <FormContent>
             <Form action='/main-page'>
-              <FormH1>Sign in to your account</FormH1>
+              <FormH1>Sign In to Your Account</FormH1>
               <FormLabel htmlFor='for'>Email</FormLabel>
               <FormInput type='email' required />
               <FormLabel htmlFor='for'>Password</FormLabel>
               <FormInput type='password' required />
               <FormButton type='submit'>Continue</FormButton>
-              <Text>Forgot password</Text>
+              <Text>No account? <Link to='/signup'>Create one</Link></Text>
             </Form>
           </FormContent>
         </FormWrap>
