@@ -51,18 +51,11 @@ const Sidebar = ({ isOpen, toggle }) => {
           >
             Services
           </SidebarLink>
-          <SidebarLink
-            to='signup'
-            onClick={toggle}
-            smooth={true}
-            duration={500}
-            spy={true}
-            exact='true'
-            offset={-80}
-          >
-            Sign Up
-          </SidebarLink>
         </SidebarMenu>
+        <SideBtnWrap>
+          <SidebarRoute to='/signup'>Sign Up</SidebarRoute>
+        </SideBtnWrap>
+        
         <SideBtnWrap>
           <SidebarRoute to='/signin'>Sign In</SidebarRoute>
         </SideBtnWrap>
