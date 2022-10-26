@@ -85,7 +85,9 @@ function Forum() {
     </div>
 
     <div id="forumBoxes">
-        <FilterForums></FilterForums>
+        
+        Filter By : <FilterForums></FilterForums>
+      
     </div>
 
 
