@@ -39,6 +39,11 @@ export const NavLogo = styled(LinkR)`
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: ${({ scrollNav }) => (scrollNav ? '#5271ff' : 'transparent')};
+    color: #FFE052;
+  }
 `;
 
 export const MobileIcon = styled.div`
@@ -91,6 +96,12 @@ export const NavLinks = styled(LinkS)`
 
   &.active {
     border-bottom: 3px solid #FFE052;
+  }
+  
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: ${({ scrollNav }) => (scrollNav ? '#5271ff' : 'transparent')};
+    color: #FFE052;
   }
 `;
 

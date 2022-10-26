@@ -1,6 +1,7 @@
 import { Link as LinkR } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 
 export const Nav = styled.nav`
@@ -39,6 +40,11 @@ export const NavLogo = styled(LinkR)`
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #5271ff;
+    color: #FFE052;
+  }
 `;
 
 export const MobileIcon = styled.div`
@@ -90,6 +96,11 @@ export const Nava = styled(NavLink)`
   padding: 1.9rem 1rem;
   cursor: pointer;
 
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #5271ff;
+    color: #FFE052;
+  }
 
 `;
 
@@ -112,3 +123,31 @@ export const NavBtnLink = styled(LinkR)`
     color: #010606;
   }
 `;
+
+export const Dropdowns = styled(Dropdown)`
+color: #fff;
+display: flex;
+align-items: center;
+text-decoration: none;
+padding: 1.9rem 1rem;
+cursor: pointer;
+height: 80px;
+
+&:hover {
+  transition: all 0.2s ease-in-out;
+  background: #5271ff;
+  color: transparent;
+}
+
+&:active {
+  color: transparent;
+}
+
+$.Item {
+  background: black;
+
+}
+
+`;
+
+

@@ -19,7 +19,7 @@ function Settings() {
       <NavbarMain toggle={toggle} />
 
       <div id="form" class="px-5">
-        <h1 class="header">Settings</h1>
+        <h1 class="header mx-0 px-0">Settings</h1>
 
         <Form>
           <div className="row">

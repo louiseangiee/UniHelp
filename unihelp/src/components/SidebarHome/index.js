@@ -8,9 +8,9 @@ import {
   SidebarLink,
   SidebarRoute,
   SideBtnWrap
-} from './SidebarElements';
+} from './SidebarHomeElements';
 
-const Sidebar = ({ isOpen, toggle }) => {
+const SidebarHome = ({ isOpen, toggle }) => {
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <Icon onClick={toggle}>
@@ -19,7 +19,7 @@ const Sidebar = ({ isOpen, toggle }) => {
       <SidebarWrapper>
         <SidebarMenu>
           <SidebarLink
-            to='about'
+            to='main-page'
             onClick={toggle}
             smooth={true}
             duration={500}
@@ -27,10 +27,10 @@ const Sidebar = ({ isOpen, toggle }) => {
             exact='true'
             offset={-80}
           >
-            About
+            My Uni
           </SidebarLink>
           <SidebarLink
-            to='discover'
+            to='forum'
             onClick={toggle}
             smooth={true}
             duration={500}
@@ -38,10 +38,10 @@ const Sidebar = ({ isOpen, toggle }) => {
             exact='true'
             offset={-80}
           >
-            Discover
+            Forum
           </SidebarLink>
           <SidebarLink
-            to='services'
+            to='submit-results'
             onClick={toggle}
             smooth={true}
             duration={500}
@@ -49,19 +49,25 @@ const Sidebar = ({ isOpen, toggle }) => {
             exact='true'
             offset={-80}
           >
-            Services
+            Submit Results
+          </SidebarLink>
+
+          <SidebarLink
+            to='settings'
+            onClick={toggle}
+            smooth={true}
+            duration={500}
+            spy={true}
+            exact='true'
+            offset={-80}
+          >
+            Settings
           </SidebarLink>
         </SidebarMenu>
-        <SideBtnWrap>
-          <SidebarRoute to='/signup'>Sign Up</SidebarRoute>
-        </SideBtnWrap>
         
-        <SideBtnWrap>
-          <SidebarRoute to='/signin'>Sign In</SidebarRoute>
-        </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>
   );
 };
 
-export default Sidebar;
+export default SidebarHome;
