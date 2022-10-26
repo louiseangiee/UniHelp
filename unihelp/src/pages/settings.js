@@ -5,11 +5,18 @@ import Footer from '../components/Footer';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './stylesheets/submit-results.css';
-
+import SignUp from '../components/SignUp';
+import ScrollToTop from '../components/ScrollToTop';
 
 function Settings() {
-  const [isOpen, setIsOpen] = useState(false);
-
+  return (
+    <>
+    <ScrollToTop />
+      <SignUp />
+    </>
+  );
+  /* const [isOpen, setIsOpen] = useState(false);
+  
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -127,6 +134,7 @@ function Settings() {
   );
 
   <Footer />
+  */
 
 };
 export default Settings;
