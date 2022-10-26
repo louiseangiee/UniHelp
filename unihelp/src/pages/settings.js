@@ -13,79 +13,120 @@ function Settings() {
   const toggle = () => {
     setIsOpen(!isOpen);
   }
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [studentType, setStudentType] = useState("");
+  const [HSQualification, setHSQualification] = useState("");
+  const [gradDate, setGradDate] = useState("");
+  const [DoB, setDoB] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(`
+      Full name: ${fullName}
+      Email: ${email}
+      Password: ${password}
+      Student Type: ${studentType}
+      High School Qualification: ${HSQualification}
+      Graduation Date: ${gradDate}
+      Date of Birth: ${DoB}
+    `);
+  };
+
   return (
     <>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
-      <NavbarMain toggle={toggle} />
+      <Container>
+        <FormWrap>
+          <Icon to="/"><img src={"logos/Unihelp_white.png"} height="80"></img></Icon>
+          <FormContent>
+            <Form onSubmit={handleSubmit}>
+              <FormH1>Sign up for your account</FormH1>
 
-      <div id="form" class="px-5">
-        <h1 class="header mx-0 px-0">Settings</h1>
+              <FormLabel htmlFor="fullname">Full Name</FormLabel>
+              <FormInput
+                type="text"
+                id="fullname"
+                required
+                onChange={(e) => setFullName(e.target.value)}
+                value={fullName}
+              />
 
-        <Form>
-          <div className="row">
+              <FormLabel htmlFor="email">Email</FormLabel>
+              <FormInput
+                type="email"
+                required
+                id="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
 
-            <Form.Group className="mb-3" controlId="formBasicText">
-              <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Samuel No Surname" />
-            </Form.Group>
+              <FormLabel htmlFor="password">Password</FormLabel>
+              <FormInput
+                type="password"
+                required
+                id="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
 
-            <Form.Group className="mb-3" controlId="formBasicText">
-              <Form.Label>E-Mail</Form.Label>
-              <Form.Control type="text" placeholder="samuel.2021@business.smu.edu.sg" />
-            </Form.Group>
+              <FormLabel htmlFor="student-type">I am a:</FormLabel>
+              <Select
+                required
+                id="student-type"
+                onChange={(e) => setStudentType(e.target.value)}
+                value={studentType}
+              >
+                <option selected>
+                  --Select an Option--
+                </option>
+                <option>Prospective Student</option>
+                <option>Current Student</option>
+              </Select>
 
-            <Form.Group className="mb-3" controlId="select">
-              <Form.Label>Are you a</Form.Label>
-              <Form.Control as="select">
-                <option>Local Student</option>
-                <option>International Student</option>
-              </Form.Control>
-            </Form.Group>
-
-            <Form.Group className="mb-3 col-lg-6" controlId="select">
-              <Form.Label>High School Qualification</Form.Label>
-              <Form.Control as="select">
-                <option disabled selected>-- select an option --</option>
-                <option>International Baccalaureate</option>
+              <FormLabel htmlFor="HSQ">High School Qualification</FormLabel>
+              <Select
+                required
+                id="HSQ"
+                onChange={(e) => setHSQualification(e.target.value)}
+                value={HSQualification}
+              >
+                <option selected value={null}>
+                  --Select an Option--
+                </option>
                 <option>Cambridge A Level</option>
-                <option>Indonesian Ujian Nasional</option>
-                <option>SAT</option>
-                <option>ACT</option>
-              </Form.Control>
-            </Form.Group>
+                <option>International Baccalaurate</option>
+                <option>Polytechnic Diploma</option>
+                <option>Other</option>
+              </Select>
 
-            <Form.Group className="mb-3 col-lg-6" controlId="select">
-              <Form.Label>English Proficiency Test</Form.Label>
-              <Form.Control as="select">
-                <option disabled selected>-- select an option --</option>
-                <option>IELTS</option>
-                <option>TOEFL</option>
-                <option>TOEIC</option>
-              </Form.Control>
-            </Form.Group>
+              <FormLabel htmlFor="graddate">Date of Graduation</FormLabel>
+              <FormInput
+                type="date"
+                required
+                id="graddate"
+                onChange={(e) => setGradDate(e.target.value)}
+                value={gradDate}
+              />
 
-            <Form.Group className="mb-3" controlId="DateOfBirth">
-              <Form.Label>Date of Birth</Form.Label>
-              <Form.Control type="date" />
-            </Form.Group>
+              <FormLabel htmlFor="dob">Date of Birth</FormLabel>
+              <FormInput
+                type="date"
+                required
+                id="dob"
+                onChange={(e) => setDoB(e.target.value)}
+                value={DoB}
+              />
 
-            <Form.Group className="mb-3" controlId="DateOfGrad">
-              <Form.Label>Expected Graduation Date</Form.Label>
-              <Form.Control type="date" />
-            </Form.Group>
-          </div>
-
-          <div className="row">
-            <Button className="mb-3" variant="primary" type="submit">
-              Save Changes
-            </Button>
-          </div>
-        </Form>
-      </div>
-
-      <Footer />
+              <FormButton type="submit">Update Settings</FormButton>
+            </Form>
+          </FormContent>
+        </FormWrap>
+      </Container>
     </>
-  )
-}
+  );
 
+  <Footer />
+</>
+},
 export default Settings;
