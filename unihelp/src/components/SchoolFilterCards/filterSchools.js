@@ -11,6 +11,8 @@ export function filterSchool(Selectedschool) {
   return filteredForums;
 }
 
+
+//CONVERT TO SINGULAR COMMENTS
 export function readComments(comments){
   let string = ''
   for (let i=0; i < comments.length; i++){

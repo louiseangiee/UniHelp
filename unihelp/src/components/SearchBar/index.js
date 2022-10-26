@@ -1,6 +1,3 @@
-//BASE CODE, TO BE EDITED
-
-
 import React, { useState } from "react";
 import "./SearchBar.css";
 import SearchIcon from "@material-ui/icons/Search";

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 // import "./styles.css";
 import { buttons } from "./schools";
 import { getForums, filterSchool, readComments } from "./filterSchools";
-
 import Card from 'react-bootstrap/Card';
 
 

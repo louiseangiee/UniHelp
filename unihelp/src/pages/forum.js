@@ -7,6 +7,7 @@ import SearchBar from "../components/SearchBar";
 
 //These two files need to be changed
 import tempfiletest from "../database/SearchbartestFile.json";
+//how to import js file
 
 
 
