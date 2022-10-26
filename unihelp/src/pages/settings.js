@@ -12,7 +12,7 @@ function Settings() {
 
   const toggle = () => {
     setIsOpen(!isOpen);
-  }
+  };
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,10 +36,10 @@ function Settings() {
 
   return (
     <>
-      <Container>
-        <FormWrap>
+      <div>
+        <Form.Wrap>
           <Icon to="/"><img src={"logos/Unihelp_white.png"} height="80"></img></Icon>
-          <FormContent>
+          <Form.Content>
             <Form onSubmit={handleSubmit}>
               <FormH1>Sign up for your account</FormH1>
 
@@ -120,13 +120,13 @@ function Settings() {
 
               <FormButton type="submit">Update Settings</FormButton>
             </Form>
-          </FormContent>
-        </FormWrap>
-      </Container>
+          </Form.Content>
+        </Form.Wrap>
+      </div>
     </>
   );
 
   <Footer />
-</>
-},
+
+};
 export default Settings;
