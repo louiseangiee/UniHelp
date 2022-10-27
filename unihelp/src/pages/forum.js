@@ -49,7 +49,7 @@ function Forum() {
     <div id= "schoolSelection">
       <h1 class ="header">Schools You Follow</h1>
       <div id = "cardRow" class ="row">
-        <div class = "col-4">
+        <div class = "col-xl-4 col-lg-4 col-md-4">
             
 
             {/* Onclick filter forum type by school, working with Davina for code, onclick background gray and filter, unclick back to normal*/}
@@ -61,7 +61,7 @@ function Forum() {
               </Card.Body>
             </Card>
         </div>
-        <div class = "col-4">
+        <div class = "col-xl-4 col-lg-4 col-md-4">
             <Card>
               <Card.Body>
               <Card.Img variant='top' className="img-fluid " class = "logos" src = "logos/ntu_logo.jpg"/>
@@ -70,7 +70,7 @@ function Forum() {
               </Card.Body>
             </Card>
         </div>
-        <div class = "col-4">
+        <div class = "col-xl-4 col-lg-4 col-md-4">
             <Card>
               <Card.Body>
               <Card.Img variant='top' className="img-fluid " class = "logos" src = "logos/smu_logo.jpg"/>

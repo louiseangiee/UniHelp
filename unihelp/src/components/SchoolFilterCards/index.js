@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Button from "react-bootstrap/esm/Button";
 
 
+
 //help debug plis 
 function FilterForums() {
   const [filteredForums, setFilteredForums] = useState(null);
@@ -23,9 +24,39 @@ function FilterForums() {
     
   }
 
+  
+
+  function listComments(comments){
+    //to list comments one by one into comments section
+  }
+
+  function buttonUpdate(){
+    // if button id = upvote update database else decrease number one user can only do it once button change to red or green (disabled)
+  }
+
+  // STYLES
+  const voteButtons ={
+    backgroundColor: 'transparent', 
+    color: 'transparent',
+    
+  }
+
+  const cardsStyle = {
+    marginBottom: '20px', 
+    padding: '20px',
+    height: '100%',
+    borderRadius: '0px',
+    width: '100%'
+
+  }
+
+  
+
+
   return (
     <>
     {/* help me  */}
+    
 
       {buttons &&
         buttons.map((type, index) => (
@@ -40,21 +71,44 @@ function FilterForums() {
       {filteredForums &&
         filteredForums.map(type => (
           
-          <Card key = {type.id} id = {type.id} style={{marginBottom: '20px'}}>
-            <Card.Header> {type.school} </Card.Header>
-            <Card.Body>
-              {/* collapsible card for comments */}
-              <Card.Title> {type.forumTitle} </Card.Title>
-              {type.content}
+          <div className="d-flex flex-row" id= "upvoteButtons" style={{marginBottom:'20px', marginTop:'20px', border:'solid darkgrey 2px'}}>
+            <div className = "d-flex col-1" style={{paddingTop: 'auto', paddingBottom: 'auto'}} >
+                <Card key = {type.id} style={cardsStyle}>
+                    <button id ="upvote" className = "btn" style={voteButtons} onClick= {buttonUpdate}>
+                      <Card.Img variant='top' className="img-fluid" src = "svgFiles/TriangleArrow-Up.svg"/>
+                    </button>
+                    
+                    <Card.Title className="text-center" style={{marginTop:'20px', marginBottom: '20px'}}> {type.upvotes} </Card.Title>
+
+                    <button id= "downvote" className = "btn" style={voteButtons} onClick= {buttonUpdate}>
+                      <Card.Img  variant='bottom' className="img-fluid" src = "svgFiles/TriangleArrow-Up.svg" style={{transform: 'rotate(180deg)'}}/>
+                    </button>
+                    
+                </Card>
+            </div>
+
+
+            <div className="d-flex col-11">
+              <Card key = {type.id} id = {type.id} style={cardsStyle}>
+                <Card.Header> {type.school} </Card.Header>
+                <Card.Body>
+                  {/* collapsible card for comments */}
+                  <Card.Title> {type.forumTitle} </Card.Title>
+                  {type.content}
+                  
+                </Card.Body>
+              <Card.Footer>
+                {/* insert comments one by one */}
+                {type.comments}
+              </Card.Footer>
               
-            </Card.Body>
-            <Card.Footer>
-              {/* insert comments one by one */}
-              {type.comments}
-            </Card.Footer>
-            
-            
-          </Card>
+              
+              </Card>
+          </div>
+          </div>
+
+         
+          
         ))}
     </>
   );
