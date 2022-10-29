@@ -68,7 +68,6 @@ export const NavMenu = styled.ul`
   text-align: center;
   margin-right: -22px;
 
-
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -133,19 +132,8 @@ padding: 1.9rem 1rem;
 cursor: pointer;
 height: 80px;
 
-&:hover {
-  transition: all 0.2s ease-in-out;
-  background: #5271ff;
-  color: transparent;
-}
-
 &:active {
   color: transparent;
-}
-
-$.Item {
-  background: black;
-
 }
 
 `;

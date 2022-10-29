@@ -38,7 +38,8 @@ const NavbarMain = ({ toggle }) => {
     scroll.scrollToTop();
   };
 
-  const[show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
+
   const showDropdown = (e) => {
     setShow(!show);
   }
@@ -58,21 +59,27 @@ const NavbarMain = ({ toggle }) => {
               <FaBars />
             </MobileIcon>
             <NavMenu>
-
               <NavItem>
-                <Dropdowns variant="Nava" show={show}
+                <Dropdowns show={show}
                   onMouseEnter={showDropdown}
                   onMouseLeave={hideDropdown}
-                  >
-                  <Dropdowns.Toggle variant="Nava" bsPrefix="p-0">
+                >
+                  <Dropdowns.Toggle block variant="Nava" bsPrefix="p-0" >
                     <Nava activeStyle={{ borderBottom: '3px solid #FFE052' }} to="main-page">
                       MyUni
                     </Nava>
                   </Dropdowns.Toggle>
-                  <Dropdowns.Menu style={{ color: "#FFE052", background: "#5271ff", padding: "0px -20px 0px 0px", width: "10px"}}>
-                    <Dropdowns.Item variant="NavItem" style={{ color: "#fff"}} href="/main-page">SMU</Dropdowns.Item>
-                    <Dropdowns.Item variant="NavItem" style={{ color: "#fff"}} href="/forum">NTU</Dropdowns.Item>
-                    <Dropdowns.Item variant="NavItem" style={{ color: "#fff"}} href="/submit-results">NUS</Dropdowns.Item>
+                  <Dropdowns.Menu style={{
+                    background: "#5271ff",
+                    margin: '-6px',
+                    textAlign: 'center',
+                    border: '3px solid #1253A3',
+                    minWidth: '110px',
+                  }}
+                  >
+                    <Dropdowns.Item style={{ color: "#fff" }} href="/main-page">SMU</Dropdowns.Item>
+                    <Dropdowns.Item style={{ color: "#fff" }} href="/forum">NTU</Dropdowns.Item>
+                    <Dropdowns.Item style={{ color: "#fff" }} href="/submit-results">NUS</Dropdowns.Item>
                   </Dropdowns.Menu>
                 </Dropdowns>
               </NavItem>
