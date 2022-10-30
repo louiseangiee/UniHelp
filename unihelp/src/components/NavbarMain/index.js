@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
-import Dropdown from 'react-bootstrap/Dropdown';
 
 
 import {
@@ -16,7 +15,7 @@ import {
   NavBtnLink,
   Nava,
   Dropdowns,
-  DropdownsItem
+  DropdownsItems
 } from "./navbarMainElements";
 
 const NavbarMain = ({ toggle }) => {
@@ -70,16 +69,17 @@ const NavbarMain = ({ toggle }) => {
                     </Nava>
                   </Dropdowns.Toggle>
                   <Dropdowns.Menu style={{
-                    background: "#5271ff",
-                    margin: '-6px',
+                    background: "#395cff",
+                    margin: '-3px 0px 0px 1.2px',
                     textAlign: 'center',
-                    border: '3px solid #1253A3',
-                    minWidth: '110px',
+                    border: '0px',
+                    minWidth: '101px',
+                    borderRadius: '0px',
                   }}
                   >
-                    <Dropdowns.Item style={{ color: "#fff" }} href="/main-page">SMU</Dropdowns.Item>
-                    <Dropdowns.Item style={{ color: "#fff" }} href="/forum">NTU</Dropdowns.Item>
-                    <Dropdowns.Item style={{ color: "#fff" }} href="/submit-results">NUS</Dropdowns.Item>
+                    <DropdownsItems href="/main-page">SMU</DropdownsItems>
+                    <DropdownsItems href="/forum">NTU</DropdownsItems>
+                    <DropdownsItems href="/submit-results">NUS</DropdownsItems>
                   </Dropdowns.Menu>
                 </Dropdowns>
               </NavItem>

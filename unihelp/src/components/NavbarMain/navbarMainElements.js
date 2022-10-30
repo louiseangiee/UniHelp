@@ -138,4 +138,18 @@ height: 80px;
 
 `;
 
+export const DropdownsItems = styled(Dropdown.Item)`
+
+color: #fff;
+
+&:hover {
+  color: #FFE052;
+  background-color: #395cff
+}
+
+
+`;
+
+
+
 
