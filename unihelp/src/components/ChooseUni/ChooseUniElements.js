@@ -123,6 +123,7 @@ export const CarouselButton = styled(Button)`
   background: #FFE052;
   color: #4A5378;
   border: 0;
+  border-radius: 50px;
 
   &:hover {
     transform: scale(1.02);
