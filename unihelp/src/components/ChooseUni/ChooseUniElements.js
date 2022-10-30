@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
+import { MdKeyboardArrowRight, MdArrowForward } from 'react-icons/md';
 
 export const MUContainer = styled.div`
   height: ${({ intro }) => (intro ? "90vh" : "75.7vh")};
@@ -143,4 +144,21 @@ export const H1 = styled.h1`
   @media screen and (max-width: 480px) {
     font-size: 2rem;
   }
+`;
+
+export const MyUniBtnWrapper = styled.div`
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const ArrowForward = styled(MdArrowForward)`
+  margin-left: 8px;
+  font-size: 20px;
+`;
+
+export const ArrowRight = styled(MdKeyboardArrowRight)`
+  margin-left: 8px;
+  font-size: 20px;
 `;

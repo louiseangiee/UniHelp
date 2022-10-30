@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MUContainer,
   MUH1,
@@ -12,8 +12,12 @@ import {
   CarouselCaption,
   CarouselButton,
   H1,
+  ArrowForward,
+  ArrowRight,
+  MyUniBtnWrapper,
 } from "./ChooseUniElements";
 import Carousel from "react-bootstrap/Carousel";
+import { Button } from "../ButtonElements";
 
 const ChooseUni = () => {
   return (
@@ -44,6 +48,11 @@ const ChooseUni = () => {
 };
 
 const IntroMyUni = ({ intro }) => {
+  const [hover, setHover] = useState(false);
+
+  const onHover = () => {
+    setHover(!hover);
+  };
   return (
     <MUContainer intro={"intro"}>
       {/* <MUH1 intro={"intro"}>MyUni Dashboard</MUH1> */}
@@ -82,7 +91,24 @@ const IntroMyUni = ({ intro }) => {
           />
           <CarouselCaption>
             <H1>Organize your college applications with UniHelp!</H1>
-            <CarouselButton href="#chooseUni" className="p-3 my-0">Choose A University To Start</CarouselButton>
+            {/* <CarouselButton href="#chooseUni" className="p-3 my-0">Choose A University To Start</CarouselButton> */}
+            <MyUniBtnWrapper>
+            <Button
+              to="chooseUni"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+              primary="true"
+              dark="true"
+              onMouseEnter={onHover}
+              onMouseLeave={onHover}
+            >
+              Choose A University to Start {hover ? <ArrowForward /> : <ArrowRight />}
+            </Button>
+            </MyUniBtnWrapper>
+            
           </CarouselCaption>
         </CarouselItem>
       </Carousel>
