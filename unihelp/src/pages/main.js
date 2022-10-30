@@ -4,7 +4,7 @@ import SidebarHome from '../components/SidebarHome';
 import Footer from '../components/Footer';
 import Services from '../components/Services';
 // import SchoolTabs from '../components/SchoolTabs';
-import ChooseUni from '../components/ChooseUni';
+import {IntroMyUni, ChooseUni} from '../components/ChooseUni';
 
 function MainPage() {
   const [isOpen, setIsOpen]  = useState(false);
@@ -17,7 +17,7 @@ function MainPage() {
     <SidebarHome isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     {/* <SchoolTabs /> */}
-    
+    <IntroMyUni />
     <ChooseUni />
     <Footer />
    </> 
