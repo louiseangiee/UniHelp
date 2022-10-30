@@ -77,9 +77,9 @@ const NavbarMain = ({ toggle }) => {
                     borderRadius: '0px',
                   }}
                   >
-                    <DropdownsItems href="/main-page">SMU</DropdownsItems>
-                    <DropdownsItems href="/forum">NTU</DropdownsItems>
-                    <DropdownsItems href="/submit-results">NUS</DropdownsItems>
+                    <DropdownsItems href="/smu">SMU</DropdownsItems>
+                    <DropdownsItems href="/ntu">NTU</DropdownsItems>
+                    <DropdownsItems href="/nus">NUS</DropdownsItems>
                   </Dropdowns.Menu>
                 </Dropdowns>
               </NavItem>
