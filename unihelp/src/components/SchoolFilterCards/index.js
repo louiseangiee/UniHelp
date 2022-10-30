@@ -8,6 +8,7 @@ import Button from "react-bootstrap/esm/Button";
 
 
 
+
 //help debug plis 
 function FilterForums() {
   const [filteredForums, setFilteredForums] = useState(null);
@@ -99,7 +100,11 @@ function FilterForums() {
                 </Card.Body>
               <Card.Footer>
                 {/* insert comments one by one */}
-                {type.comments}
+                <div>
+                  {type.comments}
+                </div>
+                
+                
               </Card.Footer>
               
               

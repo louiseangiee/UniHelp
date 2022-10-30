@@ -1,5 +1,5 @@
 import { ForumList } from "../../database/ForumBoxtestFile";
-import Card from 'react-bootstrap/Card';
+
 
 export function getForums() {
   const forumList = ForumList;
@@ -13,7 +13,8 @@ export function filterSchool(Selectedschool) {
 
 
 //CONVERT TO SINGULAR COMMENTS
-export function readComments(comments){
+export function readComments(){
+  let comments = getForums().map(type => type.comments)
   let string = ''
   for (let i=0; i < comments.length; i++){
     string = comments[i]+'<br>'
