@@ -9,6 +9,9 @@ import MainPage from './pages/main';
 import SubmitResults from './pages/submitResults';
 import Forum from './pages/forum';
 import Settings from './pages/settings';
+import NTU from './pages/ntu';
+import NUS from './pages/nus';
+import SMU from './pages/smu';
 
 
 function App() {
@@ -22,7 +25,9 @@ function App() {
         <Route path='/forum' component={Forum} exact />
         <Route path='/submit-results' component={SubmitResults} exact />
         <Route path='/settings' component={Settings} exact />
-        
+        <Route path='/smu' component={SMU} exact />
+        <Route path='/ntu' component={NTU} exact />
+        <Route path='/nus' component={NUS} exact />
       </Switch>
     </Router>
   );
