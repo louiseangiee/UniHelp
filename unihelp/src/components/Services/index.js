@@ -21,7 +21,7 @@ const Services = () => {
           <ServicesIcon src={Icon1} />
           <ServicesH2>MyUni</ServicesH2>
           <ServicesP>
-            View your application progress with our tracker
+            Track your progress and view admission data
           </ServicesP>
         </ServicesCard>
         <ServicesCard>
@@ -33,7 +33,7 @@ const Services = () => {
         </ServicesCard>
         <ServicesCard>
           <ServicesIcon src={Icon3} />
-          <ServicesH2>Submit Result</ServicesH2>
+          <ServicesH2>Submit Results</ServicesH2>
           <ServicesP>
             Help others' application process with your data
           </ServicesP>

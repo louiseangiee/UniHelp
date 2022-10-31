@@ -3,10 +3,10 @@ export const homeObjOne = {
     lightBg: false,
     lightText: true,
     lightTextDesc: true,
-    topLine: 'University Application Checklist',
-    headline: 'Apply to Your Dream University',
+    topLine: 'University Application Checklist', // can't be seen because same color
+    headline: 'Stay on track',
     description:
-      'Get access to our exclusive features which help you gain an edge in your university application.',
+      'University applications can be daunting. Our application tracker is there to help you.',
     buttonLabel: 'Get Started',
     imgStart: false,
     img: require('../../images/img-0.png'),
@@ -24,7 +24,7 @@ export const homeObjOne = {
     topLine: 'Admission Insights',
     headline: 'Gain admission insights',
     description:
-      'We provide a discussion forum and statistics on Singapore university admissions.',
+      'Know your dream university better through our discussion forum and Singapore universities admission statistics.',
     imgStart: true,
     img: require('../../images/img-1.png'),
     alt: 'Piggybank',
