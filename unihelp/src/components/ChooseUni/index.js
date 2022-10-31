@@ -1,50 +1,119 @@
-import React from 'react';
-// import NUSlogo from 'logos/nus_logo.jpg';
-// import NTUlogo from 'logos/ntu_logo.jpg';
-// import SMUlogo from 'logos/smu_logo.JPG';
+import React, { useState } from "react";
 import {
-  ServicesContainer,
-  ServicesH1,
-  ServicesWrapper,
-  ServicesCard,
-  ServicesIcon,
-  ServicesH2,
-  ServicesP
-} from './ServicesElements';
+  MUContainer,
+  MUH1,
+  MUWrapper,
+  MUCard,
+  MUIcon,
+  MUH2,
+  MUP,
+  CarouselItem,
+  Img,
+  CarouselCaption,
+  CarouselButton,
+  H1,
+  ArrowForward,
+  ArrowRight,
+  MyUniBtnWrapper,
+} from "./ChooseUniElements";
+import Carousel from "react-bootstrap/Carousel";
+import { Button } from "../ButtonElements";
 
 const ChooseUni = () => {
   return (
-    <ServicesContainer id='services'>
-      <ServicesH1>Choose A University</ServicesH1>
-      <ServicesWrapper>
-        <ServicesCard
-            to="nus">
+    <MUContainer id="chooseUni">
+      <MUH1>Choose A University</MUH1>
+      <MUWrapper>
+        <MUCard to="nus">
           {/* <ServicesIcon src={NUSlogo} /> */}
-          <img src={'logos/nus_logo.jpg'} height="160px"/>
-          <ServicesH2>NUS</ServicesH2>
-          <ServicesP>
-            National University of Singapore
-          </ServicesP>
-        </ServicesCard>
-        <ServicesCard>
+          <img src={"logos/nus_logo.jpg"} height="160px" />
+          <MUH2>NUS</MUH2>
+          <MUP>National University of Singapore</MUP>
+        </MUCard>
+        <MUCard to="ntu">
           {/* <ServicesIcon src={NTUlogo} /> */}
-          <img src={'logos/ntu_logo.jpg'} height="160px"/>
-          <ServicesH2>NTU</ServicesH2>
-          <ServicesP>
-            Nanyang Technological University
-          </ServicesP>
-        </ServicesCard>
-        <ServicesCard>
+          <img src={"logos/ntu_logo.jpg"} height="160px" />
+          <MUH2>NTU</MUH2>
+          <MUP>Nanyang Technological University</MUP>
+        </MUCard>
+        <MUCard to="smu">
           {/* <ServicesIcon src={SMUlogo} /> */}
-          <img src={'logos/smu_logo.jpg'} height="160px"/>
-          <ServicesH2>SMU</ServicesH2>
-          <ServicesP>
-            Singapore Management University
-          </ServicesP>
-        </ServicesCard>
-      </ServicesWrapper>
-    </ServicesContainer>
+          <img src={"logos/smu_logo.jpg"} height="160px" />
+          <MUH2>SMU</MUH2>
+          <MUP>Singapore Management University</MUP>
+        </MUCard>
+      </MUWrapper>
+    </MUContainer>
   );
 };
 
-export default ChooseUni;
+const IntroMyUni = ({ intro }) => {
+  const [hover, setHover] = useState(false);
+
+  const onHover = () => {
+    setHover(!hover);
+  };
+  return (
+    <MUContainer intro={"intro"}>
+      {/* <MUH1 intro={"intro"}>MyUni Dashboard</MUH1> */}
+      <Carousel fade>
+        <CarouselItem interval={2000}>
+          <Img
+            className="d-block w-100 h-100"
+            src="pictures/myuni-gif-2.gif"
+            alt="First slide"
+          />
+          <CarouselCaption>
+            <H1>Applying for Universities in Singapore?</H1>
+            {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
+          </CarouselCaption>
+        </CarouselItem>
+        <CarouselItem interval={2000}>
+          <Img
+            className="d-block w-100 h-100"
+            src="pictures/myuni-3.jpg"
+            alt="Second slide"
+          />
+
+          <CarouselCaption>
+            <H1>
+              Struggling to keep track of all the application requirements and
+              pending deadlines?
+            </H1>
+            {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
+          </CarouselCaption>
+        </CarouselItem>
+        <CarouselItem interval={2000}>
+          <Img
+            className="d-block w-100 h-100"
+            src="pictures/myuni-gif-1.gif"
+            alt="Third slide"
+          />
+          <CarouselCaption>
+            <H1>Organize your college applications with UniHelp!</H1>
+            {/* <CarouselButton href="#chooseUni" className="p-3 my-0">Choose A University To Start</CarouselButton> */}
+            <MyUniBtnWrapper>
+            <Button
+              to="chooseUni"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+              primary="true"
+              dark="true"
+              onMouseEnter={onHover}
+              onMouseLeave={onHover}
+            >
+              Choose A University to Start {hover ? <ArrowForward /> : <ArrowRight />}
+            </Button>
+            </MyUniBtnWrapper>
+            
+          </CarouselCaption>
+        </CarouselItem>
+      </Carousel>
+    </MUContainer>
+  );
+};
+
+export { ChooseUni, IntroMyUni };

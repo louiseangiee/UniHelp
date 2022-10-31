@@ -16,11 +16,11 @@ export const Button = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s ease-in-out;
+  transition: all ease-in-out;
   text-decoration: none;
 
   &:hover {
-    transition: all 0.2s ease-in-out;
+    transition: all ease-in-out;
     background: ${({ primary }) => (primary ? '#ffffff' : '#FFE052')};
   }
 `;
@@ -39,12 +39,12 @@ export const NavBtnLink = styled(LinkR)`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s ease-in-out;
+  transition: all ease-in-out;
   text-decoration: none;
 
 
   &:hover {
-    transition: all 0.2s ease-in-out;
+    transition: all ease-in-out;
     background: ${({ primary }) => (primary ? '#ffffff' : '#FFE052')};
   }
 `;
