@@ -12,6 +12,7 @@ import Settings from './pages/settings';
 import NTU from './pages/ntu';
 import NUS from './pages/nus';
 import SMU from './pages/smu';
+import AddPost from './pages/AddPost';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path='/smu' component={SMU} exact />
         <Route path='/ntu' component={NTU} exact />
         <Route path='/nus' component={NUS} exact />
+        <Route path='/AddPost' component={AddPost} exact />
       </Switch>
     </Router>
   );

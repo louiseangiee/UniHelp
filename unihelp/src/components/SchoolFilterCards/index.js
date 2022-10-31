@@ -5,6 +5,7 @@ import { buttons } from "./schools";
 import { getForums, filterSchool, readComments } from "./filterSchools";
 import Card from 'react-bootstrap/Card';
 import Button from "react-bootstrap/esm/Button";
+import createPalette from "@material-ui/core/styles/createPalette";
 
 
 
@@ -29,6 +30,11 @@ function FilterForums() {
 
   function listComments(comments){
     //to list comments one by one into comments section
+    const CommentsList = comments.map((comment =>
+        <li> {comment} </li>
+    ))
+
+    return CommentsList
   }
 
   function buttonUpdate(){
@@ -75,14 +81,14 @@ function FilterForums() {
           <div className="d-flex flex-row" id= "upvoteButtons" style={{marginBottom:'20px', marginTop:'20px', border:'solid darkgrey 2px'}}>
             <div className = "d-flex col-1" style={{paddingTop: 'auto', paddingBottom: 'auto'}} >
                 <Card key = {type.id} style={cardsStyle}>
-                    <button id ="upvote" className = "btn" style={voteButtons} onClick= {buttonUpdate}>
-                      <Card.Img variant='top' className="img-fluid" src = "svgFiles/TriangleArrow-Up.svg"/>
+                    <button id ="upvote" className = "btn shadow-none" style={voteButtons} onClick= {buttonUpdate}>
+                      <Card.Img variant='top' className="img-fluid" src = "svgFiles/upvote.png" style={{height: '100%', transform: 'rotate(180deg)'}}/>
                     </button>
                     
                     <Card.Title className="text-center" style={{marginTop:'20px', marginBottom: '20px'}}> {type.upvotes} </Card.Title>
 
                     <button id= "downvote" className = "btn" style={voteButtons} onClick= {buttonUpdate}>
-                      <Card.Img  variant='bottom' className="img-fluid" src = "svgFiles/TriangleArrow-Up.svg" style={{transform: 'rotate(180deg)'}}/>
+                      <Card.Img  variant='bottom' className="img-fluid" src = "svgFiles/downvote.png" style={{ height: '100%'}}/>
                     </button>
                     
                 </Card>
@@ -101,7 +107,10 @@ function FilterForums() {
               <Card.Footer>
                 {/* insert comments one by one */}
                 <div>
-                  {type.comments}
+                  <ul>
+                    {listComments(type.comments)}
+                  </ul>
+                  
                 </div>
                 
                 
