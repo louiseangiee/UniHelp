@@ -37,7 +37,7 @@ function SubmitResults() {
     <Sidebar isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
 
-    <div id="form" class="px-5">
+    <div id="form" class="px-5 container col-xl-7">
       <h1 class ="mx-0 px-0 pt-5 header">Submit Your Results</h1>
 
       <Form onSubmit={handleSubmit}>

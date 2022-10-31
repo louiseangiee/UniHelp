@@ -18,7 +18,7 @@ function Settings() {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <NavbarMain toggle={toggle} />
 
-      <div id="form" class="px-5">
+      <div id="form" class="px-5 container col-xl-7">
         <h1 class="header mx-0 px-0">Settings</h1>
 
         <Form>
