@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { useAuthContext } from './hooks/useAuthContext'
+
 import Home from './pages';
 import SigninPage from './pages/signin';
 import SignupPage from './pages/signup';
@@ -16,6 +18,7 @@ import AddPost from './pages/AddPost';
 
 
 function App() {
+  const { authIsReady, user } = useAuthContext()
   return (
     <Router>
       <Switch>
