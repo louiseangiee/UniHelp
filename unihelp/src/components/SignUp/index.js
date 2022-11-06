@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSignup } from '../../hooks/useSignup'
+import { useFirestore } from '../../hooks/useFirestore'
+import { useAuthContext } from '../../hooks/useAuthContext'
+
 import {
   Container,
   FormWrap,
@@ -14,6 +18,8 @@ import {
 } from "./SignupElements";
 
 const SignUp = () => {
+  const { addDocument, response } = useFirestore('accountDetails')
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
@@ -21,6 +27,9 @@ const SignUp = () => {
   const [HSQualification, setHSQualification] = useState("");
   const [gradDate, setGradDate] = useState("");
   const [DoB, setDoB] = useState("");
+  const { signup, isPending, error } = useSignup()
+
+  const { user } = useAuthContext()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +42,26 @@ const SignUp = () => {
       Graduation Date: ${gradDate}
       Date of Birth: ${DoB}
     `);
+    
+    signup(email, password, fullName)
+    addDocument({
+      uid: user.uid,
+      fullName, 
+      studentType,
+      HSQualification,
+      gradDate,
+      DoB
+    })
+    
   };
+
+  useEffect(() => {
+    if (response.success) {
+      setEmail(''); setPassword(''); setFullName(''); setGradDate(''); setHSQualification('')
+      setStudentType('')
+    }
+  }, [response.success])
+
 
   return (
     <>
@@ -119,7 +147,9 @@ const SignUp = () => {
                 value={DoB}
               />
 
-              <FormButton type="submit">Continue</FormButton>
+              { !isPending && <FormButton type='submit'>Continue</FormButton> }
+              { isPending && <FormButton type='submit'>Loading...</FormButton> }
+              { error && <p>{error}</p> }
               <Text>Forgot password</Text>
             </Form>
           </FormContent>

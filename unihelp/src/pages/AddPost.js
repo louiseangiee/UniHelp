@@ -7,14 +7,24 @@ import Footer from '../components/Footer';
 import Form from 'react-bootstrap/Form'
 import Sidebar from '../components/Sidebar';
 import FormText from "react-bootstrap/esm/FormText";
+import { useFirestore } from '../hooks/useFirestore'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 
-function AddPost() {
+
+
+const AddPost = () => {
+
+  const { addDocument, response } = useFirestore('forumPost')
+
   
   const [school, setSchool] = useState("");
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
+  const [votes, setVotes] = useState("");
+  
 
+  const { user } = useAuthContext()
 
   const [isOpen, setIsOpen]  = useState(false);
   const toggle = () => {
@@ -28,7 +38,23 @@ function AddPost() {
       Content: ${content}
       Title: ${title}
     `);
+
+    addDocument({
+      school, 
+      content,
+      title,
+      votes
+    })
   };
+
+  useEffect(() => {
+    if (response.success) {
+      setSchool(''); setContent(''); setTitle(''); setVotes('')
+      window.location.replace("/forum");
+
+    }
+  }, [response.success])
+
   return (
     <>
     <Sidebar isOpen={isOpen} toggle={toggle} />
@@ -63,7 +89,7 @@ function AddPost() {
             value = {content} 
             placeholder="e.g. What prof to bid for IS110?" />
         
-          <Button className=" my-3 font-weight-bold" variant="primary" type="submit">
+          <Button className=" my-3 font-weight-bold" variant="primary" type="submit" onClick={(e) => setVotes(0)}>
             Post
           </Button>
         </Form.Group>
