@@ -56,7 +56,7 @@ function AddPost() {
             value = {title} 
             placeholder="e.g. I need help with Mods!" />
 
-          <Form.Label className="mt-3 font-weight-bold"> Forum Post Title </Form.Label>
+          <Form.Label className="mt-3 font-weight-bold"> Forum Content </Form.Label>
 
           <Form.Control as="textarea" row = {10}
             onChange={(e) => setContent(e.target.value)}
