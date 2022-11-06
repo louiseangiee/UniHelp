@@ -80,6 +80,13 @@ function Settings() {
               Save Changes
             </Button>
           </div>
+
+          <div className="row">
+            <Button className="mb-3" variant="warning">
+              Logout
+            </Button>
+          </div>
+
         </Form>
       </div>
 
