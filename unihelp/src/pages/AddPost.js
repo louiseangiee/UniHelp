@@ -49,7 +49,7 @@ const AddPost = () => {
 
   useEffect(() => {
     if (response.success) {
-      setSchool(''); setContent(''); setTitle(''); setVotes('')
+      setSchool(''); setContent(''); setTitle(''); 
       window.location.replace("/forum");
 
     }
