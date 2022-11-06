@@ -6,8 +6,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './stylesheets/submit-results.css';
 
+import { useAuthContext } from "../hooks/useAuthContext"
+import { useLogout } from '../hooks/useLogout'
+
 
 function Settings() {
+  const { logout } = useLogout()
+  const { user } = useAuthContext()
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -82,7 +87,7 @@ function Settings() {
           </div>
 
           <div className="row">
-            <Button className="mb-3" variant="warning">
+            <Button className="mb-3" variant="warning" onClick={logout}>
               Logout
             </Button>
           </div>
