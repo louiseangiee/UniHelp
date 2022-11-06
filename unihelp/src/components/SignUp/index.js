@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSignup } from '../../hooks/useSignup'
 import {
   Container,
   FormWrap,
@@ -21,6 +22,7 @@ const SignUp = () => {
   const [HSQualification, setHSQualification] = useState("");
   const [gradDate, setGradDate] = useState("");
   const [DoB, setDoB] = useState("");
+  const { signup, isPending, error } = useSignup()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,6 +35,8 @@ const SignUp = () => {
       Graduation Date: ${gradDate}
       Date of Birth: ${DoB}
     `);
+    signup(email, password, fullName)
+
   };
 
   return (
