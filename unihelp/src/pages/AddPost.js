@@ -19,21 +19,20 @@ import {
 } from "../components/SignUp/SignupElements";
 
 
-function AddPost() {
-    const [isOpen, setIsOpen]  = useState(false);
-  
-    const toggle = () => {
-      setIsOpen(!isOpen);
-    }
-    return (
-     <>
-        <SidebarHome isOpen={isOpen} toggle={toggle} />
-        <NavbarMain toggle={toggle} />
-        
+const AddPost = () =>{
+  const [school, setSchool] = useState("");
+  const [content, setContent] = useState("");
+  const [title, setTitle] = useState("");
 
-        <Footer />
-     </> 
-  )
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(`
+      School: ${school}
+      Content: ${content}
+      Title: ${title}
+    `);
+  };
+  
 }
 
 export default AddPost;

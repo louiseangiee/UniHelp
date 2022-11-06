@@ -5,7 +5,6 @@ import { buttons } from "./schools";
 import { getForums, filterSchool, readComments } from "./filterSchools";
 import Card from 'react-bootstrap/Card';
 import Button from "react-bootstrap/esm/Button";
-import createPalette from "@material-ui/core/styles/createPalette";
 
 
 
