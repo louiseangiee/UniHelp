@@ -21,7 +21,6 @@ const AddPost = () => {
   const [school, setSchool] = useState("");
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
-  const [votes, setVotes] = useState("");
   
 
   const { user } = useAuthContext()
@@ -43,7 +42,8 @@ const AddPost = () => {
       school, 
       content,
       title,
-      votes
+      votes: 0,
+      comments: []
     })
   };
 
