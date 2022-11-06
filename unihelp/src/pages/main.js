@@ -17,7 +17,7 @@ function MainPage() {
     <SidebarHome isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     {/* <SchoolTabs /> */}
-    <IntroMyUni />
+    {/* <IntroMyUni /> */}
     <ChooseUni />
     <Footer />
    </> 
