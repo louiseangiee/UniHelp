@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
 import NavbarMain from '../components/NavbarMain';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './stylesheets/submit-results.css';
+import React, { useState, useEffect } from "react";
+import { useSignup } from '../hooks/useSignup'
+import { useFirestore } from '../hooks/useFirestore'
+import { useAuthContext } from '../hooks/useAuthContext'
 
-function SubmitResults() {
+
+
+const SubmitResults = () => {
+  const { addDocument, response } = useFirestore('results')
+
   const [isOpen, setIsOpen]  = useState(false);
 
   const toggle = () => {
@@ -25,12 +32,41 @@ function SubmitResults() {
   const [additionalQualification, setadditionalQualification]  = useState('');
   const [additionalGrade, setadditionalGrade]  = useState('');
 
-  
+  const { user } = useAuthContext()
+
+
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(university, admitYear)
+    e.preventDefault();
+    console.log(`
+      Uni: ${university}
+      Program: ${program}
+
+    `);
     
-  }
+    addDocument({
+      university, 
+      program,
+      admitYear,
+      nationality,
+      status,
+      qualification,
+      grade,
+      englishTest,
+      englishGrade,
+      additionalQualification,
+      additionalGrade
+    })
+    
+  };
+
+  useEffect(() => {
+    if (response.success) {
+      setUniversity(''); setProgram(''); setAdmitYear(''); setNationality(''); setStatus(''); setQualification(''); 
+      setGrade(''); setEnglishTest(''); setEnglishGrade(''); setadditionalQualification(''); setadditionalGrade('');
+
+    }
+  }, [response.success])
+
 
   return (
    <>
@@ -42,12 +78,15 @@ function SubmitResults() {
 
       <Form onSubmit={handleSubmit}>
 
-        <Form.Group className="mb-3" controlId="formBasicText">
+        <Form.Group className="mb-3" controlId="select">
           <Form.Label>University/College</Form.Label>
-          <Form.Control type="text" 
-          onChange={(e) => setUniversity(e.target.value)}
-          value = {university} 
-          placeholder="e.g. Singapore Management University" />
+          <Form.Control as="select" 
+            onChange={(e)=> setUniversity(e.target.value)} value={university}>
+            <option selected value={null}>-- select an option --</option>
+            <option>Singapore Management University</option>
+            <option>Nanyang Technological University</option>
+            <option>National University of Singapore</option>
+          </Form.Control>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicText">
