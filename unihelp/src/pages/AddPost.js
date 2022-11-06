@@ -89,7 +89,7 @@ const AddPost = () => {
             value = {content} 
             placeholder="e.g. What prof to bid for IS110?" />
         
-          <Button className=" my-3 font-weight-bold" variant="primary" type="submit" onClick={(e) => setVotes(0)}>
+          <Button className=" my-3 font-weight-bold" variant="primary" type="submit">
             Post
           </Button>
         </Form.Group>

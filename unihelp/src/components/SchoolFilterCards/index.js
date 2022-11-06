@@ -22,6 +22,8 @@ function FilterForums() {
     schooltype !== "all"
       ? setFilteredForums(filterSchool(schooltype))
       : setFilteredForums(getForums());
+
+      
     
   }
 
