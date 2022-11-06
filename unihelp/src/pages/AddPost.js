@@ -4,27 +4,22 @@ import Button from "react-bootstrap/esm/Button";
 import NavbarMain from '../components/NavbarMain';
 import SidebarHome from '../components/SidebarHome';
 import Footer from '../components/Footer';
-import {
-  Container,
-  FormWrap,
-  Icon,
-  FormContent,
-  Form,
-  FormH1,
-  FormLabel,
-  FormInput,
-  FormButton,
-  Text,
-  Select,
-} from "../components/SignUp/SignupElements";
+import Form from 'react-bootstrap/Form'
+import Sidebar from '../components/Sidebar';
+import FormText from "react-bootstrap/esm/FormText";
 
 
-
-const AddPost = () =>{
+function AddPost() {
   
   const [school, setSchool] = useState("");
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
+
+
+  const [isOpen, setIsOpen]  = useState(false);
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,48 +31,50 @@ const AddPost = () =>{
   };
   return (
     <>
-    <NavbarMain/>
-      <Container className=" my-3 p-5">
-        <FormWrap>
-          <FormContent>
-            <Form onSubmit={handleSubmit}>
-              <FormH1 className="my-4"> Submit a Forum Post </FormH1>
-              <FormLabel className="p-2" htmlFor="school"> School </FormLabel>
-              <Select className="mt-0"
-              required
-              id = "school"
-              onChange={(e) => setSchool(e.target.value)}
-              value = {school}>
+    <Sidebar isOpen={isOpen} toggle={toggle} />
+    <NavbarMain toggle={toggle}/>
+    
+    <div id = "form" class="px-5 container col-xl-7">
+      <h1 className="my-5" style= {{fontWeight: "bold", textAlign: "center"}}> Create new Forum Post</h1>
+      <Form onSubmit={handleSubmit}>
+        
 
-                <option selected value={null}>
-                  --Select an Option--
-                </option>
-                <option>NUS</option>
-                <option>NTU</option>
-                <option>SMU</option>
-                
-              </Select>
+        <Form.Group className = "mx-3 my-5">
+          <Form.Label> School </Form.Label>
+          <Form.Control as="select" 
+            onChange={(e)=> setSchool(e.target.value)} value={school}>
+            <option selected>-- select an option --</option>
+            <option>NUS</option>
+            <option>NTU</option>
+            <option>SMU</option>
+          </Form.Control>
 
-              <FormLabel htmlFor="title"> Forum Title </FormLabel>
-              <FormInput type = "text" required id ="title"
-              onChange={(e) => setTitle(e.target.value)}
-              value={title}
-              />
+          <Form.Label className="mt-3 font-weight-bold"> Forum Post Title </Form.Label>
 
-              <FormLabel htmlFor="content"> Forum Content </FormLabel>
-              <FormInput className = "h-100" type = "textarea" required id ="title"
-              onChange={(e) => setContent(e.target.value)}
-              value={content}
-              />
+          <Form.Control type="text" 
+            onChange={(e) => setTitle(e.target.value)}
+            value = {title} 
+            placeholder="e.g. I need help with Mods!" />
 
-              <FormButton className="my-5" type = "submit"> Post </FormButton>
+          <Form.Label className="mt-3 font-weight-bold"> Forum Post Title </Form.Label>
 
-              
-            </Form>
-          </FormContent>
-        </FormWrap>
-      </Container>
-      <Footer/>
+          <Form.Control as="textarea" row = {10}
+            onChange={(e) => setContent(e.target.value)}
+            value = {content} 
+            placeholder="e.g. What prof to bid for IS110?" />
+        
+          <Button className=" my-3 font-weight-bold" variant="primary" type="submit">
+            Post
+          </Button>
+        </Form.Group>
+
+
+      </Form>
+
+    </div>
+
+      
+    <Footer/>
     </>
   )
   
