@@ -5,7 +5,7 @@ import { buttons } from "./schools";
 import { getForums, filterSchool, readComments } from "./filterSchools";
 import Card from 'react-bootstrap/Card';
 import Button from "react-bootstrap/esm/Button";
-
+import Form from 'react-bootstrap/Form'
 
 
 
@@ -24,6 +24,8 @@ function FilterForums() {
       : setFilteredForums(getForums());
     
   }
+
+  const [comment, setComment] = useState("")
 
   
 
@@ -94,27 +96,41 @@ function FilterForums() {
             </div>
 
 
-            <div className="d-flex col-11">
+            <div id = {type.id} className="d-flex col-11">
               <Card key = {type.id} id = {type.id} style={cardsStyle}>
                 <Card.Header> {type.school} </Card.Header>
                 <Card.Body>
-                  {/* collapsible card for comments */}
+                  
                   <Card.Title> {type.forumTitle} </Card.Title>
                   {type.content}
                   
                 </Card.Body>
               <Card.Footer>
-                {/* insert comments one by one */}
-                <div>
+                
+                <div id = "commentsSection">
                   <ul>
                     {listComments(type.comments)}
                   </ul>
                   
                 </div>
+
+                <div id = "insertComments" >
+                    <Form>
+                      <Form.Group>
+                        <Form.Control id = {type.id} as = "textarea" row = {5}
+                         onChange={(e) => setComment(e.target.value)}
+                         value = {comment} 
+                         placeholder="Add your comment here"/>
+                         <Button className=" my-3 font-weight-bold" variant="primary" type="submit">
+                            Comment
+                        </Button>
+                      </Form.Group>
+                    </Form>
+                </div>
                 
                 
               </Card.Footer>
-              
+
               
               </Card>
           </div>

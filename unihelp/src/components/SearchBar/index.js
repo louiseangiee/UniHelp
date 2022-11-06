@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
 import { FaSearch } from "react-icons/fa";
-import CloseButton from 'react-bootstrap/CloseButton'
+import { FaWindowClose } from "react-icons/fa";
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -39,7 +39,7 @@ function SearchBar({ placeholder, data }) {
           {filteredData.length === 0 ? (
             <FaSearch />
           ) : (
-            <CloseButton id="clearBtn" onClick={clearInput} />
+            <FaWindowClose id="clearBtn" onClick={clearInput} />
           )}
         </div>
       </div>
