@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavbarMain from '../components/NavbarMain';
-import Sidebar from '../components/Sidebar';
+import SidebarHome from '../components/SidebarHome';
 import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
 
@@ -38,7 +38,7 @@ function Forum() {
 
   return (
    <>
-    <Sidebar isOpen={isOpen} toggle={toggle} />
+    <SidebarHome isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     
     {/* Make Searchbar stick to navbar */}
