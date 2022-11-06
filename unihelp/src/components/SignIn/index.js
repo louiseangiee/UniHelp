@@ -23,7 +23,7 @@ const SignIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // login(email, password)
+    login(email, password)
     console.log(email, password)
   }
   return (
@@ -42,7 +42,10 @@ const SignIn = () => {
               <FormInput type='password' required 
               onChange={(e) => setPassword(e.target.value)} 
               value={password} />
-              <FormButton type='submit'>Continue</FormButton>
+              { !isPending && <FormButton type='submit'>Continue</FormButton> }
+              { isPending && <FormButton type='submit'>Loading...</FormButton> }
+              { error && <p>{error}</p> }
+              
               <Text>No account? <Link to='/signup'>Create one</Link></Text>
             </Form>
           </FormContent>

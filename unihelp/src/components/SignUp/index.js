@@ -123,7 +123,9 @@ const SignUp = () => {
                 value={DoB}
               />
 
-              <FormButton type="submit">Continue</FormButton>
+              { !isPending && <FormButton type='submit'>Continue</FormButton> }
+              { isPending && <FormButton type='submit'>Loading...</FormButton> }
+              { error && <p>{error}</p> }
               <Text>Forgot password</Text>
             </Form>
           </FormContent>
