@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
-import SearchIcon from "@material-ui/icons/Search";
-import CloseIcon from "@material-ui/icons/Close";
+import { FaSearch } from "react-icons/fa";
+import CloseButton from 'react-bootstrap/CloseButton'
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -37,9 +37,9 @@ function SearchBar({ placeholder, data }) {
         />
         <div className="searchIcon">
           {filteredData.length === 0 ? (
-            <SearchIcon />
+            <FaSearch />
           ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
+            <CloseButton id="clearBtn" onClick={clearInput} />
           )}
         </div>
       </div>
