@@ -7,14 +7,23 @@ import Footer from '../components/Footer';
 import Form from 'react-bootstrap/Form'
 import Sidebar from '../components/Sidebar';
 import FormText from "react-bootstrap/esm/FormText";
+import { useFirestore } from '../hooks/useFirestore'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 
-function AddPost() {
+
+
+const AddPost = () => {
+
+  const { addDocument, response } = useFirestore('forumPost')
+
   
   const [school, setSchool] = useState("");
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
+  
 
+  const { user } = useAuthContext()
 
   const [isOpen, setIsOpen]  = useState(false);
   const toggle = () => {
@@ -28,7 +37,24 @@ function AddPost() {
       Content: ${content}
       Title: ${title}
     `);
+
+    addDocument({
+      school, 
+      content,
+      title,
+      votes: 0,
+      comments: []
+    })
   };
+
+  useEffect(() => {
+    if (response.success) {
+      setSchool(''); setContent(''); setTitle(''); 
+      window.location.replace("/forum");
+
+    }
+  }, [response.success])
+
   return (
     <>
     <Sidebar isOpen={isOpen} toggle={toggle} />
