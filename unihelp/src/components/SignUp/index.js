@@ -43,9 +43,9 @@ const SignUp = () => {
       Date of Birth: ${DoB}
     `);
     
-    signup(email, password, fullName)
+    signup(email, password)
     addDocument({
-      uid: user.uid,
+      email,
       fullName, 
       studentType,
       HSQualification,
