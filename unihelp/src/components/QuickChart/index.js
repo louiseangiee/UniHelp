@@ -1,45 +1,47 @@
-import React, { useState } from "react";
-function quickchart() {
+import React, { useEffect, useState } from "react";
+import { useFirestore } from '../hooks/useFirestore';
+import { useAuthContext } from '../hooks/useAuthContext'
+
+
+const QuickChart = () => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
-  
+    const [results, setScores] = useState([]);
     // Note: the empty deps array [] means
     // this useEffect will run once
     // similar to componentDidMount()
-    useEffect(() => {
-      fetch("https://quickchart.io/chart?bkg=white&c={type:%27bar%27,data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:%27Users%27,data:[120,60,50,180,120]}]}}")
-        .then(res => res.json())
-        .then(
-          (result) => {
-            setIsLoaded(true);
-            setItems(result);
-          },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
-          (error) => {
-            setIsLoaded(true);
-            setError(error);
-          }
-        )
-    }, [])
-  
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <ul>
-          {items.map(item => (
-            <li key={item.id}>
-              {item.name} {item.price}
-            </li>
-          ))}
-        </ul>
-      );
-    }
-  }
 
-export default quickchart;
+    const url = "https://quickchart.io/chart";
+
+    const retrieveScore = () => {
+        const response = db.collection('results');
+        const data = response.get();
+        data.docs.forEach(item => {
+            setScores([...results, item.data()])
+        })
+    }
+
+useEffect(() => {
+    retrieveScore();
+}, [])
+
+
+
+axios.get(url, {
+    params: {
+
+    }
+})
+    .then(response => {
+        console.log(response.data)
+        var data1 = response.data
+    })
+    .catch(err => {
+        console.log(err.message)
+    })
+
+
+}
+
+export default QuickChart;
