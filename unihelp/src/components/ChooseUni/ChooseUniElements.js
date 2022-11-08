@@ -47,8 +47,9 @@ export const MUCard = styled(LinkR)`
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
-  max-height: 340px;
+  height: 320px;
   padding: 30px;
+  margin: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
   text-decoration: none;
@@ -70,7 +71,7 @@ export const MUIcon = styled.img`
 `;
 
 export const MUH1 = styled.h1`
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: ${({ intro }) => (intro ? "#304ED8" : "#fff")};
   margin-bottom: 64px;
   font-weight: 600;
