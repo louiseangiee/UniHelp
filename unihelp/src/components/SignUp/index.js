@@ -43,15 +43,7 @@ const SignUp = () => {
       Date of Birth: ${DoB}
     `);
     
-    signup(email, password)
-    addDocument({
-      email,
-      fullName, 
-      studentType,
-      HSQualification,
-      gradDate,
-      DoB
-    })
+    signup(email, password, fullName, studentType, HSQualification, gradDate, DoB);
     
   };
 

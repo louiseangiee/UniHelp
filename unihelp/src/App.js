@@ -20,21 +20,25 @@ import AddPost from './pages/AddPost';
 function App() {
   const { authIsReady, user } = useAuthContext()
   return (
-    <Router>
-      <Switch>
-        <Route path='/' component={Home} exact />
-        <Route path='/signin' component={SigninPage} exact />
-        <Route path='/signup' component={SignupPage} exact />
-        <Route path='/main-page' component={MainPage} exact />
-        <Route path='/forum' component={Forum} exact />
-        <Route path='/submit-results' component={SubmitResults} exact />
-        <Route path='/settings' component={Settings} exact />
-        <Route path='/smu' component={SMU} exact />
-        <Route path='/ntu' component={NTU} exact />
-        <Route path='/nus' component={NUS} exact />
-        <Route path='/AddPost' component={AddPost} exact />
-      </Switch>
-    </Router>
+    <div>
+      {authIsReady && (
+        <Router>
+          <Switch>
+            <Route path='/' component={Home} exact />
+            <Route path='/signin' component={SigninPage} exact />
+            <Route path='/signup' component={SignupPage} exact />
+            <Route path='/main-page' component={MainPage} exact />
+            <Route path='/forum' component={Forum} exact />
+            <Route path='/submit-results' component={SubmitResults} exact />
+            <Route path='/settings' component={Settings} exact />
+            <Route path='/smu' component={SMU} exact />
+            <Route path='/ntu' component={NTU} exact />
+            <Route path='/nus' component={NUS} exact />
+            <Route path='/AddPost' component={AddPost} exact />
+          </Switch>
+        </Router>
+      )}
+    </div>
   );
 }
 
