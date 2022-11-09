@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 import { useSignup } from '../hooks/useSignup'
 import { useFirestore } from '../hooks/useFirestore'
 import { useAuthContext } from '../hooks/useAuthContext'
-
+import {countryList} from '../components/Countries'
 
 
 const SubmitResults = () => {
@@ -110,10 +110,11 @@ const SubmitResults = () => {
 
         <Form.Group className="mb-3" controlId="formBasicText">
           <Form.Label>Nationality</Form.Label>
-          <Form.Control type="text" 
-          onChange={(e) => setNationality(e.target.value)}
-          value = {nationality} 
-          placeholder="e.g. Indonesian" />
+          <Form.Control as="select"
+            onChange={(e) => setNationality(e.target.value)}value = {nationality}>
+            <option selected>-- select an option --</option>
+            {countryList.map((countries) => <option>{countries}</option>)}
+          </Form.Control>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="select">

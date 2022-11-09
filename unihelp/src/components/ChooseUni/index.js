@@ -26,21 +26,15 @@ const ChooseUni = () => {
       <MUWrapper>
         <MUCard to="nus">
           {/* <ServicesIcon src={NUSlogo} /> */}
-          <img src={"logos/nus_logo.jpg"} height="160px" />
-          <MUH2>NUS</MUH2>
-          <MUP>National University of Singapore</MUP>
+          <img src={"logos/nus_logo.jpg"} width="220px" />
         </MUCard>
         <MUCard to="ntu">
           {/* <ServicesIcon src={NTUlogo} /> */}
-          <img src={"logos/ntu_logo.jpg"} height="160px" />
-          <MUH2>NTU</MUH2>
-          <MUP>Nanyang Technological University</MUP>
+          <img src={"logos/ntu_logo.jpg"} width="230px" />
         </MUCard>
         <MUCard to="smu">
           {/* <ServicesIcon src={SMUlogo} /> */}
-          <img src={"logos/smu_logo.jpg"} height="160px" />
-          <MUH2>SMU</MUH2>
-          <MUP>Singapore Management University</MUP>
+          <img src={"logos/smu_logo.jpg"} width="220px" />
         </MUCard>
       </MUWrapper>
     </MUContainer>
