@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './stylesheets/submit-results.css';
 import React, { useState, useEffect } from "react";
-import { useSignup } from '../hooks/useSignup'
 import { useFirestore } from '../hooks/useFirestore'
 import { useAuthContext } from '../hooks/useAuthContext'
 import {countryList} from '../components/Countries'
@@ -111,7 +110,7 @@ const SubmitResults = () => {
         <Form.Group className="mb-3" controlId="formBasicText">
           <Form.Label>Nationality</Form.Label>
           <Form.Control as="select"
-            onChange={(e) => setNationality(e.target.value)}value = {nationality}>
+            onChange={(e) => setNationality(e.target.value)} value = {nationality}>
             <option selected>-- select an option --</option>
             {countryList.map((countries) => <option>{countries}</option>)}
           </Form.Control>
