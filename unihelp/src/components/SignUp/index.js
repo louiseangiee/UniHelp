@@ -24,7 +24,9 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [studentType, setStudentType] = useState("");
+  const [studentOrigin, setStudentOrigin] = useState("")
   const [HSQualification, setHSQualification] = useState("");
+  const [englishTest, setEnglishTest] = useState("")
   const [gradDate, setGradDate] = useState("");
   const [DoB, setDoB] = useState("");
   const { signup, isPending, error } = useSignup()
@@ -43,13 +45,13 @@ const SignUp = () => {
       Date of Birth: ${DoB}
     `);
     
-    signup(email, password, fullName, studentType, HSQualification, gradDate, DoB);
+    signup(email, password, fullName, studentType, studentOrigin, HSQualification, englishTest, gradDate, DoB);
     
   };
 
   useEffect(() => {
     if (response.success) {
-      setEmail(''); setPassword(''); setFullName(''); setGradDate(''); setHSQualification('')
+      setEmail(''); setPassword(''); setFullName(''); setStudentOrigin(''); setEnglishTest(''); setGradDate(''); setHSQualification('')
       setStudentType('')
     }
   }, [response.success])
@@ -91,6 +93,20 @@ const SignUp = () => {
                 value={password}
               />
 
+              <FormLabel htmlFor="student-origin">I am a:</FormLabel>
+              <Select
+                required
+                id="student-origin"
+                onChange={(e) => setStudentOrigin(e.target.value)}
+                value={studentOrigin}
+              >
+                <option selected>
+                  --Select an Option--
+                </option>
+                <option>Local Student</option>
+                <option>International Student</option>
+              </Select>
+
               <FormLabel htmlFor="student-type">I am a:</FormLabel>
               <Select
                 required
@@ -119,6 +135,21 @@ const SignUp = () => {
                 <option>International Baccalaurate</option>
                 <option>Polytechnic Diploma</option>
                 <option>Other</option>
+              </Select>
+
+              <FormLabel htmlFor="english-test">English Proficiency Test</FormLabel>
+              <Select
+                required
+                id="english-test"
+                onChange={(e) => setEnglishTest(e.target.value)}
+                value={englishTest}
+              >
+                <option selected value={null}>
+                  --Select an Option--
+                </option>
+                <option>IELTS</option>
+                <option>TOEFL</option>
+                <option>TOEIC</option>
               </Select>
 
               <FormLabel htmlFor="graddate">Date of Graduation</FormLabel>
