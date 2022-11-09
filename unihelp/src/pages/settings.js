@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavbarMain from '../components/NavbarMain';
 import SidebarHome from '../components/SidebarHome';
+import { useCollection } from '../hooks/useCollection'
+
 import Footer from '../components/Footer';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -10,10 +12,19 @@ import { useAuthContext } from "../hooks/useAuthContext"
 import { useLogout } from '../hooks/useLogout'
 
 
+
 function Settings() {
-  const { logout } = useLogout()
+  const { logout, isPending } = useLogout()
   const { user } = useAuthContext()
   const [isOpen, setIsOpen] = useState(false);
+  const { documents, error } = useCollection('accountDetails')
+
+  const [fullName, setFullName] = useState("");
+  const [studentType, setStudentType] = useState("");
+  const [HSQualification, setHSQualification] = useState("");
+  const [gradDate, setGradDate] = useState("");
+  const [DoB, setDoB] = useState("");
+  
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -30,7 +41,7 @@ function Settings() {
           <div className="row">
 
             <Form.Group className="mb-3" controlId="formBasicText">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Full Name</Form.Label>
               <Form.Control type="text" placeholder="Samuel No Surname" />
             </Form.Group>
 
@@ -87,13 +98,13 @@ function Settings() {
           </div>
 
           <div className="row">
-            <Button className="mb-3" variant="warning" onClick={logout}>
-              Logout
-            </Button>
+            {!isPending && <Button className="mb-3" variant="warning" onClick={logout}>Logout</Button>}
+            {isPending && <Button className="mb-3" variant="warning" disabled>Loging out...</Button>}
           </div>
 
         </Form>
       </div>
+
 
       <Footer />
     </>
