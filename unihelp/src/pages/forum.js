@@ -38,7 +38,7 @@ function Forum() {
 
   useEffect(() => {
     setIsPending(true)
-    const unsub = projectFirestore.collection('forumPost').onSnapshot((snapshot) => {
+    const unsub = projectFirestore.collection('forumPost').orderBy('createdAt').onSnapshot((snapshot) => {
       if(snapshot.empty){
         setError('No posts to load')
         setIsPending(false)

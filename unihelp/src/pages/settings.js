@@ -42,12 +42,14 @@ function Settings() {
       if(doc.exists) {
         setIsPendingData(false)
         var data = doc.data()
+        console.log(data)
         setCurrentData(data)
         setFormFullName(data.fullName)
         setFormStudentType(data.studentType)
         setFormStudentOrigin(data.studentOrigin)
         setFormHSQualification(data.HSQualification)
         setFormEnglishTest(data.englishTest)
+        console.log(formEnglishTest)
         setFormGradDate(data.gradDate)
         setFormDoB(data.DoB)
         
@@ -65,6 +67,7 @@ function Settings() {
     e.preventDefault();
     
     console.log("help la")
+    console.log(formEnglishTest)
     projectFirestore.collection('accountDetails').doc(user.uid).update({
       fullName: formFullName,
       studentOrigin: formStudentOrigin,
