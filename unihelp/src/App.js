@@ -15,6 +15,7 @@ import NTU from './pages/ntu';
 import NUS from './pages/nus';
 import SMU from './pages/smu';
 import AddPost from './pages/AddPost';
+import ForumPost from './pages/forumPost';
 
 
 function App() {
@@ -24,17 +25,54 @@ function App() {
       {authIsReady && (
         <Router>
           <Switch>
-            <Route path='/' component={Home} exact />
-            <Route path='/signin' component={SigninPage} exact />
-            <Route path='/signup' component={SignupPage} exact />
-            <Route path='/main-page' component={MainPage} exact />
-            <Route path='/forum' component={Forum} exact />
-            <Route path='/submit-results' component={SubmitResults} exact />
-            <Route path='/settings' component={Settings} exact />
-            <Route path='/smu' component={SMU} exact />
-            <Route path='/ntu' component={NTU} exact />
-            <Route path='/nus' component={NUS} exact />
-            <Route path='/AddPost' component={AddPost} exact />
+            <Route path="/" exact>
+                {user && <Redirect to="/main-page" /> }
+                {!user && <Home /> }
+            </Route>
+            <Route path="/signin" exact>
+                {user && <Redirect to="/main-page" /> }
+                {!user && <SigninPage /> }
+            </Route>
+            <Route path="/signup" exact>
+                {user && <Redirect to="/main-page" /> }
+                {!user && <SignupPage /> }
+            </Route>
+            <Route path="/main-page">
+                {!user && <Redirect to="/signin" />}
+                {user && <MainPage />}
+            </Route>
+            <Route path="/forum">
+                {!user && <Redirect to="/signin" />}
+                {user && <Forum />}
+            </Route>
+            {/* <Route path="/forum/:id">
+                {!user && <Redirect to="/signin" />}
+                {user && <ForumPost />}
+            </Route> */}
+            <Route path="/submit-results" exact>
+                {!user && <Redirect to="/signin" />}
+                {user && <SubmitResults />}
+            </Route>
+            <Route path='/settings' exact>
+                {!user && <Redirect to="/signin" />}
+                {user && <Settings />}
+            </Route>
+            <Route path='/smu' exact>
+                {!user && <Redirect to="/signin" />}
+                {user && <SMU />}
+            </Route>
+            <Route path='/ntu' exact>
+                {!user && <Redirect to="/signin" />}
+                {user && <NTU />}
+            </Route>
+            <Route path='/nus' exact>
+                {!user && <Redirect to="/signin" />}
+                {user && <NUS />}
+            </Route>
+            <Route path='/AddPost' exact>
+                {!user && <Redirect to="/signin" />}
+                {user && <AddPost />}
+            </Route>
           </Switch>
         </Router>
       )}
