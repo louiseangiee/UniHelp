@@ -1,47 +1,37 @@
-import React, { useEffect, useState } from "react";
-import { useFirestore } from '../hooks/useFirestore';
-import { useAuthContext } from '../hooks/useAuthContext'
+import React, { useEffect} from 'react';
+import {Line} from "react-chartjs-2";
+import {
+    Chart as ChartJS,
+    LineElement,
+    CategoryScale,
+    LinearScale,
+    PointElement
+} from 'chart.js';
+import { AuthContext } from '../../context/AuthContext';
 
-
+ChartJS.register(
+    LineElement,
+    CategoryScale,
+    LinearScale,
+    PointElement
+)
 const QuickChart = () => {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
-    const [results, setScores] = useState([]);
-    // Note: the empty deps array [] means
-    // this useEffect will run once
-    // similar to componentDidMount()
-
-    const url = "https://quickchart.io/chart";
-
-    const retrieveScore = () => {
-        const response = db.collection('results');
-        const data = response.get();
-        data.docs.forEach(item => {
-            setScores([...results, item.data()])
-        })
-    }
-
-useEffect(() => {
-    retrieveScore();
-}, [])
+    const data = {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: 'transparent'
+        }]
+    };
+    const options = {};
 
 
-
-axios.get(url, {
-    params: {
-
-    }
-})
-    .then(response => {
-        console.log(response.data)
-        var data1 = response.data
-    })
-    .catch(err => {
-        console.log(err.message)
-    })
-
-
+    return (
+        <div style={{width: '500px', height: '500px'}}>
+            <Line data={data} options={options}></Line>
+        </div>
+    )
 }
 
 export default QuickChart;
