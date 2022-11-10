@@ -39,6 +39,7 @@ const AddPost = () => {
     `);
 
     addDocument({
+      poster: user.email,
       school, 
       content,
       title,
