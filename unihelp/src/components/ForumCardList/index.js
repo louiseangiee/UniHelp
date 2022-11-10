@@ -12,7 +12,7 @@ import CardHeader from 'react-bootstrap/esm/CardHeader';
 
 export default function ForumCardList({ posts }) {
   if(posts.length === 0) {
-    return <div className='error'>No recipes to load...</div>
+    return <div className='error'>No posts to load...</div>
   }
 
   function buttonUpdate(){
