@@ -3,6 +3,7 @@ import NavbarMain from '../components/NavbarMain';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import DataVisualisation from '../components/MUDataVisualisation';
+import QuickChart from '../components/QuickChart';
 
 function NTU() {
   const [isOpen, setIsOpen]  = useState(false);
