@@ -15,6 +15,8 @@ ChartJS.register(
     LinearScale,
     PointElement
 )
+
+
 const QuickChart = () => {
     const data = {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
