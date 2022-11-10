@@ -6,6 +6,7 @@ import './forumElements.css'
 import Card from 'react-bootstrap/Card';
 import Button from "react-bootstrap/esm/Button";
 import Form from 'react-bootstrap/Form'
+import CardHeader from 'react-bootstrap/esm/CardHeader';
 
 
 
@@ -34,12 +35,12 @@ export default function ForumCardList({ posts }) {
 
   }
 
+
   return (
     <div className="forum-list">
       {posts.map((post) => (
       <div key={post.id} className="d-flex flex-row" id= "upvoteButtons" style={{marginBottom:'20px', marginTop:'20px', border:'solid darkgrey 2px'}}>
               <div className = "d-flex col-1" style={{paddingTop: 'auto', paddingBottom: 'auto'}} >
-                  {post.poster}
                   <Card style={cardsStyle}>
                       <button id ="upvote" className = "btn shadow-none" style={voteButtons} onClick= {buttonUpdate}>
                         <Card.Img variant='top' className="img-fluid" src = "svgFiles/upvote.png" style={{height: '100%', transform: 'rotate(180deg)'}}/>
@@ -57,7 +58,12 @@ export default function ForumCardList({ posts }) {
 
               <div id = {post.id} className="d-flex col-11">
                 <Card id = {post.id} style={cardsStyle}>
-                  <Card.Header> {post.school} </Card.Header>
+                  <Card.Header> 
+                    {post.school}
+                    <br/>
+                    <span className='username'>By: {post.poster}</span> 
+                  </Card.Header>
+                  
                   <Card.Body>
                     
                     <Card.Title> {post.title} </Card.Title>
