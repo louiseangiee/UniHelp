@@ -9,6 +9,7 @@ import Form from 'react-bootstrap/Form'
 import CardHeader from 'react-bootstrap/esm/CardHeader';
 import { projectFirestore } from '../../firebase/config'
 import { useAuthContext } from "../../hooks/useAuthContext"
+import { maxTime } from 'date-fns/constants/index';
 
 export default function ForumCardList({ posts }) {
   const { user } = useAuthContext()
@@ -17,18 +18,18 @@ export default function ForumCardList({ posts }) {
     return <div className='error'>No posts to load...</div>
   }
 
- /* for (let post in posts) {
-    var unsub = projectFirestore.collection('forumPost').doc(posts[post].id).get().then(doc => {
-      var data = doc.data()
-      var upVoters = data.upVoters
-      if (upVoters.includes(email)) {
-        console.log(upVoters)
-        document.getElementById('upvote').className = 'test'
-        console.log(document.getElementById('upvote'))
-      }
-    })
-  }
-  */
+  /* for (let post in posts) {
+     var unsub = projectFirestore.collection('forumPost').doc(posts[post].id).get().then(doc => {
+       var data = doc.data()
+       var upVoters = data.upVoters
+       if (upVoters.includes(email)) {
+         console.log(upVoters)
+         document.getElementById('upvote').className = 'test'
+         console.log(document.getElementById('upvote'))
+       }
+     })
+   }
+   */
 
 
   const upVote = (id) => {
@@ -91,6 +92,7 @@ export default function ForumCardList({ posts }) {
   }
 
 
+  posts.sort((a, b) => (b.votes - a.votes));
 
 
   return (
