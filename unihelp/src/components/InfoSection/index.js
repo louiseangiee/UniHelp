@@ -1,10 +1,8 @@
-import React from 'react';
-import { Button } from '../ButtonElements';
-import { NavBtnLink } from '../ButtonElements';
-import {Link } from "react-router-dom";
-
-
-
+import React from "react";
+import { Button } from "../ButtonElements";
+import { NavBtnLink } from "../ButtonElements";
+import { Link } from "react-router-dom";
+import Typed from "react-typed";
 
 import {
   InfoContainer,
@@ -18,8 +16,8 @@ import {
   Subtitle,
   BtnWrap,
   ImgWrap,
-  Img
-} from './InfoElements';
+  Img,
+} from "./InfoElements";
 
 const InfoSection1 = ({
   lightBg,
@@ -35,7 +33,7 @@ const InfoSection1 = ({
   primary,
   darkText,
   dark,
-  dark2
+  dark2,
 }) => {
   console.log(primary);
   return (
@@ -46,14 +44,18 @@ const InfoSection1 = ({
             <Column1>
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
-                <Heading lightText={lightText}>{headline}</Heading>
+                <Heading lightText={lightText}>
+                  <Typed
+                    strings={["Stay On Track"]}
+                    typeSpeed={40}
+                    backSpeed={50}
+                    loop
+                  />
+                  {/* {headline} */}
+                </Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
-                  <NavBtnLink
-                    to='/signin'
-                  >
-                    {buttonLabel}                
-                  </NavBtnLink>
+                  <NavBtnLink to="/signin">{buttonLabel}</NavBtnLink>
                 </BtnWrap>
               </TextWrapper>
             </Column1>
@@ -83,7 +85,7 @@ const InfoSection2 = ({
   primary,
   darkText,
   dark,
-  dark2
+  dark2,
 }) => {
   console.log(primary);
   return (
@@ -94,7 +96,15 @@ const InfoSection2 = ({
             <Column1>
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
-                <Heading lightText={lightText}>{headline}</Heading>
+                <Heading lightText={lightText}>
+                  <Typed
+                    strings={["Gain Admission Insights"]}
+                    typeSpeed={40}
+                    backSpeed={50}
+                    loop
+                  />
+                  {/* {headline} */}
+                </Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
               </TextWrapper>
             </Column1>
@@ -124,7 +134,7 @@ const InfoSection3 = ({
   primary,
   darkText,
   dark,
-  dark2
+  dark2,
 }) => {
   console.log(primary);
   return (
@@ -135,14 +145,18 @@ const InfoSection3 = ({
             <Column1>
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
-                <Heading lightText={lightText}>{headline}</Heading>
+                <Heading lightText={lightText}>
+                  <Typed
+                    strings={["Create An Account is Extremely Easy"]}
+                    typeSpeed={40}
+                    backSpeed={50}
+                    loop
+                  />
+                  {/* {headline} */}
+                </Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
-                  <NavBtnLink
-                    to='/signup'
-                  >
-                    {buttonLabel}                
-                  </NavBtnLink>
+                  <NavBtnLink to="/signup">{buttonLabel}</NavBtnLink>
                 </BtnWrap>
               </TextWrapper>
             </Column1>
@@ -158,6 +172,4 @@ const InfoSection3 = ({
   );
 };
 
-
-export {InfoSection1,InfoSection2,InfoSection3};
-
+export { InfoSection1, InfoSection2, InfoSection3 };
