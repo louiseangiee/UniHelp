@@ -131,9 +131,11 @@ const SignUp = () => {
                 <option selected value={null}>
                   --Select an Option--
                 </option>
-                <option>Cambridge A Level</option>
                 <option>International Baccalaurate</option>
+                <option>Cambridge A Level</option>
                 <option>Polytechnic Diploma</option>
+                <option>SAT</option>
+                <option>ACT</option>
                 <option>Other</option>
               </Select>
 
