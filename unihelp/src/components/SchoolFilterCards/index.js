@@ -14,7 +14,9 @@ export default function FilterForums({ changeFilter }) {
 
   const cardImages = {
     width: '50%',
-    height: '50%'
+    height: '50%',
+    objectFit: 'contain'
+
   }
 
   
@@ -28,7 +30,7 @@ export default function FilterForums({ changeFilter }) {
                 onClick={() => handleClick(f)} 
                 bg = {currentFilter === f ? 'primary' : ''}
                 text={currentFilter === f ? 'white' : 'dark'}
-                >
+                className ="h-100">
                 <Card.Body>
                   <Card.Img variant='top' className="img-fluid" class = "logos" src = {`logos/${f}_logo.png`} style={cardImages}/>
                   <Card.Title id = {`${f} title`} class = "CardSchoolTitle" style={{textAlign: 'center'}}>{f}</Card.Title>
