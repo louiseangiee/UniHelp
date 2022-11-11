@@ -116,11 +116,12 @@ function Settings() {
                 <Form.Label>High School Qualification</Form.Label>
                 <Form.Control as="select" value={formHSQualification} onChange={(e) => setFormHSQualification(e.target.value)}>
                   <option disabled selected>-- select an option --</option>
-                  <option>International Baccalaureate</option>
+                  <option>International Baccalaurate</option>
                   <option>Cambridge A Level</option>
-                  <option>Indonesian Ujian Nasional</option>
+                  <option>Polytechnic Diploma</option>
                   <option>SAT</option>
                   <option>ACT</option>
+                  <option>Other</option>
                 </Form.Control>
               </Form.Group>
 
