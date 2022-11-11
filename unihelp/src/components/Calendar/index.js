@@ -5,11 +5,15 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 const BigCalendar = () => {
     const locales = {
         "en-US": require("date-fns/locale/en-US"),
     };
+
     const localizer = dateFnsLocalizer({
         format,
         parse,
@@ -22,8 +26,8 @@ const BigCalendar = () => {
         {
             title: "Big Meeting",
             allDay: true,
-            start: new Date(2021, 6, 0),
-            end: new Date(2021, 6, 0),
+            start: new Date(2022, 11, 1),
+            end: new Date(2022, 11, 20),
         },
         {
             title: "Vacation",
@@ -39,11 +43,11 @@ const BigCalendar = () => {
 
     const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
     const [allEvents, setAllEvents] = useState(events);
-    
+
     function handleAddEvent() {
 
         for (let i = 0; i < allEvents.length; i++) {
-
+            
             const d1 = new Date(allEvents[i].start);
             const d2 = new Date(newEvent.start);
             const d3 = new Date(allEvents[i].end);
