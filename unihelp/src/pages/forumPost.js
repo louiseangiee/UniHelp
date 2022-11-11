@@ -7,7 +7,7 @@ import ForumComments from "../components/PostComments/PostComments"
 import ForumGeneral from "../components/PostContent/PostContent"
 import NavbarMain from "../components/NavbarMain";
 import Footer from "../components/Footer";
-import Sidebar from "../components/Sidebar";
+import SidebarHome from "../components/SidebarHome";
 
 //styles
 
@@ -28,7 +28,7 @@ export default function ForumPost() {
   }
   return (
     <>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <SidebarHome isOpen={isOpen} toggle={toggle} />
       <NavbarMain toggle={toggle} />
       <ForumGeneral post={document}></ForumGeneral>
       <ForumComments post={document}></ForumComments>
