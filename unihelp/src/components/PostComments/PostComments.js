@@ -12,24 +12,35 @@ export default function PostComments({ post }) {
   const { user } = useAuthContext()
   const { updateDocument, response } = useFirestore('forumPost')
   const [newComment, setNewComment] = useState('')
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('')
 
-    const commentToAdd = {
-      email: user.email,
-      content: newComment,
-      createdAt: timestamp.fromDate(new Date()),
-      id: user.email+Math.random()
-    }
-
-    await updateDocument(post.id, {
-      comments: [...post.comments, commentToAdd],
-    })
-    if(!response.error){
+    if(newComment.trim() === ''){
+      setError('Comment cannot be empty!')
       setNewComment('')
+    } else {
+      
+      const commentToAdd = {
+        email: user.email,
+        content: newComment,
+        createdAt: timestamp.fromDate(new Date()),
+        id: user.email+Math.random()
+      }
+    
+      await updateDocument(post.id, {
+        comments: [...post.comments, commentToAdd],
+      })
+      
+      if(!response.error){
+        setNewComment('')
+      }
     }
-  }
+    }
+
+    
 
   //STYLES
   const PostCommentStyle = {
@@ -76,7 +87,7 @@ export default function PostComments({ post }) {
         <div className="row mt-4">
           <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label>Add new comment:</Form.Label>
-            <Form.Control as="textarea" value={newComment} onChange={(e) => setNewComment(e.target.value)}/>
+            <Form.Control as="textarea" value={newComment} onChange={(e) => setNewComment(e.target.value)} required/>
           </Form.Group>
         </div>
 
@@ -85,6 +96,8 @@ export default function PostComments({ post }) {
           <Button className="mb-3 col-4" variant="primary" onClick={handleSubmit}>Add Comment</Button>
         </div>
       </Form>
+
+      <p>{error}</p>
     </div>
   )
 }
