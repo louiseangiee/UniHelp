@@ -98,6 +98,7 @@ export default function ForumCardList({ posts }) {
   return (
     <div className="forum-list">
       {posts.map((post) => (
+        <Link to={`/forum/${post.id}`}>
         <div key={post.id} className="d-flex flex-row" id="upvoteButtons" style={{ marginBottom: '20px', marginTop: '20px', border: 'solid darkgrey 2px' }}>
           <div className="d-flex col-1" style={{ paddingTop: 'auto', paddingBottom: 'auto' }} >
             <Card style={cardsStyle}>
@@ -128,6 +129,7 @@ export default function ForumCardList({ posts }) {
             </Card>
           </div>
         </div>
+        </Link>
       ))}
     </div>
   )
