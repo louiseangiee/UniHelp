@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from '../ButtonElements';
-// import Video from '../../videos/video.mp4';
 import {
   HeroContainer,
   HeroBg,
-  // VideoBg,
   HeroContent,
   HeroH1,
   HeroP,
@@ -12,6 +10,7 @@ import {
   ArrowForward,
   ArrowRight
 } from './HeroElements';
+import Typed from "react-typed";
 
 function HeroSection() {
   const [hover, setHover] = useState(false);
@@ -24,7 +23,10 @@ function HeroSection() {
       <HeroBg>
       </HeroBg>
       <HeroContent>
-        <HeroH1>University Application Made Easy</HeroH1>
+        <HeroH1><Typed strings={["University Application Made Easy", "University Application Made Simple", "University Application Made Fuss-Free"]}
+            typeSpeed={40}
+            backSpeed={50}
+            loop/></HeroH1>
         <HeroP>
           Get Into Your Dream University with Us!
         </HeroP>
