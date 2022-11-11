@@ -42,6 +42,8 @@ const AddPostComp = () => {
       title,
       votes: 0,
       comments: [],
+      upVoters:[],
+      downVoters:[]
     });
   };
 
