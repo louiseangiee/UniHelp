@@ -15,7 +15,7 @@ import NTU from './pages/ntu';
 import NUS from './pages/nus';
 import SMU from './pages/smu';
 import AddPost from './pages/AddPost';
-import ForumPost from './pages/forumPost';
+import ForumPost from './pages/ForumPost';
 
 
 function App() {
@@ -37,18 +37,18 @@ function App() {
                 {user && <Redirect to="/main-page" /> }
                 {!user && <SignupPage /> }
             </Route>
-            <Route path="/main-page">
+            <Route path="/main-page" exact>
                 {!user && <Redirect to="/signin" />}
                 {user && <MainPage />}
             </Route>
-            <Route path="/forum">
+            <Route path="/forum" exact>
                 {!user && <Redirect to="/signin" />}
                 {user && <Forum />}
             </Route>
-            {/* <Route path="/forum/:id">
+            <Route path="/forum/:id" exact>
                 {!user && <Redirect to="/signin" />}
                 {user && <ForumPost />}
-            </Route> */}
+            </Route>
             <Route path="/submit-results" exact>
                 {!user && <Redirect to="/signin" />}
                 {user && <SubmitResults />}
