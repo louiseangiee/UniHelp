@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "./components/Header"
 import Form from "./components/Form";
 import TodosList from "./components/TodosList";
+import "./checklist.css";
 import "./App.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { projectFirestore } from '../../firebase/config'
@@ -29,8 +30,8 @@ const App = () => {
         })
     }, [user.uid]);
 
-    return (
-        <div className="container">
+    return(
+        <div className = "container">
             <div className="app-wrapper">
                 <div>
                     <Header />
@@ -54,4 +55,4 @@ const App = () => {
         </div>);
 }
 
-export default App;
+export default Checklist;
