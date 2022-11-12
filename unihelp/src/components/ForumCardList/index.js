@@ -18,20 +18,6 @@ export default function ForumCardList({ posts }) {
     return <div className='error'>No posts to load...</div>
   }
 
-  /* for (let post in posts) {
-     var unsub = projectFirestore.collection('forumPost').doc(posts[post].id).get().then(doc => {
-       var data = doc.data()
-       var upVoters = data.upVoters
-       if (upVoters.includes(email)) {
-         console.log(upVoters)
-         document.getElementById('upvote').className = 'test'
-         console.log(document.getElementById('upvote'))
-       }
-     })
-   }
-   */
-
-
   const upVote = (id) => {
     const unsub = projectFirestore.collection('forumPost').doc(id).get().then(doc => {
       var data = doc.data()
@@ -94,23 +80,30 @@ export default function ForumCardList({ posts }) {
 
   posts.sort((a, b) => (b.votes - a.votes));
 
+  const style1 = {
+    height: '100%',
+  }
+
+  const style2 = {
+    height: '100%',
+    opacity: '30%'
+  }
+
 
   return (
     <div className="forum-list">
       {posts.map((post) => (
-        
+
         <div key={post.id} className="d-flex flex-row" id="upvoteButtons" style={{ marginBottom: '20px', marginTop: '20px', border: 'solid darkgrey 2px' }}>
           <div className="d-flex col-1" style={{ paddingTop: 'auto', paddingBottom: 'auto' }} >
             <Card style={cardsStyle}>
               <button id="upvote" className="btn shadow-none" style={voteButtons}>
-                <Card.Img variant='top' className="img-fluid" src="logos/upvote.png" style={{ height: '100%' }} onClick={() => { upVote(post.id); }} />
+                <Card.Img variant='top' className="img-fluid" src="logos/upvote.png" style={post.upVoters.includes(email)? style1: style2} onClick={() => { upVote(post.id); }} />
               </button>
-
               <Card.Title className="text-center" style={{ marginTop: '20px', marginBottom: '20px' }}> {post.votes} </Card.Title>
-
             </Card>
           </div>
-        
+
 
           <div id={post.id} className="d-flex col-11">
             <Card id={post.id} style={cardsStyle}>
@@ -126,11 +119,11 @@ export default function ForumCardList({ posts }) {
                 {post.content}
 
               </Card.Body>
-              <a className = "stretched-link" href= {`/forum/${post.id}`}></a>
+              <a className="stretched-link" href={`/forum/${post.id}`}></a>
             </Card>
           </div>
         </div>
-        
+
       ))}
     </div>
   )
