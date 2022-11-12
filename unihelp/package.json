@@ -37,7 +37,8 @@
     "react-scroll": "^1.8.1",
     "react-share": "^4.4.1",
     "react-typed": "^1.2.0",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

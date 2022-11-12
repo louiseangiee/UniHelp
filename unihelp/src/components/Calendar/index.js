@@ -9,7 +9,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-const BigCalendar = () => {
+const BigCalendar = (uni) => {
     const locales = {
         "en-US": require("date-fns/locale/en-US"),
     };
@@ -22,24 +22,49 @@ const BigCalendar = () => {
         locales,
     });
 
-    const events = [
-        {
-            title: "Big Meeting",
-            allDay: true,
-            start: new Date(2022, 11, 1),
-            end: new Date(2022, 11, 20),
-        },
-        {
-            title: "Vacation",
-            start: new Date(2021, 6, 7),
-            end: new Date(2021, 6, 10),
-        },
-        {
-            title: "Conference",
-            start: new Date(2021, 6, 20),
-            end: new Date(2021, 6, 23),
-        },
-    ];
+    const getEvents = (uni) => {
+        var event = []
+        if (uni.uni === "nus") {
+            console.log(uni.uni)
+            event = [
+                {
+                    title: "Application Closing Date",
+                    start: new Date(2023, 0, 31),
+                    end: new Date(2023, 0, 31),
+
+                }
+            ]
+        }
+
+        if (uni.uni === "ntu") {
+            console.log(uni.uni)
+            event = [
+                {
+                    title: "Application Closing Date",
+                    start: new Date(2023, 1, 21),
+                    end: new Date(2023, 1, 21),
+
+                }
+            ]
+        }
+
+        if (uni.uni === "smu") {
+            console.log(uni.uni)
+            event = [
+                {
+                    title: "Application Closing Date",
+                    start: new Date(2023, 2, 19),
+                    end: new Date(2023, 2, 19),
+
+                }
+            ]
+        }
+        console.log(event)
+
+        return event;
+    }
+    const events = getEvents(uni);
+
 
     const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
     const [allEvents, setAllEvents] = useState(events);

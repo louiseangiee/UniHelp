@@ -18,7 +18,7 @@ function NUS() {
     <NavbarMain toggle={toggle} />
     <DataVisualisation />
     <QuickChart />
-    <BigCalendar />
+    <BigCalendar uni="nus"/>
     <Footer />
    </> 
   )
