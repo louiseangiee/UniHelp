@@ -11,7 +11,7 @@ export default function PostContent({ post }) {
   return (
     <>
     <div style={{margin: '3%'}}>
-      <h1>  </h1>
+      
       <Card className="p-4 w-100">
       <div className="post-content">
         
