@@ -64,7 +64,7 @@ const NavbarMain = ({ toggle }) => {
                   onMouseLeave={hideDropdown}
                 >
                   <Dropdowns.Toggle block variant="Nava" bsPrefix="p-0" >
-                    <Nava activeStyle={{ borderBottom: '3px solid #FFE052' }} to="main-page">
+                    <Nava activeStyle={{ borderBottom: '3px solid #FFE052' }} to="/main-page">
                       MyUni
                     </Nava>
                   </Dropdowns.Toggle>
@@ -86,7 +86,7 @@ const NavbarMain = ({ toggle }) => {
               <NavItem>
                 <Nava
                   activeStyle={{ borderBottom: '3px solid #FFE052' }}
-                  to="forum"
+                  to="/forum"
                 >
                   Forum
                 </Nava>
@@ -94,7 +94,7 @@ const NavbarMain = ({ toggle }) => {
               <NavItem>
                 <Nava
                   activeStyle={{ borderBottom: '3px solid #FFE052' }}
-                  to="submit-results"
+                  to="/submit-results"
                 >
                   Submit Results
                 </Nava>
