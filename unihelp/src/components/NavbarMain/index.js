@@ -46,6 +46,18 @@ const NavbarMain = ({ toggle }) => {
     setShow(false);
   }
 
+  const style1 = {
+    borderBottom: '3px solid #FFE052'
+  }
+
+  const style2 = {
+    marginTop: '10px'
+  }
+
+  const unis = ['/smu','/ntu','/nus']
+
+
+
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
@@ -64,7 +76,7 @@ const NavbarMain = ({ toggle }) => {
                   onMouseLeave={hideDropdown}
                 >
                   <Dropdowns.Toggle block variant="Nava" bsPrefix="p-0" >
-                    <Nava activeStyle={{ borderBottom: '3px solid #FFE052' }} to="/main-page">
+                    <Nava activeStyle={{ borderBottom: '3px solid #FFE052' }} style={unis.includes(window.location.pathname)? style1: style2} to="/main-page">
                       MyUni
                     </Nava>
                   </Dropdowns.Toggle>
