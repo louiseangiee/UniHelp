@@ -102,7 +102,7 @@ export default function ForumCardList({ posts }) {
 
                 <Card.Body >
                   
-                  <Card.Title> {post.title} </Card.Title>
+                  <Card.Title style = {{fontWeight: 'bold'}}> {post.title} </Card.Title>
                   <p > 
                   {post.content}
                   
