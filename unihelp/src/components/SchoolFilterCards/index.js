@@ -33,7 +33,7 @@ export default function FilterForums({ changeFilter }) {
                 bg = {currentFilter === f ? 'primary' : ''}
                 text={currentFilter === f ? 'white' : 'dark'}>
                 <Card.Body>
-                  <Card.Img variant='top' className="img-fluid" className = "logos" src = {`logos/${f}_logo.png`} style={cardImages}/>
+                  <Card.Img variant='top' className="img-fluid logos" src = {`logos/${f}_logo.png`} style={cardImages}/>
                   <Card.Title id = {`${f} title`} className = "CardSchoolTitle" style={{textAlign: 'center', fontSize: '25px'}}>{f}</Card.Title>
                 </Card.Body>
               </FilterCard>
