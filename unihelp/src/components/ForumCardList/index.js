@@ -85,21 +85,13 @@ export default function ForumCardList({ posts }) {
     marginBottom: "0px",
   };
 
-  const cardsStyle = {
-    marginBottom: "20px",
-    paddingLeft: "0px",
-    paddingRight: "0px",
-    height: "100%",
-    borderRadius: "20px",
-    width: "100%",
-  };
 
   posts.sort((a, b) => b.votes - a.votes);
 
   return (
     <div className="forum-list">
       {posts.map((post) => (
-        <div id={post.id} className="container" style={{ marginLeft: "0px" }}>
+        <div id={post.id} className="container" style={{ }}>
           <div className="row d-flex">
             <ForumCard id={post.id}>
               <div style={{ transform: "rotate(0)" }}>

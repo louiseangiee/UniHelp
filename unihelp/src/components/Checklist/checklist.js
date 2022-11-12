@@ -9,7 +9,7 @@ import { useCollection } from '../../hooks/useCollection'
 
 const Checklist = () => {
     const { user } = useAuthContext();
-    const identifier = 'progress' + user.uid
+    const identifier = user.uid
     const [input, setInput] = useState("");
     const [todos, setTodos] = useState([]);
     const [editTodo, setEditTodo] = useState(null);
@@ -18,15 +18,15 @@ const Checklist = () => {
     useEffect(() => {
         setIsPendingData(true)
 
-        // const unsub = projectFirestore.collection('userProgress').doc(identifier).get().then(doc => {
-        //     if (doc.exists) {
-        //         setIsPendingData(false)
-        //         var data = doc.data()
-        //         console.log(data)
-        //         setTodos(data.smu.checklist)
-        //         //console.log(data.smu.checklist)
-        //     }
-        // })
+        const unsub = projectFirestore.collection('userProgress').doc(identifier).get().then(doc => {
+            if (doc.exists) {
+                setIsPendingData(false)
+                var data = doc.data()
+                console.log(data)
+                setTodos(data.smu.checklist)
+                //console.log(data.smu.checklist)
+            }
+        })
     }, [user.uid]);
 
     return(
