@@ -24,6 +24,15 @@ function MainPage() {
     }
   }, console.log('error'));
 
+  useEffect(() => { 
+    while(ReactSession.get("isSignedup")){
+    toast.success('You have successfully created an account') 
+    ReactSession.set("isSignedup", false)
+    }
+  }, console.log('error'));
+
+
+
 
 
   return (
