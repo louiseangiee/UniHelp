@@ -15,7 +15,7 @@ import NTU from './pages/ntu';
 import NUS from './pages/nus';
 import SMU from './pages/smu';
 import AddPost from './pages/AddPost';
-import ForumPost from './pages/forumPost';
+import ForumPost from './pages/ForumPost';
 
 
 function App() {
