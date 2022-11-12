@@ -29,8 +29,6 @@ const SubmitResults = () => {
   const [grade, setGrade]  = useState('');
   const [englishTest, setEnglishTest]  = useState('');
   const [englishGrade, setEnglishGrade]  = useState('');
-  const [additionalQualification, setadditionalQualification]  = useState('');
-  const [additionalGrade, setadditionalGrade]  = useState('');
   const [errorMessage, setErrorMessage] = useState('')
 
   const { user } = useAuthContext()
@@ -69,12 +67,7 @@ const SubmitResults = () => {
     if(englishTest !== 'Inapplicable' && englishGrade === ''){
       error = [...error, 'english grade']
     }
-    if(additionalQualification === ''){
-      error = [...error, 'additional qualification']
-    }
-    if(additionalQualification !== 'Inapplicable' && additionalGrade === ''){
-      error = [...error, 'additional qualification grade']
-    }
+    
   
     console.log(error)
 
@@ -92,9 +85,7 @@ const SubmitResults = () => {
     qualification,
     grade,
     englishTest,
-    englishGrade,
-    additionalQualification,
-    additionalGrade
+    englishGrade
     })
 
     alert('Results submitted')
@@ -104,7 +95,7 @@ const SubmitResults = () => {
   useEffect(() => {
     if (response.success) {
       setUniversity(''); setProgram(''); setAdmitYear(''); setNationality(''); setStatus(''); setQualification(''); 
-      setGrade(''); setEnglishTest(''); setEnglishGrade(''); setadditionalQualification(''); setadditionalGrade('');
+      setGrade(''); setEnglishTest(''); setEnglishGrade(''); 
 
     }
   }, [response.success])
@@ -217,28 +208,7 @@ const SubmitResults = () => {
         </Form.Group>
         </div>
 
-        <div className="row"> 
-
-        <Form.Group className="mb-3 col-6" controlId="select">
-          <Form.Label>Additional Qualification</Form.Label>
-          <Form.Control as="select"
-            onChange={(e)=> setadditionalQualification(e.target.value)} value={additionalQualification}>
-            <option selected></option>
-            <option>SAT</option>
-            <option>ACT</option>
-            <option>Inapplicable</option>
-          </Form.Control>
-        </Form.Group>
-
-        <Form.Group className="mb-3 col-6" controlId="formBasicText">
-          <Form.Label>Grade</Form.Label>
-          <Form.Control type="number" 
-          disabled = {additionalQualification === 'Inapplicable' || additionalQualification === '' ? true:false}
-          onChange={(e) => setadditionalGrade(e.target.value)}
-          value = {(additionalQualification === 'Inapplicable' || additionalQualification === '') ? '' : additionalGrade} 
-          placeholder="e.g. 1350" />
-        </Form.Group>
-        </div>
+        
 
         <div className="row"> 
 
