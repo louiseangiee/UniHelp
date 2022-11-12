@@ -94,7 +94,7 @@ export default function ForumCardList({ posts }) {
               <Card id={post.id} style={cardsStyle}>
                 <div style = {{transform: 'rotate(0)'}}>
                 <a className="stretched-link" href={`/forum/${post.id}`} />
-                <Card.Header>
+                <Card.Header style = {{borderTopRightRadius: '20px', borderTopLeftRadius: '20px'}}>
                   {post.school}
                   <br />
                   <span className='username'>By: {post.poster}</span>
@@ -113,7 +113,7 @@ export default function ForumCardList({ posts }) {
                 </div>
                 
               
-                <Card.Footer>
+                <Card.Footer style = {{borderBottomRightRadius: '20px', borderBottomLeftRadius: '20px'}}>
                 <a className="stretched-link" href={`/forum/${post.id}`} style = {{position: 'relative'}}/>
                   <div className='container'>
                     <div className='row d-flex align-items-center justify-content-start'>
