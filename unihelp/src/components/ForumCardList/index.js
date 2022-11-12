@@ -68,15 +68,17 @@ export default function ForumCardList({ posts }) {
     backgroundColor: 'transparent',
     color: 'transparent',
     paddingRight: '0',
-    marginRight: '12px'
+    marginRight: '0px',
+    marginBottom: '0px'
   }
 
   const cardsStyle = {
     marginBottom: '20px',
-    padding: '20px',
+    paddingLeft: '0px',
+    paddingRight: '0px',
     height: '100%',
-    borderRadius: '0px',
-    width: '100%'
+    borderRadius: '20px',
+    width: '100%',
   }
 
   posts.sort((a, b) => (b.votes - a.votes));
@@ -87,7 +89,7 @@ export default function ForumCardList({ posts }) {
       {posts.map((post) => (
 
 
-          <div id={post.id} className="container">
+          <div id={post.id} className="container" style={{marginLeft: '0px'}}>
             <div className='row d-flex'>
               <Card id={post.id} style={cardsStyle}>
                 <div style = {{transform: 'rotate(0)'}}>
@@ -115,9 +117,9 @@ export default function ForumCardList({ posts }) {
                 <a className="stretched-link" href={`/forum/${post.id}`} style = {{position: 'relative'}}/>
                   <div className='container'>
                     <div className='row d-flex align-items-center justify-content-start'>
-                      <div className='col-1 px-2' style={{minWidth: '100px'}}>
+                      <div className='col-1' style={{minWidth: '50px'}}>
                         <button id="upvote" className="btn shadow-none" style={voteButtons}>
-                          <Card.Img variant='top' className="img-fluid" src={post.upVoters.includes(email)? 'svgFiles/Liked.png' : 'svgFiles/notLiked.png' } onClick={() => { upVote(post.id); }} style = {{width: "60%"}}/>
+                          <Card.Img variant='top' className="img-fluid" src={post.upVoters.includes(email)? 'svgFiles/Liked.png' : 'svgFiles/notLiked.png' } onClick={() => { upVote(post.id); }} style = {{width: "50%", minWidth: "25px"}}/>
                         </button>
                       </div>
                       <div className='col-1 d-flex align-items-center px-0'>
