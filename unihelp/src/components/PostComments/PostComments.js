@@ -87,7 +87,7 @@ export default function PostComments({ post }) {
       </ul>
       </div>
       </Card>
-      <PostAComment post={post}/>
+      
 
       <p>{error}</p>
     </div>

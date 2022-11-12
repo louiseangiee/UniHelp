@@ -150,7 +150,7 @@ export default function PostContent({ post }) {
                 </div>
               </Card.Footer>
       </Card>
-      <PostAComment/>
+      <PostAComment post={post}/>
     </div>
     </>
   )
