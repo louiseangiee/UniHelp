@@ -61,7 +61,7 @@ function Forum() {
     </div> */}
 
     <div id= "schoolSelection">
-      <h1 class ="header">Schools Filter</h1>
+      <h1 class ="header">Filter by:</h1>
       {documents && <FilterForums changeFilter={changeFilter} />}
     </div>
 
