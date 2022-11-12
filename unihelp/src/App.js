@@ -54,7 +54,7 @@ function App() {
                 {user && <SubmitResults />}
             </Route>
             <Route path='/settings' exact>
-                {!user && <Redirect to="/signin" />}
+                {!user && <Redirect to="/" />}
                 {user && <Settings />}
             </Route>
             <Route path='/smu' exact>

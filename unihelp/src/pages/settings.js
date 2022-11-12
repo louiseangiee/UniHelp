@@ -14,7 +14,6 @@ import { useCollection } from '../hooks/useCollection'
 import { projectFirestore } from '../firebase/config'
 
 
-
 function Settings() {
   const { logout, isPending } = useLogout()
   const { user } = useAuthContext()
@@ -97,6 +96,8 @@ function Settings() {
   const toggle = () => {
     setIsOpen(!isOpen);
   }
+
+  
   return (
     <>
       {error && <p className='error'>{error}</p>}
@@ -106,7 +107,7 @@ function Settings() {
         <SidebarHome isOpen={isOpen} toggle={toggle} />
         <NavbarMain toggle={toggle} />
 
-        <div id="form" class="px-5 container col-xl-7">
+        <div id="form" class="px-5 container col-xl-7" style={{height: '100vh'}}>
           <h1 class="header mx-0 px-0">Settings</h1>
 
           <Form>
@@ -167,7 +168,7 @@ function Settings() {
 
             <div className="row">
               {!isPending && <Button className="mb-3" variant="warning" onClick={logout}>Logout</Button>}
-              {isPending && <Button className="mb-3" variant="warning" disabled>Loging out...</Button>}
+              {isPending && <Button className="mb-3" variant="warning" disabled>Logging out...</Button>}
             </div>
 
             <p>{formError}</p>
