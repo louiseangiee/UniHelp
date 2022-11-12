@@ -35,9 +35,9 @@ export const useSignup = () => {
       })
 
       await projectFirestore.collection('userProgress').doc(`progress${res.user.uid}`).set({
-        'smu': {checklist: [{activity: '', deadline: '', done:false}]},
-        'ntu': {checklist: [{activity: '', deadline: '', done:false}]},
-        'nus': {checklist: [{activity: '', deadline: '', done:false}]},
+        'smu': [],
+        'ntu': [],
+        'nus': []
       })
 
 
