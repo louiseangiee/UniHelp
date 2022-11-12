@@ -9,9 +9,10 @@ export default function PostContent({ post }) {
   const { user } = useAuthContext()
 
   return (
+    <>
     <div style={{margin: '3%'}}>
       <h1>  </h1>
-      <Card className="p-4">
+      <Card className="p-4 w-100">
       <div className="post-content">
         
         <h2 style = {{fontWeight: 'bold'}}>{post.title}</h2>
@@ -26,6 +27,6 @@ export default function PostContent({ post }) {
       </div>
       </Card>
     </div>
-    
+    </>
   )
 }

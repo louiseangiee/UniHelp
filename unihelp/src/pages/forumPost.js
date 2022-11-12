@@ -8,6 +8,7 @@ import ForumGeneral from "../components/PostContent/PostContent"
 import NavbarMain from "../components/NavbarMain";
 import Footer from "../components/Footer";
 import SidebarHome from "../components/SidebarHome";
+import PostAComment from "../components/PostComments/PostAComment"
 
 //styles
 
@@ -30,8 +31,22 @@ export default function ForumPost() {
     <>
       <SidebarHome isOpen={isOpen} toggle={toggle} />
       <NavbarMain toggle={toggle} />
-      <ForumGeneral post={document}></ForumGeneral>
-      <ForumComments post={document}></ForumComments>
+      
+        <div className="d-flex row">
+          <div className="col-xl-5 col-lg-6">
+            <ForumGeneral post={document}/>
+            <PostAComment post={document}/>
+          </div>
+          <div className="col-xl-7 col-lg-6">
+            <ForumComments post={document}/> 
+          </div>
+          
+           
+        </div>
+      
+      
+      
+      
       <Footer />
     </>
   )
