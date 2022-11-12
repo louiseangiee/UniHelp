@@ -4,8 +4,8 @@ import PostAComment from "../PostComments/PostAComment";
 import Card from "react-bootstrap/Card"
 import Share from "../ForumCardList/Share";
 import { projectFirestore } from "../../firebase/config";
-import Liked from "./Liked.png";
-import NotLiked from "./NotLiked.png"
+// import Liked from "pictures/Liked.png";
+// import NotLiked from "pictures/NotLiked.png";
 
 
 export default function PostContent({ post }) {
@@ -53,7 +53,7 @@ export default function PostContent({ post }) {
 
   return (
     <>
-    <div style={{margin: '3%'}}>
+    <div style={{margin: '15px'}}>
       
       <Card className="p-4 w-100" style = {{borderRadius: '10px'}}>
       <div className="post-content">
@@ -102,9 +102,8 @@ export default function PostContent({ post }) {
                           className="img-fluid"
                           src={
                             post.upVoters.includes(email)
-                              ? {Liked}
-                              : {NotLiked}
-                            
+                              ? "/svgFiles/Liked.png"
+                              : "/svgFiles/notLiked.png"
                           }
                           onClick={() => {
                             upVote(post.id);

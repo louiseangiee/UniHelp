@@ -40,10 +40,6 @@ export default function PostAComment({ post }) {
     }
     }
 
-    
-
-  
-
   return (
     <>
     
