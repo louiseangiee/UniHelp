@@ -67,53 +67,86 @@ export default function ForumCardList({ posts }) {
   const voteButtons = {
     backgroundColor: 'transparent',
     color: 'transparent',
+    paddingRight: '0',
+    marginRight: '0px',
+    marginBottom: '0px'
   }
 
   const cardsStyle = {
     marginBottom: '20px',
-    padding: '20px',
+    paddingLeft: '0px',
+    paddingRight: '0px',
     height: '100%',
-    borderRadius: '0px',
-    width: '100%'
+    borderRadius: '20px',
+    width: '100%',
   }
 
   posts.sort((a, b) => (b.votes - a.votes));
 
   return (
+    
     <div className="forum-list">
       {posts.map((post) => (
 
-        <div key={post.id} className="d-flex flex-row" id="upvoteButtons" style={{ marginBottom: '20px', marginTop: '20px', border: 'solid darkgrey 2px' }}>
-          <div className="d-flex col-1" style={{ paddingTop: 'auto', paddingBottom: 'auto' }} >
-            <Card style={cardsStyle}>
-              <button id="upvote" className="btn shadow-none" style={voteButtons}>
-                <Card.Img variant='top' className="img-fluid" src={post.upVoters.includes(email)? 'svgFiles/Liked.png' : 'svgFiles/notLiked.png' } onClick={() => { upVote(post.id); }} />
-              </button>
-              <Card.Title className="text-center" style={{ marginTop: '20px', marginBottom: '20px' }}> {post.votes} </Card.Title>
-            </Card>
+
+          <div id={post.id} className="container" style={{marginLeft: '0px'}}>
+            <div className='row d-flex'>
+              <Card id={post.id} style={cardsStyle}>
+                <div style = {{transform: 'rotate(0)'}}>
+                <a className="stretched-link" href={`/forum/${post.id}`} />
+                <Card.Header style = {{borderTopRightRadius: '20px', borderTopLeftRadius: '20px'}}>
+                  {post.school}
+                  <br />
+                  <span className='username'>By: {post.poster}</span>
+                </Card.Header>
+
+                <Card.Body >
+                  
+                  <Card.Title> {post.title} </Card.Title>
+                  <p > 
+                  {post.content}
+                  
+                  </p>
+                  
+                  
+                </Card.Body>
+                </div>
+                
+              
+                <Card.Footer style = {{borderBottomRightRadius: '20px', borderBottomLeftRadius: '20px'}}>
+                <a className="stretched-link" href={`/forum/${post.id}`} style = {{position: 'relative'}}/>
+                  <div className='container'>
+                    <div className='row d-flex align-items-center justify-content-start'>
+                      <div className='col-1' style={{minWidth: '50px'}}>
+                        <button id="upvote" className="btn shadow-none" style={voteButtons}>
+                          <Card.Img variant='top' className="img-fluid" src={post.upVoters.includes(email)? 'svgFiles/Liked.png' : 'svgFiles/notLiked.png' } onClick={() => { upVote(post.id); }} style = {{width: "50%", minWidth: "25px"}}/>
+                        </button>
+                      </div>
+                      <div className='col-1 d-flex align-items-center px-0'>
+                        <p style={{fontSize: '18px', marginBottom: '0'}}>{post.votes} </p>
+                      </div>
+                    </div>
+                      
+
+                      
+              
+                    
+                  </div>
+                      
+                </Card.Footer>
+
+              </Card>
+            </div>
+           
           </div>
+          
 
-
-          <div id={post.id} className="d-flex col-11">
-            <Card id={post.id} style={cardsStyle}>
-              <Card.Header>
-                {post.school}
-                <br />
-                <span className='username'>By: {post.poster}</span>
-              </Card.Header>
-
-              <Card.Body>
-
-                <Card.Title> {post.title} </Card.Title>
-                {post.content}
-
-              </Card.Body>
-              <a className="stretched-link" href={`/forum/${post.id}`}></a>
-            </Card>
-          </div>
-        </div>
+          
+      
 
       ))}
+      
     </div>
+    
   )
 }

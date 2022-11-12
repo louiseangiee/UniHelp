@@ -91,7 +91,7 @@ export const Nava = styled(NavLink)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  margin-top: 11px;
+  margin-top: 8px;
   padding: 1.9rem 1rem;
   cursor: pointer;
 

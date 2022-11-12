@@ -47,14 +47,16 @@ const NavbarMain = ({ toggle }) => {
   }
 
   const style1 = {
-    borderBottom: '3px solid #FFE052'
+    borderBottom: '3px solid #FFE052',
+    marginTop: '8px'
   }
 
   const style2 = {
-    marginTop: '10px'
+    borderBottom: '3px solid #5271ff',
+    marginTop: '8px'
   }
 
-  const unis = ['/smu','/ntu','/nus']
+  const unis = ['/smu','/ntu','/nus','/main-page']
 
 
 
@@ -76,7 +78,7 @@ const NavbarMain = ({ toggle }) => {
                   onMouseLeave={hideDropdown}
                 >
                   <Dropdowns.Toggle block variant="Nava" bsPrefix="p-0" >
-                    <Nava activeStyle={{ borderBottom: '3px solid #FFE052' }} style={unis.includes(window.location.pathname)? style1: style2} to="/main-page">
+                    <Nava style={unis.includes(window.location.pathname)? style1: style2} to="/main-page">
                       MyUni
                     </Nava>
                   </Dropdowns.Toggle>
@@ -97,7 +99,7 @@ const NavbarMain = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <Nava
-                  activeStyle={{ borderBottom: '3px solid #FFE052' }}
+                  activeStyle={{ borderBottom: '3px solid #FFE052' ,marginTop: '8px'}} style={{marginTop: '8px'}}
                   to="/forum"
                 >
                   Forum
@@ -105,7 +107,7 @@ const NavbarMain = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <Nava
-                  activeStyle={{ borderBottom: '3px solid #FFE052' }}
+                  activeStyle={{ borderBottom: '3px solid #FFE052' ,marginTop: '8px'}} style={{marginTop: '8px'}}
                   to="/submit-results"
                 >
                   Submit Results
