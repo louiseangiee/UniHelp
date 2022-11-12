@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import Header from "./components/Header"
 import Form from "./components/Form";
 import TodosList from "./components/TodosList";
-import "./App.css";
+import "./checklist.css";
 
-const App = () => {
+const Checklist = () => {
 
     const initialState = JSON.parse(localStorage.getItem("todos")) || [];
     const[input, setInput] = useState("");
@@ -41,4 +41,4 @@ const App = () => {
         </div>);
 }
 
-export default App;
+export default Checklist;
