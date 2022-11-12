@@ -17,7 +17,7 @@ const Checklist = () => {
 
     
     return(
-        <div className = "container">
+        <div className = "mainContainer">
             <div className="app-wrapper">
                 <div>
                     <Header />
