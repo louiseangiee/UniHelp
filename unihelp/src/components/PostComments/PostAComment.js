@@ -52,7 +52,7 @@ export default function PostAComment({ post }) {
         <div className="row mt-4">
           <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label>Add new comment:</Form.Label>
-            <Form.Control as="textarea" value={newComment} onChange={(e) => setNewComment(e.target.value)} required/>
+            <Form.Control as="textarea" value={newComment} onChange={(e) => setNewComment(e.target.value)} style={{borderRadius: '10px'}} required/>
           </Form.Group>
         </div>
 

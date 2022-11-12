@@ -55,7 +55,7 @@ export default function PostContent({ post }) {
     <>
     <div style={{margin: '3%'}}>
       
-      <Card className="p-4 w-100" style = {{borderRadius: '20px'}}>
+      <Card className="p-4 w-100" style = {{borderRadius: '10px'}}>
       <div className="post-content">
         
         <h2 style = {{fontWeight: 'bold'}}>{post.title}</h2>
@@ -71,8 +71,8 @@ export default function PostContent({ post }) {
 
       <Card.Footer
                 style={{
-                  borderBottomRightRadius: "20px",
-                  borderBottomLeftRadius: "20px",
+                  borderBottomRightRadius: "10px",
+                  borderBottomLeftRadius: "10px",
                   paddingTop: "0px",
                   paddingBottom: "0px",
                 }}
