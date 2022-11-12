@@ -3,12 +3,11 @@ import Header from "./components/Header"
 import Form from "./components/Form";
 import TodosList from "./components/TodosList";
 import "./checklist.css";
-import "./App.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { projectFirestore } from '../../firebase/config'
 import { useCollection } from '../../hooks/useCollection'
 
-const App = () => {
+const Checklist = () => {
     const { user } = useAuthContext();
     const identifier = 'progress' + user.uid
     const [input, setInput] = useState("");
