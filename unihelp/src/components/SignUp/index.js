@@ -19,7 +19,6 @@ import {
 
 const SignUp = () => {
   const { addDocument, response } = useFirestore('accountDetails')
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
@@ -29,12 +28,50 @@ const SignUp = () => {
   const [englishTest, setEnglishTest] = useState("")
   const [gradDate, setGradDate] = useState("");
   const [DoB, setDoB] = useState("");
+  const [errorMessage, setErrorMessage] = useState('')
   const { signup, isPending, error } = useSignup()
 
   const { user } = useAuthContext()
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let error = []
+    setErrorMessage('')
+
+    if(email === ''){
+      error = [...error, 'university']
+    } 
+    if(password === ''){
+      error = [...error, 'program']
+    } 
+    if(fullName === ''){
+      error = [...error, 'admit year']
+    } 
+    if(studentType === ''){
+      error = [...error, 'nationality']
+    } 
+    if(studentOrigin === ''){
+      error = [...error, 'student status']
+    }
+    if(HSQualification === ''){
+      error = [...error, 'qualification']
+    }
+    if(gradDate === ''){
+      error = [...error, 'english test']
+      console.log(englishTest)
+    }
+    if(DoB === ''){
+      error = [...error, 'english test']
+      console.log(englishTest)
+    }
+
+    console.log(error)
+
+    if(error.length > 0){
+      setErrorMessage('Please fill in ' + error.join(', '))
+      return
+    } 
+    
     console.log(`
       Full name: ${fullName}
       Email: ${email}
@@ -100,9 +137,7 @@ const SignUp = () => {
                 onChange={(e) => setStudentOrigin(e.target.value)}
                 value={studentOrigin}
               >
-                <option selected>
-                  --Select an Option--
-                </option>
+                <option selected></option>
                 <option>Local Student</option>
                 <option>International Student</option>
               </Select>
@@ -114,9 +149,7 @@ const SignUp = () => {
                 onChange={(e) => setStudentType(e.target.value)}
                 value={studentType}
               >
-                <option selected>
-                  --Select an Option--
-                </option>
+                <option selected></option>
                 <option>Prospective Student</option>
                 <option>Current Student</option>
               </Select>
@@ -128,9 +161,7 @@ const SignUp = () => {
                 onChange={(e) => setHSQualification(e.target.value)}
                 value={HSQualification}
               >
-                <option selected value={null}>
-                  --Select an Option--
-                </option>
+                <option selected></option>
                 <option>International Baccalaurate</option>
                 <option>Cambridge A Level</option>
                 <option>Polytechnic Diploma</option>
@@ -146,9 +177,7 @@ const SignUp = () => {
                 onChange={(e) => setEnglishTest(e.target.value)}
                 value={englishTest}
               >
-                <option selected value={null}>
-                  --Select an Option--
-                </option>
+                <option selected></option>
                 <option>IELTS</option>
                 <option>TOEFL</option>
                 <option>TOEIC</option>

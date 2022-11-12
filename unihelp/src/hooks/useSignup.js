@@ -34,6 +34,12 @@ export const useSignup = () => {
         DoB
       })
 
+      await projectFirestore.collection('userProgress').doc(`progress${res.user.uid}`).set({
+        'smu': {deadline: '', checklist: []},
+        'ntu': {deadline: '', checklist: []},
+        'nus': {deadline: '', checklist: []}
+      })
+
 
       // dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user })

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavbarMain from '../components/NavbarMain';
-import Sidebar from '../components/Sidebar';
+import SidebarHome from '../components/SidebarHome';
 import Footer from '../components/Footer';
 import DataVisualisation from '../components/MUDataVisualisation';
 
@@ -12,7 +12,7 @@ function SMU() {
   }
   return (
    <>
-    <Sidebar isOpen={isOpen} toggle={toggle} />
+    <SidebarHome isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     <DataVisualisation />
     <Footer />
