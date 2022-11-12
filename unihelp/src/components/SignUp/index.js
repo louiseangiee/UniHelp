@@ -3,6 +3,7 @@ import { useSignup } from '../../hooks/useSignup'
 import { useFirestore } from '../../hooks/useFirestore'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { ReactSession } from 'react-client-session';
+import { HighSchoolQualificationArray } from "../HighSchoolQualification";
 
 import {
   Container,
@@ -96,6 +97,8 @@ const SignUp = () => {
     }
   }, [response.success])
 
+  console.log(HighSchoolQualificationArray)
+
 
   return (
     <>
@@ -165,12 +168,9 @@ const SignUp = () => {
                 value={HSQualification}
               >
                 <option selected></option>
-                <option>International Baccalaurate</option>
-                <option>Cambridge A Level</option>
-                <option>Polytechnic Diploma</option>
-                <option>SAT</option>
-                <option>ACT</option>
-                <option>Other</option>
+                {HighSchoolQualificationArray.map((qualification) => 
+                  <option key={qualification}>{qualification}</option>
+                )}
               </Select>
 
               <FormLabel htmlFor="english-test">English Proficiency Test</FormLabel>

@@ -1,0 +1,13 @@
+export const EnglishQualification = {
+    '': {'min': 0, 'max': 0},
+    'IELTS': {'min': 1, 'max': 9},
+    'TOEFL': {'min': 0, 'max': 120},
+    'Inapplicable': {'min': 0, 'max': 0}
+}
+
+var tempArr = []
+for(var englishTest in EnglishQualification) {
+    tempArr.push(englishTest)
+}
+
+export const EnglishQualificationArray = tempArr;
