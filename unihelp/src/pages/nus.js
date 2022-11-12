@@ -15,7 +15,7 @@ function NUS() {
   }
   return (
    <>
-    <SidebarHome isOpen={isOpen} toggle={toggle} />
+    <SidebarHome  isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     <DataVisualisation />
     <QuickChart />
