@@ -30,8 +30,21 @@ export default function ForumPost() {
     <>
       <SidebarHome isOpen={isOpen} toggle={toggle} />
       <NavbarMain toggle={toggle} />
-      <ForumGeneral post={document}></ForumGeneral>
-      <ForumComments post={document}></ForumComments>
+      
+        <div className="d-flex row">
+          <div className="col-xl-5 col-lg-6">
+            <ForumGeneral post={document}/>
+          </div>
+          <div className="col-xl-7 col-lg-6">
+            <ForumComments post={document}/> 
+          </div>
+          
+           
+        </div>
+      
+      
+      
+      
       <Footer />
     </>
   )
