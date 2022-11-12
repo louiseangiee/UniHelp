@@ -23,8 +23,8 @@ function HeroSection() {
       <HeroBg>
       </HeroBg>
       <HeroContent>
-        <HeroH1><Typed strings={["University Application Made Easy", "University Application Made Simple", "University Application Made Fuss-Free"]}
-            typeSpeed={40}
+        <HeroH1>University Application Made <Typed strings={["Easy", "Simple", "Fuss-Free"]}
+            typeSpeed={70}
             backSpeed={50}
             loop/></HeroH1>
         <HeroP>
