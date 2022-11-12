@@ -9,7 +9,9 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-const BigCalendar = () => {
+
+const BigCalendar = (uni) => {
+    //console.log(uni.uni)
     const locales = {
         "en-US": require("date-fns/locale/en-US"),
     };
@@ -21,25 +23,48 @@ const BigCalendar = () => {
         getDay,
         locales,
     });
+    const getEvents = (uni) => {
+        var event = []
+        if (uni.uni === "nus") {
+            console.log(uni.uni)
+            event = [
+                {
+                    title: "Application Closing Date",
+                    start: new Date(2023, 0, 31),
+                    end: new Date(2023, 0, 31),
 
-    const events = [
-        {
-            title: "Big Meeting",
-            allDay: true,
-            start: new Date(2022, 11, 1),
-            end: new Date(2022, 11, 20),
-        },
-        {
-            title: "Vacation",
-            start: new Date(2021, 6, 7),
-            end: new Date(2021, 6, 10),
-        },
-        {
-            title: "Conference",
-            start: new Date(2021, 6, 20),
-            end: new Date(2021, 6, 23),
-        },
-    ];
+                }
+            ]
+        }
+
+        if (uni.uni === "ntu") {
+            console.log(uni.uni)
+            event = [
+                {
+                    title: "Application Closing Date",
+                    start: new Date(2023, 1, 21),
+                    end: new Date(2023, 1, 21),
+
+                }
+            ]
+        }
+
+        if (uni.uni === "smu") {
+            console.log(uni.uni)
+            event = [
+                {
+                    title: "Application Closing Date",
+                    start: new Date(2023, 2, 19),
+                    end: new Date(2023, 2, 19),
+
+                }
+            ]
+        }
+        console.log(event)
+
+        return event;
+    }
+    const events = getEvents(uni);
 
     const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
     const [allEvents, setAllEvents] = useState(events);
@@ -47,7 +72,7 @@ const BigCalendar = () => {
     function handleAddEvent() {
 
         for (let i = 0; i < allEvents.length; i++) {
-            
+
             const d1 = new Date(allEvents[i].start);
             const d2 = new Date(newEvent.start);
             const d3 = new Date(allEvents[i].end);
@@ -66,6 +91,7 @@ const BigCalendar = () => {
         setAllEvents([...allEvents, newEvent]);
     };
 
+    console.log(allEvents)
     return (
         <div className="App">
             <h1>Calendar</h1>
@@ -74,7 +100,7 @@ const BigCalendar = () => {
                 <input type="text" placeholder="Add Title" style={{ width: "20%", marginRight: "10px" }} value={newEvent.title} onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} />
                 <DatePicker placeholderText="Start Date" style={{ marginRight: "10px" }} selected={newEvent.start} onChange={(start) => setNewEvent({ ...newEvent, start })} />
                 <DatePicker placeholderText="End Date" selected={newEvent.end} onChange={(end) => setNewEvent({ ...newEvent, end })} />
-                <button stlye={{ marginTop: "10px" }} onClick={handleAddEvent}>
+                <button style={{ marginTop: "10px" }} onClick={handleAddEvent}>
                     Add Event
                 </button>
             </div>

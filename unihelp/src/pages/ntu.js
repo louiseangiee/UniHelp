@@ -4,6 +4,8 @@ import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import DataVisualisation from '../components/MUDataVisualisation';
 import QuickChart from '../components/QuickChart';
+import BigCalendar from '../components/Calendar';
+
 
 function NTU() {
   const [isOpen, setIsOpen]  = useState(false);
@@ -16,6 +18,7 @@ function NTU() {
     <Sidebar isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     <DataVisualisation />
+    <BigCalendar uni="ntu" />
     <Footer />
    </> 
   )

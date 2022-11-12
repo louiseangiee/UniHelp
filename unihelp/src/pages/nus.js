@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import DataVisualisation from '../components/MUDataVisualisation';
 import QuickChart from '../components/QuickChart';
 import BigCalendar from '../components/Calendar';
-
+import GetScore from '../components/QuickChart'
 function NUS() {
   const [isOpen, setIsOpen]  = useState(false);
 
@@ -17,8 +17,8 @@ function NUS() {
     <Sidebar isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     <DataVisualisation />
-    <QuickChart />
-    <BigCalendar />
+    <GetScore />
+    <BigCalendar uni="nus"/>
     <Footer />
    </> 
   )
