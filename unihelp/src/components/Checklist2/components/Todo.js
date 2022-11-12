@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { projectFirestore } from "../../../firebase/config";
+import { useAuthContext } from "../../../hooks/useAuthContext";
 // import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 // import EditIcon from 
 // import DeleteIcon
@@ -9,7 +11,7 @@ export default function Todo({
     handleDelete,
     handleEdit,
 }) {
-    const[newTitle,setNewTitle] =React.useState(todo.title);
+    const[newTitle,setNewTitle] = useState(todo.title);
     
     const handleChange = (e) => {
         e.preventDefault();
