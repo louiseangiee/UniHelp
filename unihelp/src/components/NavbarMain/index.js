@@ -66,7 +66,7 @@ const NavbarMain = ({ toggle }) => {
         <Nav scrollNav={scrollNav}>
           <NavbarContainer>
             <NavLogo onClick={toggleHome}>
-              <img src={"logos/Unihelp_white.png"} width="80" />
+              <img src={"/logos/Unihelp_white.png"} width="80" />
             </NavLogo>
             <MobileIcon onClick={toggle}>
               <FaBars />
