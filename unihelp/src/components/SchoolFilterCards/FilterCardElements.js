@@ -12,3 +12,4 @@ export const FilterCard = styled(Card)`
         cursor: pointer;
     }
 `
+    

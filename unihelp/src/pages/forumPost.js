@@ -35,7 +35,7 @@ export default function ForumPost() {
         <div className="d-flex row">
           <div className="col-xl-5 col-lg-6">
             <ForumGeneral post={document}/>
-            <PostAComment post={document}/>
+            
           </div>
           <div className="col-xl-7 col-lg-6">
             <ForumComments post={document}/> 

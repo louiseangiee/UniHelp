@@ -42,15 +42,11 @@ export default function PostAComment({ post }) {
 
     
 
-  //STYLES
-  const PostCommentStyle = {
-    margin: '3%',
-
-  }
+  
 
   return (
     <>
-    <div className='post-comments' style = {PostCommentStyle}>
+    
 
       <Form>
         <div className="row mt-4">
@@ -67,7 +63,7 @@ export default function PostAComment({ post }) {
       </Form>
 
       <p>{error}</p>
-    </div>
+    
     </>
   )
 }

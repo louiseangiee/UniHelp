@@ -7,6 +7,7 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button'
 import Card from 'react-bootstrap/Card'
+import PostAComment from './PostAComment'
 
 export default function PostComments({ post }) {
   const { user } = useAuthContext()
@@ -44,27 +45,28 @@ export default function PostComments({ post }) {
 
   //STYLES
   const PostCommentStyle = {
-    margin: '3%',
-
+    margin: '3%'
+    
   }
 
   return (
     <>
     <div className='post-comments' style = {PostCommentStyle}>
     
-      <Card name = "commentsList" className='p-4'>
+      <Card name = "commentsList" className='p-4 w-100'>
+      <div className='post-comments'>
       <h4 style={{fontWeight: 'bold'}}>Post Comments</h4>
       <hr></hr>
-      <ul style={{listStyle: "none"}}>
+      <ul style={{listStyle: "none", overflowY:'auto', overflowX: 'hidden', height: '450px'}}>
         {post.comments.length > 0 && post.comments.map(comment => (
           <li key={comment.id}>
           <div name = "userDates" className='row'>
-            <div className='col-xl-4'>
+            <div className='col-xl-5'>
               <div className="comment-poster">
                 <p style={{fontWeight:"bold"}}>{comment.email}</p>
               </div>
             </div>
-            <div className='col-xl-6'>
+            <div className='col-xl-5'>
               <div className='comment-date'>
                 <p>{formatDistanceToNow(comment.createdAt.toDate(), {addSuffix: true})}</p>
               </div>
@@ -83,8 +85,9 @@ export default function PostComments({ post }) {
           
         ))}
       </ul>
+      </div>
       </Card>
-
+      <PostAComment post={post}/>
 
       <p>{error}</p>
     </div>
