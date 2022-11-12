@@ -100,7 +100,7 @@ const NavbarMain = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <Nava
-                  activeStyle={{ borderBottom: '3px solid #FFE052' }}
+                  activeStyle={{ borderBottom: '3px solid #FFE052' ,marginTop: '8px'}}
                   to="/forum"
                 >
                   Forum
@@ -108,7 +108,7 @@ const NavbarMain = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <Nava
-                  activeStyle={{ borderBottom: '3px solid #FFE052' }}
+                  activeStyle={{ borderBottom: '3px solid #FFE052' ,marginTop: '8px'}}
                   to="/submit-results"
                 >
                   Submit Results
