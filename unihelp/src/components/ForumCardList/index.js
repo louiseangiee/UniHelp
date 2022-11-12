@@ -91,7 +91,7 @@ export default function ForumCardList({ posts }) {
   return (
     <div className="forum-list">
       {posts.map((post) => (
-        <div id={post.id} className="container" style={{ marginLeft: "0px" }}>
+        <div id={post.id} className="container" style={{ }}>
           <div className="row d-flex">
             <ForumCard id={post.id}>
               <div style={{ transform: "rotate(0)" }}>
