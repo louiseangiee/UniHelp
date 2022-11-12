@@ -12,6 +12,9 @@ import {
   CFormLabel,
   CH1,
 } from "./AddPostElements";
+import { ReactSession } from 'react-client-session';
+ReactSession.setStoreType("localStorage");
+
 
 const AddPostComp = () => {
   const { addDocument, response } = useFirestore("forumPost");
@@ -45,6 +48,9 @@ const AddPostComp = () => {
       upVoters:[],
       downVoters:[]
     });
+
+    ReactSession.set("addedPost", true)
+     
   };
 
   useEffect(() => {

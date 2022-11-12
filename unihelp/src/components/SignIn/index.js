@@ -1,8 +1,10 @@
 import React from 'react';
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { useLogin } from '../../hooks/useLogin'
-
+import toast, { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { ReactSession } from 'react-client-session';
+
 import {
   Container,
   FormWrap,
@@ -17,6 +19,8 @@ import {
 } from './SigninElements';
 
 const SignIn = () => {
+  ReactSession.setStoreType("localStorage");
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { login, error, isPending } = useLogin()
@@ -24,7 +28,7 @@ const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     login(email, password)
-    console.log(email, password)
+    ReactSession.set("isLoggedin", true)
   }
   return (
     <>
@@ -45,7 +49,6 @@ const SignIn = () => {
               { !isPending && <FormButton type='submit'>Continue</FormButton> }
               { isPending && <FormButton type='submit'>Loading...</FormButton> }
               { error && <p>{error}</p> }
-              
               <Text>No account? <Link to='/signup'>Create one</Link></Text>
             </Form>
           </FormContent>
@@ -53,6 +56,7 @@ const SignIn = () => {
       </Container>
     </>
   );
+
 };
 
 export default SignIn;

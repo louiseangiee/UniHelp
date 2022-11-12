@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import NavbarMain from '../components/NavbarMain';
 import SidebarHome from '../components/SidebarHome';
-
-
 import Footer from '../components/Footer';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './stylesheets/submit-results.css';
-
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useLogout } from '../hooks/useLogout'
 import { useCollection } from '../hooks/useCollection'
 import { projectFirestore } from '../firebase/config'
+import { ReactSession } from 'react-client-session';
 
 
 function Settings() {
   const { logout, isPending } = useLogout()
+  ReactSession.set("isLoggedout", true)
   const { user } = useAuthContext()
   const [isOpen, setIsOpen] = useState(false);
   const [isPendingData, setIsPendingData] = useState(false)
   const [currentData, setCurrentData] = useState(null)
   const [error, setError] = useState(false)
-
   const [formFullName, setFormFullName] = useState("");
   const [formStudentType, setFormStudentType] = useState("");
   const [formStudentOrigin, setFormStudentOrigin] = useState("");

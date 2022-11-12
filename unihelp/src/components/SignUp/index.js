@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSignup } from '../../hooks/useSignup'
 import { useFirestore } from '../../hooks/useFirestore'
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { ReactSession } from 'react-client-session';
 
 import {
   Container,
@@ -30,48 +31,50 @@ const SignUp = () => {
   const [DoB, setDoB] = useState("");
   const [errorMessage, setErrorMessage] = useState('')
   const { signup, isPending, error } = useSignup()
-
   const { user } = useAuthContext()
+  ReactSession.setStoreType("localStorage");
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let error = []
     setErrorMessage('')
+    ReactSession.set("isSignedup", true)
 
-    if(email === ''){
-      error = [...error, 'university']
-    } 
-    if(password === ''){
-      error = [...error, 'program']
-    } 
-    if(fullName === ''){
-      error = [...error, 'admit year']
-    } 
-    if(studentType === ''){
-      error = [...error, 'nationality']
-    } 
-    if(studentOrigin === ''){
-      error = [...error, 'student status']
+    if (email === '') {
+      error = [...error, 'email']
     }
-    if(HSQualification === ''){
-      error = [...error, 'qualification']
+    if (password === '') {
+      error = [...error, 'password']
     }
-    if(gradDate === ''){
-      error = [...error, 'english test']
+    if (fullName === '') {
+      error = [...error, 'fullName']
+    }
+    if (studentType === '') {
+      error = [...error, 'studentType']
+    }
+    if (studentOrigin === '') {
+      error = [...error, 'studentOrigin']
+    }
+    if (HSQualification === '') {
+      error = [...error, 'HSQualification']
+    }
+    if (gradDate === '') {
+      error = [...error, 'gradDate']
       console.log(englishTest)
     }
-    if(DoB === ''){
-      error = [...error, 'english test']
+    if (DoB === '') {
+      error = [...error, 'DoB']
       console.log(englishTest)
     }
 
     console.log(error)
 
-    if(error.length > 0){
+    if (error.length > 0) {
       setErrorMessage('Please fill in ' + error.join(', '))
       return
-    } 
-    
+    }
+
     console.log(`
       Full name: ${fullName}
       Email: ${email}
@@ -81,9 +84,9 @@ const SignUp = () => {
       Graduation Date: ${gradDate}
       Date of Birth: ${DoB}
     `);
-    
+
     signup(email, password, fullName, studentType, studentOrigin, HSQualification, englishTest, gradDate, DoB);
-    
+
   };
 
   useEffect(() => {
@@ -201,9 +204,9 @@ const SignUp = () => {
                 value={DoB}
               />
 
-              { !isPending && <FormButton type='submit'>Continue</FormButton> }
-              { isPending && <FormButton type='submit'>Loading...</FormButton> }
-              { error && <p>{error}</p> }
+              {!isPending && <FormButton type='submit'>Continue</FormButton>}
+              {isPending && <FormButton type='submit'>Loading...</FormButton>}
+              {error && <p>{error}</p>}
               <Text>Forgot password</Text>
             </Form>
           </FormContent>

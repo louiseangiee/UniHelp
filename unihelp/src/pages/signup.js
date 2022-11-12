@@ -8,7 +8,6 @@ function SignupPage() {
     <>
       <ScrollToTop />
       <SignUp />
-      <SignUpSuccess />
     </>
   );
 }
