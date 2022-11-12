@@ -21,6 +21,7 @@ const AddPostComp = () => {
   const [school, setSchool] = useState("");
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
+  const [errorMessage, setErrorMessage] = useState("")
 
   const { user } = useAuthContext();
 
@@ -31,11 +32,25 @@ const AddPostComp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`
-      School: ${school}
-      Content: ${content}
-      Title: ${title}
-    `);
+    setErrorMessage("")
+    let error = []
+
+    if(title.trim() === ''){
+      error.push('title')
+    } 
+    if(content.trim() === ''){
+      error.push('content')
+    } 
+    if(school === '-- select an option --'){
+      error.push('school')
+    }
+
+    if(error.length > 0){
+      setErrorMessage(`Please enter ${error.join(', ')}`)
+      return
+    }
+
+
 
     addDocument({
       poster: user.email,
@@ -107,6 +122,7 @@ const AddPostComp = () => {
             POST
           </CButton>
         </CFormGroup>
+        <p>{errorMessage}</p>
       </Form>
     </CContainer>
   );
