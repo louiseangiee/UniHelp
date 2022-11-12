@@ -14,9 +14,21 @@ import Overlay from 'react-bootstrap/Overlay';
 import ForumCardList from '../components/ForumCardList';
 import FilterForums from '../components/SchoolFilterCards/index';
 import AddPostButton from '../components/AddPostButton';
+import toast, { Toaster } from 'react-hot-toast';
+import { ReactSession } from 'react-client-session';
+ReactSession.setStoreType("localStorage");
 
 function Forum() {
-  const [isOpen, setIsOpen]  = useState(false);
+
+  useEffect(() => {
+    while (ReactSession.get("addedPost")) {
+      toast.success('You have added a Post')
+      ReactSession.set("addedPost", false)
+    }
+  }, console.log('error'));
+
+
+  const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -32,9 +44,9 @@ function Forum() {
   const changeFilter = (newFilter) => {
     setFilter(newFilter)
   }
-  
+
   const posts = documents ? documents.filter(document => {
-    switch(filter) {
+    switch (filter) {
       case 'all':
         return true
       case 'NUS':
@@ -48,34 +60,47 @@ function Forum() {
   }) : null
 
   return (
-    
-   <>
-    <SidebarHome isOpen={isOpen} toggle={toggle} />
-    <NavbarMain toggle={toggle} />
-    
-    {/* Make Searchbar stick to navbar */}
-    {error && <p className='error'>{error}</p>}
 
-    {/* <div id = "searchBar">
+    <>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          // Default options for specific types
+          success: {
+            duration: 2000,
+          },
+          style: {
+            border: '2px solid #5271ff',
+            padding: '16px',
+          },
+        }}
+      />
+      <SidebarHome isOpen={isOpen} toggle={toggle} />
+      <NavbarMain toggle={toggle} />
+
+      {/* Make Searchbar stick to navbar */}
+      {error && <p className='error'>{error}</p>}
+
+      {/* <div id = "searchBar">
       <SearchBar placeholder="Search" data={tempfiletest} />
     </div> */}
 
-    <div id= "schoolSelection">
-      <h1 class ="header">Filter by:</h1>
-      {documents && <FilterForums changeFilter={changeFilter} />}
-    </div>
+      <div id="schoolSelection">
+        <h1 class="header">Filter by:</h1>
+        {documents && <FilterForums changeFilter={changeFilter} />}
+      </div>
 
-    <div id="forumBoxes">
-      {posts && <ForumCardList posts={posts} />}
-    </div>
-        
+      <div id="forumBoxes">
+        {posts && <ForumCardList posts={posts} />}
+      </div>
+
       {/* Filter By : <FilterForums></FilterForums> */}
 
-    <AddPostButton></AddPostButton>
-    
+      <AddPostButton></AddPostButton>
 
-    <Footer/> 
-   </> 
+
+      <Footer />
+    </>
   )
 }
 
