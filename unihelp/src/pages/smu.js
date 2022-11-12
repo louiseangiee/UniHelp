@@ -16,7 +16,6 @@ function SMU() {
     <SidebarHome isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     <DataVisualisation />
-    <Checklist />
     <Footer />
    </> 
   )
