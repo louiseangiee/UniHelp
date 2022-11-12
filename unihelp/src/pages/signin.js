@@ -10,7 +10,6 @@ function SigninPage() {
     <>
       <ScrollToTop />
       <SignIn />
-      <SignInSuccess />
     </>
   );
 }
