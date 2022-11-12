@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import DataVisualisation from '../components/MUDataVisualisation';
 import QuickChart from '../components/QuickChart';
 import BigCalendar from '../components/Calendar';
-import Checklist2 from '../components/Checklist2/index';
+import Checklist2 from '../components/Checklist2';
 
 function NUS() {
   const [isOpen, setIsOpen]  = useState(false);
