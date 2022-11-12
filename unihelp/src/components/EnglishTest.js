@@ -1,4 +1,4 @@
-export const EnglishQualification = {
+export const EnglishTest = {
     '': {'min': 0, 'max': 0},
     'IELTS': {'min': 1, 'max': 9},
     'TOEFL': {'min': 0, 'max': 120},
@@ -6,8 +6,8 @@ export const EnglishQualification = {
 }
 
 var tempArr = []
-for(var englishTest in EnglishQualification) {
-    tempArr.push(englishTest)
+for(var test in EnglishTest) {
+    tempArr.push(test);
 }
 
-export const EnglishQualificationArray = tempArr;
+export const EnglishArray = tempArr;

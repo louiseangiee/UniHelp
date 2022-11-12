@@ -10,6 +10,8 @@ import { useLogout } from '../hooks/useLogout'
 import { useCollection } from '../hooks/useCollection'
 import { projectFirestore } from '../firebase/config'
 import { ReactSession } from 'react-client-session';
+import { HighSchoolQualificationArray } from '../components/HighSchoolQualification'
+import { EnglishArray } from "../components/EnglishTest";
 
 
 function Settings() {
@@ -30,8 +32,6 @@ function Settings() {
   const [formError, setFormError] = useState('')
 
 
-
-  console.log(user.uid)
 
   useEffect(() => {
     setIsPendingData(true)
@@ -128,22 +128,18 @@ function Settings() {
                 <Form.Label>High School Qualification</Form.Label>
                 <Form.Control as="select" value={formHSQualification} onChange={(e) => setFormHSQualification(e.target.value)}>
                   <option disabled selected>-- select an option --</option>
-                  <option>International Baccalaurate</option>
-                  <option>Cambridge A Level</option>
-                  <option>Polytechnic Diploma</option>
-                  <option>SAT</option>
-                  <option>ACT</option>
-                  <option>Other</option>
+                  {HighSchoolQualificationArray.map((qualification) => 
+                  <option key={qualification}>{qualification}</option>
+                  )}
                 </Form.Control>
               </Form.Group>
 
               <Form.Group className="mb-3 col-lg-6" controlId="select">
                 <Form.Label>English Proficiency Test</Form.Label>
                 <Form.Control as="select" value={formEnglishTest} onChange={(e) => setFormEnglishTest(e.target.value)}>
-                  <option disabled selected>-- select an option --</option>
-                  <option>IELTS</option>
-                  <option>TOEFL</option>
-                  <option>TOEIC</option>
+                {EnglishArray.map((english) => 
+                  <option key={english}>{english}</option>
+                )}
                 </Form.Control>
               </Form.Group>
 

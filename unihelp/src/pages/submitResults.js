@@ -9,6 +9,8 @@ import { useFirestore } from '../hooks/useFirestore'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { schoolsAndMajors } from '../components/Majors';
 import toast, { Toaster } from 'react-hot-toast';
+import { HighSchoolQualification, HighSchoolQualificationArray } from '../components/HighSchoolQualification';
+import { EnglishArray, EnglishTest } from '../components/EnglishTest';
 
 
 const SubmitResults = () => {
@@ -132,7 +134,7 @@ const SubmitResults = () => {
             <Form.Label>Program</Form.Label>
             <Form.Control as="select"
               onChange={(e) => setProgram(e.target.value)} value={program}>
-              <option selected></option>
+              <option disabled selected>Select university first</option>
               {schoolsAndMajors[university].map((major) => <option key={university + major}>{major}</option>)}
             </Form.Control>
           </Form.Group>
@@ -166,10 +168,9 @@ const SubmitResults = () => {
               <Form.Label>Academic Qualification Submitted</Form.Label>
               <Form.Control as="select"
                 onChange={(e) => setQualification(e.target.value)} value={qualification}>
-                <option selected></option>
-                <option>International Baccalaureate</option>
-                <option>Cambridge A Level</option>
-                <option>Indonesian Ujian Nasional</option>
+                {HighSchoolQualificationArray.map((qualification) => 
+                  <option key={qualification}>{qualification}</option>
+                )}
               </Form.Control>
             </Form.Group>
 
@@ -177,6 +178,9 @@ const SubmitResults = () => {
               <Form.Label>Grade</Form.Label>
               <Form.Control type="number"
                 onChange={(e) => setGrade(e.target.value)}
+
+                min={HighSchoolQualification[qualification].min}
+                max={HighSchoolQualification[qualification].max}
                 value={grade}
                 placeholder="e.g. 90" />
             </Form.Group>
@@ -188,10 +192,9 @@ const SubmitResults = () => {
               <Form.Label>English Test Submitted</Form.Label>
               <Form.Control as="select"
                 onChange={(e) => setEnglishTest(e.target.value)} value={englishTest}>
-                <option selected></option>
-                <option>IELTS</option>
-                <option>TOEFL</option>
-                <option>Inapplicable</option>
+                {EnglishArray.map((qualification) => 
+                  <option key={qualification}>{qualification}</option>
+                )}
               </Form.Control>
             </Form.Group>
 
@@ -201,6 +204,8 @@ const SubmitResults = () => {
                 disabled={englishTest === 'Inapplicable' || englishTest === '' ? true : false}
                 onChange={(e) => setEnglishGrade(e.target.value)}
                 value={englishTest === 'Inapplicable' || englishTest === '' ? '' : englishGrade}
+                min={EnglishTest[englishTest].min}
+                max={EnglishTest[englishTest].max}
                 placeholder="e.g. 7" />
             </Form.Group>
           </div>

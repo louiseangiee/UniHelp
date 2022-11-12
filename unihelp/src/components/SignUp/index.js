@@ -4,6 +4,7 @@ import { useFirestore } from '../../hooks/useFirestore'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { ReactSession } from 'react-client-session';
 import { HighSchoolQualificationArray } from "../HighSchoolQualification";
+import { EnglishArray } from "../EnglishTest";
 
 import {
   Container,
@@ -167,7 +168,6 @@ const SignUp = () => {
                 onChange={(e) => setHSQualification(e.target.value)}
                 value={HSQualification}
               >
-                <option selected></option>
                 {HighSchoolQualificationArray.map((qualification) => 
                   <option key={qualification}>{qualification}</option>
                 )}
@@ -178,12 +178,10 @@ const SignUp = () => {
                 required
                 id="english-test"
                 onChange={(e) => setEnglishTest(e.target.value)}
-                value={englishTest}
-              >
-                <option selected></option>
-                <option>IELTS</option>
-                <option>TOEFL</option>
-                <option>TOEIC</option>
+                value={englishTest}>
+                {EnglishArray.map((qualification) => 
+                  <option key={qualification}>{qualification}</option>
+                )}
               </Select>
 
               <FormLabel htmlFor="graddate">Date of Graduation</FormLabel>
