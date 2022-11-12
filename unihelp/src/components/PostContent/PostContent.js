@@ -12,7 +12,7 @@ export default function PostContent({ post }) {
     <>
     <div style={{margin: '3%'}}>
       <h1>  </h1>
-      <Card className="p-4">
+      <Card className="p-4 w-100">
       <div className="post-content">
         
         <h2 style = {{fontWeight: 'bold'}}>{post.title}</h2>
