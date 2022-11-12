@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./forumElements.css";
+import { ForumCard } from "./ForumCardElements";
 
 //bootstrap components
 import Card from "react-bootstrap/Card";
@@ -99,7 +100,7 @@ export default function ForumCardList({ posts }) {
       {posts.map((post) => (
         <div id={post.id} className="container" style={{ marginLeft: "0px" }}>
           <div className="row d-flex">
-            <Card id={post.id} style={cardsStyle}>
+            <ForumCard id={post.id}>
               <div style={{ transform: "rotate(0)" }}>
                 <a className="stretched-link" href={`/forum/${post.id}`} />
                 <Card.Header
@@ -126,8 +127,8 @@ export default function ForumCardList({ posts }) {
                 style={{
                   borderBottomRightRadius: "20px",
                   borderBottomLeftRadius: "20px",
-                  paddingTop: '0px',
-                  paddingBottom: '0px'
+                  paddingTop: "0px",
+                  paddingBottom: "0px",
                 }}
               >
                 <a
@@ -191,7 +192,7 @@ export default function ForumCardList({ posts }) {
                   </div>
                 </div>
               </Card.Footer>
-            </Card>
+            </ForumCard>
           </div>
         </div>
       ))}
