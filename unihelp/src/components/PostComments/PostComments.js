@@ -53,7 +53,7 @@ export default function PostComments({ post }) {
     <>
     <div className='post-comments' style = {PostCommentStyle}>
     
-      <Card name = "commentsList" className='p-4 w-100' style= {{borderRadius: '20px'}}>
+      <Card name = "commentsList" className='p-4 w-100'>
       <div className='post-comments'>
       <h4 style={{fontWeight: 'bold'}}>Post Comments</h4>
       <hr></hr>
@@ -87,7 +87,7 @@ export default function PostComments({ post }) {
       </ul>
       </div>
       </Card>
-      
+      <PostAComment post={post}/>
 
       <p>{error}</p>
     </div>

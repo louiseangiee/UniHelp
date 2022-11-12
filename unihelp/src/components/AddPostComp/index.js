@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
-// import Button from "react-bootstrap/esm/Button";
 import Form from "react-bootstrap/Form";
 import FormText from "react-bootstrap/esm/FormText";
 import { useFirestore } from "../../hooks/useFirestore";

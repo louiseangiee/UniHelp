@@ -30,10 +30,10 @@ export default function FilterForums({ changeFilter }) {
             <div className = "col-xl-3 col-lg-6 col-md-6" key={f}>
               <FilterCard 
                 onClick={() => handleClick(f)} 
-                bg = {currentFilter === f ? 'primary' : ''}
+                style={{backgroundColor: (currentFilter === f ? '#5271FF' : '')}}
                 text={currentFilter === f ? 'white' : 'dark'}>
                 <Card.Body>
-                  <Card.Img variant='top' className="img-fluid" className = "logos" src = {`logos/${f}_logo.png`} style={cardImages}/>
+                  <Card.Img variant='top' className="img-fluid logos" src = {`logos/${f}_logo.png`} style={cardImages}/>
                   <Card.Title id = {`${f} title`} className = "CardSchoolTitle" style={{textAlign: 'center', fontSize: '25px'}}>{f}</Card.Title>
                 </Card.Body>
               </FilterCard>
