@@ -98,7 +98,7 @@ export default function ForumCardList({ posts }) {
           <div className="d-flex col-1" style={{ paddingTop: 'auto', paddingBottom: 'auto' }} >
             <Card style={cardsStyle}>
               <button id="upvote" className="btn shadow-none" style={voteButtons}>
-                <Card.Img variant='top' className="img-fluid" src="logos/upvote.png" style={post.upVoters.includes(email)? style1: style2} onClick={() => { upVote(post.id); }} />
+                <Card.Img variant='top' className="img-fluid" src="logos/upvote.png" style={post.upVoters.includes(email)? style2 : style1} onClick={() => { upVote(post.id); }} />
               </button>
               <Card.Title className="text-center" style={{ marginTop: '20px', marginBottom: '20px' }}> {post.votes} </Card.Title>
             </Card>
