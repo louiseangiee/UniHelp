@@ -85,14 +85,6 @@ export default function ForumCardList({ posts }) {
     marginBottom: "0px",
   };
 
-  const cardsStyle = {
-    marginBottom: "20px",
-    paddingLeft: "0px",
-    paddingRight: "0px",
-    height: "100%",
-    borderRadius: "20px",
-    width: "100%",
-  };
 
   posts.sort((a, b) => b.votes - a.votes);
 
