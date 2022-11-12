@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { MdKeyboardArrowRight, MdArrowForward } from 'react-icons/md';
 
 export const MUContainer = styled.div`
-  height: ${({ intro }) => (intro ? "90vh" : "75.7vh")};
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
