@@ -4,7 +4,7 @@ import Form from "./components/Form";
 import TodosList from "./components/TodosList";
 import "./checklist.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
-import { projectFirestore } from '../../firebase/config'
+// import { projectFirestore } from '../../firebase/config'
 import { useCollection } from '../../hooks/useCollection'
 
 const Checklist = () => {
@@ -18,15 +18,15 @@ const Checklist = () => {
     useEffect(() => {
         setIsPendingData(true)
 
-        const unsub = projectFirestore.collection('userProgress').doc(identifier).get().then(doc => {
-            if (doc.exists) {
-                setIsPendingData(false)
-                var data = doc.data()
-                console.log(data)
-                setTodos(data.smu.checklist)
-                //console.log(data.smu.checklist)
-            }
-        })
+        // const unsub = projectFirestore.collection('userProgress').doc(identifier).get().then(doc => {
+        //     if (doc.exists) {
+        //         setIsPendingData(false)
+        //         var data = doc.data()
+        //         console.log(data)
+        //         setTodos(data.smu.checklist)
+        //         //console.log(data.smu.checklist)
+        //     }
+        // })
     }, [user.uid]);
 
     return(

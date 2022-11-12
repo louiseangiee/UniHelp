@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import DataVisualisation from '../components/MUDataVisualisation';
 import QuickChart from '../components/QuickChart';
 import BigCalendar from '../components/Calendar';
+import Checklist2 from '../components/Checklist2/index';
 
 function NUS() {
   const [isOpen, setIsOpen]  = useState(false);
@@ -19,6 +20,8 @@ function NUS() {
     <DataVisualisation />
     <QuickChart />
     <BigCalendar uni="nus"/>
+    <Checklist2 />
+
     <Footer />
    </> 
   )
