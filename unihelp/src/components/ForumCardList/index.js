@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./forumElements.css";
 import { ForumCard } from "./ForumCardElements";
+import Share from "./Share";
 
 //bootstrap components
 import Card from "react-bootstrap/Card";
@@ -172,8 +173,18 @@ export default function ForumCardList({ posts }) {
                         {post.votes}
                       </p>
                     </div>
+                    <div className="col-1 d-flex align-items-center px-0">
+                      {/* <div className="col-1 d-flex align-items-center px-5">
+                        <Share title={post.title} id={post.id}/>
+                      </div> */}
+                    </div>
                   </div>
                   <div className="row d-flex flex-row align-items-center justify-content-end px-3">
+                    <div className="col d-flex px-0 justify-content-end">
+                      <p style={{ fontSize: "18px", marginBottom: "0" }}>
+                        <Share title={post.title} id={post.id}/>
+                      </p>
+                    </div>
                     <div className="col-1 d-flex align-items-center px-3">
                       <img
                         src={"/pictures/comment.png"}
