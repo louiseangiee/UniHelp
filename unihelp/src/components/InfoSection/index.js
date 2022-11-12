@@ -18,6 +18,17 @@ import {
   ImgWrap,
   Img,
 } from "./InfoElements";
+import Lottie from "lottie-react";
+import * as productivity from "../../lotties/productivity";
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: productivity,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 
 const InfoSection1 = ({
   lightBg,
@@ -63,6 +74,7 @@ const InfoSection1 = ({
               <ImgWrap>
                 <Img src={img} alt={alt} />
               </ImgWrap>
+              <Lottie options={defaultOptions} height={400} width={400} />
             </Column2>
           </InfoRow>
         </InfoWrapper>

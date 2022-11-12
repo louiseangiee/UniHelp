@@ -93,6 +93,11 @@ export const SocialLogo = styled(Link)`
   align-items: center;
   margin-bottom: 0;
   font-weight: bold;
+
+  &:hover {
+    background: #5271ff;
+  }
+
 `;
 
 export const WebsiteRights = styled.small`
