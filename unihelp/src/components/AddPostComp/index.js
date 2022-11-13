@@ -12,12 +12,12 @@ import {
   CH1,
 } from "./AddPostElements";
 import { ReactSession } from 'react-client-session';
-ReactSession.setStoreType("localStorage");
+import toast, { Toaster } from "react-hot-toast";
 
 
 const AddPostComp = () => {
-  const { addDocument, response } = useFirestore("forumPost");
 
+  const { addDocument, response } = useFirestore("forumPost");
   const [school, setSchool] = useState("");
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
@@ -35,20 +35,21 @@ const AddPostComp = () => {
     setErrorMessage("")
     let error = []
 
-    if(title.trim() === ''){
+    if (title.trim() === '') {
       error.push('title')
-    } 
-    if(content.trim() === ''){
+    }
+    if (content.trim() === '') {
       error.push('content')
-    } 
-    if(school === '-- select an option --'){
+    }
+    if (school ==='') {
       error.push('school')
     }
-
-    if(error.length > 0){
-      setErrorMessage(`Please enter ${error.join(', ')}`)
+    if (error.length > 0) {
+      toast.error(`Please enter ${error.join(', ')}`);    
       return
     }
+
+
 
 
 
@@ -59,12 +60,12 @@ const AddPostComp = () => {
       title,
       votes: 0,
       comments: [],
-      upVoters:[],
-      downVoters:[]
+      upVoters: [],
+      downVoters: []
     });
 
     ReactSession.set("addedPost", true)
-     
+
   };
 
   useEffect(() => {
@@ -77,55 +78,70 @@ const AddPostComp = () => {
   }, [response.success]);
 
   return (
-    <CContainer id="form">
-      <Form onSubmit={handleSubmit}>
-        <CFormGroup className="mx-3 my-5">
-          <CH1> Create new Forum Thread</CH1>
-          <CFormLabel> School </CFormLabel>
-          <Form.Control
-            as="select"
-            onChange={(e) => setSchool(e.target.value)}
-            value={school}
-          >
-            <option selected>-- select an option --</option>
-            <option>NUS</option>
-            <option>NTU</option>
-            <option>SMU</option>
-          </Form.Control>
+    <>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          // Default options for specific types
+          error: {
+            duration: 2000,
+          },
+          style: {
+            border: "2px solid #5271ff",
+            padding: "16px",
+          },
+        }}
+      />
+      <CContainer id="form">
+        <Form onSubmit={handleSubmit}>
+          <CFormGroup className="mx-3 my-5">
+            <CH1> Create new Forum Thread</CH1>
+            <CFormLabel> School </CFormLabel>
+            <Form.Control
+              as="select"
+              onChange={(e) => setSchool(e.target.value)}
+              value={school}
+            >
+              <option selected></option>
+              <option>NUS</option>
+              <option>NTU</option>
+              <option>SMU</option>
+            </Form.Control>
 
-          <CFormLabel className="mt-3 font-weight-bold">
-            {" "}
-            Forum Thread Title{" "}
-          </CFormLabel>
+            <CFormLabel className="mt-3 font-weight-bold">
+              {" "}
+              Forum Thread Title{" "}
+            </CFormLabel>
 
-          <Form.Control
-            type="text"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-            placeholder="e.g. I need help with Mods!"
-          />
+            <Form.Control
+              type="text"
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
+              placeholder="e.g. I need help with Mods!"
+            />
 
-          <CFormLabel className="mt-3 font-weight-bold">
-            {" "}
-            Forum Content{" "}
-          </CFormLabel>
+            <CFormLabel className="mt-3 font-weight-bold">
+              {" "}
+              Forum Content{" "}
+            </CFormLabel>
 
-          <Form.Control
-            as="textarea"
-            row={10}
-            onChange={(e) => setContent(e.target.value)}
-            value={content}
-            placeholder="e.g. What prof to bid for IS110?"
-          />
+            <Form.Control
+              as="textarea"
+              row={10}
+              onChange={(e) => setContent(e.target.value)}
+              value={content}
+              placeholder="e.g. What prof to bid for IS110?"
+            />
 
-          <CButton variant="primary" type="submit">
-            POST
-          </CButton>
-        </CFormGroup>
-        <p>{errorMessage}</p>
-      </Form>
-    </CContainer>
-  );
+            <CButton variant="primary" type="submit">
+              POST
+            </CButton>
+          </CFormGroup>
+          <p>{errorMessage}</p>
+        </Form>
+      </CContainer>
+      </>
+      );
 };
 
-export default AddPostComp;
+      export default AddPostComp;
