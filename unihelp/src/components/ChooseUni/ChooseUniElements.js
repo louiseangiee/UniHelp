@@ -12,29 +12,19 @@ export const MUContainer = styled.div`
   align-items: center;
   background: ${({ intro }) => (intro ? "#f9f9f9" : "#5271ff")};
 
+  
+  @media screen and (max-width: 1000px) {
+    height: 800px;
+  }
   @media screen and (max-width: 768px) {
     height: 1100px;
   }
 
-  @media screen and (max-width: 480px) {
-    height: 1300px;
+  @media screen and (max-width: 352px) {
+    height: 1200px;
+    text-align:center;
   }
-
-  // @media screen and (max-width: 480px) {
-  //   height: 1300px;
-  // }
-
-  @media screen and (max-width: 480px) {
-    height: 1300px;
-  }
-
-  @media screen and (max-width: 480px) {
-    height: 1300px;
-  }
-
-  @media screen and (max-width: 480px) {
-    height: 1300px;
-  }
+  
 `;
 
 export const MUWrapper = styled.div`
@@ -95,6 +85,8 @@ export const MUH1 = styled.h1`
   @media screen and (max-width: 480px) {
     font-size: 2rem;
   }
+
+  
 `;
 
 export const MUH2 = styled.h2`
