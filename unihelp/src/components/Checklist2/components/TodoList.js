@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { useFirestore } from "../../../hooks/useFirestore";
 
@@ -18,6 +19,7 @@ export default function TodoList({ todo, todos, uni }) {
           todos[i] = {...todo, done: true}
         } else {
           todos[i] = {...todo, done: false}
+          
         }
       }
     }
@@ -62,9 +64,9 @@ export default function TodoList({ todo, todos, uni }) {
 
   return (
     <>
-    <div className="todo">
-      <p>{todo.name}</p>
-      <p>{todo.deadline}</p>
+    <div className="list-item">
+      <p id="text-complete" className="list">{todo.name}</p>
+      <p className="list">{todo.deadline}</p>
         <button
           className="button-complete"
           onClick={() => toggleComplete(todo)}

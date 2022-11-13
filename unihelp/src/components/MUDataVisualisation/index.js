@@ -65,11 +65,11 @@ function DataVisualisation({ uni }) {
 
   return (
     <DVContainer>
-      <ProgressBar animated now={progress} label={`${progress}%`} />
-      <ContentWrapper column={'row'}>
+      <ContentWrapper>
         <Img src={`logos/${uni}_logo.jpg`} />
         <H1>{setName(uni)}</H1>
       </ContentWrapper>
+      <ProgressBar animated now={progress} label={`${parseFloat(progress).toFixed(2)}%`} />
     </DVContainer>
   );
 }

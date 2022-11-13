@@ -180,8 +180,6 @@ function Forum() {
         )}
       </div>
 
-      {/* Filter By : <FilterForums></FilterForums> */}
-
       <AddPostButton></AddPostButton>
 
       <Footer />
