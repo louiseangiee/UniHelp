@@ -50,7 +50,7 @@ function App() {
                 {user && <ForumPost />}
             </Route>
             <Route path="/submit-results" exact>
-                {!user && <Redirect to="/signin" />}
+                {!user && <Redirect to="/" />}
                 {user && <SubmitResults />}
             </Route>
             <Route path='/update-profile' exact>
