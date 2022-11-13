@@ -21,7 +21,6 @@ const AddPostComp = () => {
   const [school, setSchool] = useState("");
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
-  const [errorMessage, setErrorMessage] = useState("")
 
   const { user } = useAuthContext();
 
@@ -32,7 +31,6 @@ const AddPostComp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrorMessage("")
     let error = []
 
     if (title.trim() === '') {
@@ -137,7 +135,6 @@ const AddPostComp = () => {
               POST
             </CButton>
           </CFormGroup>
-          <p>{errorMessage}</p>
         </Form>
       </CContainer>
       </>
