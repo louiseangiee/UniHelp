@@ -5,6 +5,8 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 import { ReactSession } from 'react-client-session';
 import { HighSchoolQualificationArray } from "../HighSchoolQualification";
 import { EnglishArray } from "../EnglishTest";
+import toast, { Toaster } from "react-hot-toast";
+
 
 import {
   Container,
@@ -43,6 +45,8 @@ const SignUp = () => {
     setErrorMessage('')
     ReactSession.set("isSignedup", true)
 
+    var letters = /^[A-Za-z]+$/;
+
     if (email === '') {
       error = [...error, 'email']
     }
@@ -51,6 +55,12 @@ const SignUp = () => {
     }
     if (fullName === '') {
       error = [...error, 'fullName']
+    }
+    for (let word of fullName) {
+      if (!word.match(letters)) {
+        toast.error('Please enter only alphabets in the Full Name field')
+        return
+      }
     }
     if (studentType === '') {
       error = [...error, 'studentType']
@@ -103,6 +113,22 @@ const SignUp = () => {
 
   return (
     <>
+    <Toaster
+            position="top-right"
+            toastOptions={{
+              // Default options for specific types
+              success: {
+                duration: 2000,
+              },
+              error: {
+                duration: 2000,
+              },
+              style: {
+                border: "2px solid #5271ff",
+                padding: "16px",
+              },
+            }}
+          />
       <Container>
         <FormWrap>
           <Icon to="/"><img src={"logos/Unihelp_white.png"} height="80"></img></Icon>
