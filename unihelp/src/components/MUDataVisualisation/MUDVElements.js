@@ -7,7 +7,7 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 
 export const DVContainer = styled.div`
   background: #fff;
-  height: 90vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   padding: 20px;

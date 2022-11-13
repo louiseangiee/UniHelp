@@ -30,29 +30,39 @@ function NUS() {
       <SidebarHome isOpen={isOpen} toggle={toggle} />
       <NavbarMain toggle={toggle} />
       {uni && <DataVisualisation uni={uni} />}
-      <>
+      <div className="charts row d-flex justify-content-around">
+        <div className="col-6 d-flex flex-column justify-content-center align-items-center">
           <Form.Group className="mb-3 col-6" controlId="select">
-              <Form.Label>Academic Qualification Submitted</Form.Label>
-              <Form.Control as="select"
-                  onChange={(e) => setQualification(e.target.value) } value={qualification}>
-                  {HighSchoolQualificationArray.map((qualification) =>
-                      <option key={qualification}>{qualification}</option>
-                  )}
-              </Form.Control>
+            <Form.Label>Academic Qualification Submitted</Form.Label>
+            <Form.Control
+              as="select"
+              onChange={(e) => setQualification(e.target.value)}
+              value={qualification}
+            >
+              {HighSchoolQualificationArray.map((qualification) => (
+                <option key={qualification}>{qualification}</option>
+              ))}
+            </Form.Control>
           </Form.Group>
+          {uni && qualification && <GradeChart uni={uni} qual={qualification} />}
+        </div>
+        <div className="col-6 d-flex flex-column justify-content-center align-items-center">
           <Form.Group className="mb-3 col-6" controlId="select">
-              <Form.Label>English Test Submitted</Form.Label>
-              <Form.Control as="select"
-                  onChange={(e) => setEnglishTest(e.target.value)} value={englishTest}>
-                  {EnglishArray.map((qualification) =>
-                      <option key={qualification}>{qualification}</option>
-                  )}
-              </Form.Control>
+            <Form.Label>English Test Submitted</Form.Label>
+            <Form.Control
+              as="select"
+              onChange={(e) => setEnglishTest(e.target.value)}
+              value={englishTest}
+            >
+              {EnglishArray.map((qualification) => (
+                <option key={qualification}>{qualification}</option>
+              ))}
+            </Form.Control>
           </Form.Group>
-      </>
+          {uni && englishTest && <EnglishChart uni={uni} qual={englishTest} />}
+        </div>
+      </div>
 
-      {uni && qualification && <GradeChart uni={uni} qual={qualification} />}
-      {uni && englishTest && <EnglishChart uni={uni} qual={englishTest} />}
 
       {<BigCalendar uni={uni} />}
       {<Checklist2 uni={uni} />}
