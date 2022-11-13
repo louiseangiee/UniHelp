@@ -131,7 +131,7 @@ function Settings() {
           <SidebarHome isOpen={isOpen} toggle={toggle} />
           <NavbarMain toggle={toggle} />
 
-          <div id="form" class="px-5 container col-xl-7">
+          <div id="form" class="px-5 container col-xl-7" style={{position: "relative",height:'85vh'}}>
             <h1 class="header mx-0 px-0">Update Profile</h1>
 
             <Form>
