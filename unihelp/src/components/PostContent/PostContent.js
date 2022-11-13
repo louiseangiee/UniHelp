@@ -127,7 +127,7 @@ export default function PostContent({ post }) {
                   <div className="row d-flex flex-row align-items-center justify-content-end px-3">
                     <div className="col d-flex px-0 justify-content-end">
                       <p style={{ fontSize: "18px", marginBottom: "0" }}>
-                        <Share title={post.title} id={post.id}/>
+                        <Share title={post.title} id={''}/>
                       </p>
                     </div>
                     <div className="col-1 d-flex align-items-center px-3">
