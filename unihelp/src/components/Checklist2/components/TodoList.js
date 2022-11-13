@@ -67,25 +67,32 @@ export default function TodoList({ todo, todos, uni }) {
     <>
     <div className="list-item">
 
-      <button
-        className="button-complete"
-        onClick={() => toggleComplete(todo)}>
-      <img src= {"logos/complete.png"}></img>
-        {/* <CheckCircleIcon id="i" /> */}
-      </button>
-    
+      <div className="row">
+        <div className="col">
+          <button
+            className="button-complete"
+            onClick={() => toggleComplete(todo)}>
+          <img src= {"logos/complete.png"} className="logo-todo"></img>
+          </button>
+        </div>
 
-      <p className="list">{todo.name}</p>
-      <p className="list">{todo.deadline}</p>
+        <div className="col"> 
+          <p className="list">{todo.name}</p>
+        </div>
         
-     
-    
-      <button className="button-delete" onClick={() => handleDelete(todo)}>
-        <img src= {"logos/delete.png"}></img>
-        {/* <DeleteIcon id="i" /> */}
-      </button>
+        <div className="col"> 
+          <p className="list">{todo.deadline}</p>
+        </div>
 
+        <div className="col"> 
+          <button className="button-delete"  onClick={() => handleDelete(todo)}>
+            <img src= {"logos/delete.png"} className="logo-todo"></img>
+          </button>
+        </div>
+        </div>
     </div>
-    </>
+      </>
+      
+      
   );
 }
