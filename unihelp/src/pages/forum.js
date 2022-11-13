@@ -16,6 +16,7 @@ import FilterForums from '../components/SchoolFilterCards/index';
 import AddPostButton from '../components/AddPostButton';
 import toast, { Toaster } from 'react-hot-toast';
 import { ReactSession } from 'react-client-session';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 ReactSession.setStoreType("localStorage");
 
 function Forum() {
@@ -28,8 +29,41 @@ function Forum() {
   }, console.log('error'));
 
 
+  function setNew() {
+    setNewToOld(true)
+    setOldToNew(false)
+    setVotes(false)
+    setonLoad(false)
+  }
+
+
+  function setOld() {
+    setNewToOld(false)
+    setOldToNew(true)
+    setVotes(false)  
+    setonLoad(false)
+
+  }
+
+  function setVote() {
+    setNewToOld(false)
+    setOldToNew(false)
+    setVotes(true)  
+    setonLoad(false)
+
+  }
+
+
+
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const [newToOld, setNewToOld] = useState(false);
+  const [oldToNew, setOldToNew] = useState(false);
+  const [highvotes, setVotes] = useState(false);
+  const [onLoad, setonLoad] = useState(true);
+
+
+
   const toggle = () => {
     setIsOpen(!isOpen);
   }
@@ -90,8 +124,17 @@ function Forum() {
         {documents && <FilterForums changeFilter={changeFilter} />}
       </div>
 
+      <ButtonGroup aria-label="Basic example">
+        <Button onClick={setNew}>Newest</Button>
+        <Button onClick={setOld}>Oldest</Button>
+        <Button onClick={setVote}>Vote</Button>
+      </ButtonGroup>
+
       <div id="forumBoxes">
-        {posts && <ForumCardList posts={posts} />}
+        {posts && onLoad && <ForumCardList posts={posts.sort((a, b) => b.votes - a.votes)}/>}
+        {posts && newToOld && <ForumCardList posts={posts.sort((a, b) => a.createdAt - b.createdAt)}  />}
+        {posts && oldToNew && <ForumCardList posts={posts.sort((a, b) => b.createdAt - a.createdAt)}  />}
+        {posts && highvotes && <ForumCardList posts={posts.sort((a, b) => b.votes - a.votes)} />}
       </div>
 
       {/* Filter By : <FilterForums></FilterForums> */}
@@ -105,3 +148,4 @@ function Forum() {
 }
 
 export default Forum;
+

@@ -50,32 +50,6 @@ export default function ForumCardList({ posts }) {
       });
   };
 
-  /*const downVote = (id) => {
-    const unsub = projectFirestore.collection('forumPost').doc(id).get().then(doc => {
-      var data = doc.data()
-      var downVoters = data.upVoters
-      if (data.votes > 0) {
-        if (!downVoters.includes(email)) {
-          downVoters.push(email)
-          projectFirestore.collection('forumPost').doc(id).update({
-            votes: data.votes - 1,
-            upVoters: upVoters
-          })
-        } else {
-          downVoters.splice(email)
-          projectFirestore.collection('forumPost').doc(id).update({
-            votes: data.votes + 1,
-            upVoters: upVoters
-          })
-        }
-      }
-    })
-  }
-              <button id="downvote" className="btn" style={voteButtons}>
-                <Card.Img variant='bottom' className="img-fluid" src="logos/downvote.png" style={{ height: '100%' }} onClick={() => { downVote(post.id); }} />
-              </button>
-  */
-
   const voteButtons = {
     backgroundColor: "transparent",
     color: "transparent",
@@ -84,9 +58,6 @@ export default function ForumCardList({ posts }) {
     marginRight: "0px",
     marginBottom: "0px",
   };
-
-
-  posts.sort((a, b) => b.votes - a.votes);
 
   return (
     <div className="forum-list">
