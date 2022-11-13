@@ -80,8 +80,8 @@ function EnglishChart(uni, qual) {
                 datasets: [{
                     label: 'Average Score',
                     data: [],
-                    backgroundColor: 'FFE052',
-                    Color: 'FFE052'
+                    backgroundColor: '#FFE052',
+                    Color: '#FFE052'
                 }]
             }
 
