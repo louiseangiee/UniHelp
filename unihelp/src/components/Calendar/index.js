@@ -26,7 +26,7 @@ const BigCalendar = ({ uni }) => {
     });
     console.log(uni)
     const getEvents = (uni) => {
-            events = [
+            const events = [
                 {
                     title: "Application Closing Date",
                     start: new Date(2023, 0, 31),
@@ -40,11 +40,11 @@ const BigCalendar = ({ uni }) => {
                 }
                  
             ]
-        }   
+           
         
         console.log(events)
         return events;
-    }
+        }
     //const [allEvents, setAllEvents] = useState([])
     
     const events = getEvents(uni);
