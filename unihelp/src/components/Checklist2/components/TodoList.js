@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+
+
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { useFirestore } from "../../../hooks/useFirestore";
 
@@ -18,6 +20,7 @@ export default function TodoList({ todo, todos, uni }) {
           todos[i] = {...todo, done: true}
         } else {
           todos[i] = {...todo, done: false}
+          
         }
       }
     }
@@ -62,20 +65,34 @@ export default function TodoList({ todo, todos, uni }) {
 
   return (
     <>
-    <div className="todo">
-      <p>{todo.name}</p>
-      <p>{todo.deadline}</p>
-        <button
-          className="button-complete"
-          onClick={() => toggleComplete(todo)}
-        >
-          <CheckCircleIcon id="i" />
-        </button>
-      
-        <button className="button-delete" onClick={() => handleDelete(todo)}>
-          <DeleteIcon id="i" />
-        </button>
+    <div className="list-item">
+
+      <div className="row">
+        <div className="col">
+          <button
+            className="button-complete"
+            onClick={() => toggleComplete(todo)}>
+          <img src= {"logos/complete.png"} className="logo-todo"></img>
+          </button>
+        </div>
+
+        <div className="col"> 
+          <p className="list">{todo.name}</p>
+        </div>
+        
+        <div className="col"> 
+          <p className="list">{todo.deadline}</p>
+        </div>
+
+        <div className="col"> 
+          <button className="button-delete"  onClick={() => handleDelete(todo)}>
+            <img src= {"logos/delete.png"} className="logo-todo"></img>
+          </button>
+        </div>
+        </div>
     </div>
-    </>
+      </>
+      
+      
   );
 }

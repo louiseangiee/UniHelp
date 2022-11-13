@@ -53,7 +53,7 @@ const SidebarHome = ({ isOpen, toggle }) => {
           </SidebarLink>
 
           <SidebarLink
-            to='settings'
+            to='update-profile'
             onClick={toggle}
             smooth={true}
             duration={500}

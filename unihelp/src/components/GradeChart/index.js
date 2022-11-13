@@ -81,7 +81,8 @@ function GradeChart(uni, qual) {
                 datasets: [{
                     label: 'Average Score',
                     data: [],
-                    backgroundColor: 'transparent',
+                    backgroundColor: '#5271FF',
+                    borderColor:'#5271FF',        
                 }]
             }
 
@@ -103,7 +104,7 @@ function GradeChart(uni, qual) {
     }, [documents, uni])
 
     return (
-        <div style={{ width: '500px', height: '500px' }}>
+        <div style={{ width: '75%', height: '75%' }}>
             {data && <Line data={data}></Line>}
         </div>
     )

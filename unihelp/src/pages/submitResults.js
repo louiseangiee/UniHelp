@@ -115,8 +115,8 @@ const SubmitResults = () => {
       <SidebarHome isOpen={isOpen} toggle={toggle} />
       <NavbarMain toggle={toggle} />
 
-      <div id="form" class="px-5 container col-xl-7" style={{height: '100vh', zIndex: '0', position: "relative", overflow: "scroll" }}>
-        <h1 class="mx-0 px-0 pt-5 header">Submit Your Results</h1>
+      <div id="form" class="px-5 container col-xl-7" style={{position: "relative",height:'85vh'}}>
+        <h1 class="header mx-0 px-0">Submit Your Results</h1>
 
         <Form onSubmit={handleSubmit}>
 
@@ -166,7 +166,7 @@ const SubmitResults = () => {
           <div className="row">
 
             <Form.Group className="mb-3 col-6" controlId="select">
-              <Form.Label>Academic Qualification Submitted</Form.Label>
+              <Form.Label>Academic Qualification</Form.Label>
               <Form.Control as="select"
                 onChange={(e) => setQualification(e.target.value)} value={qualification}>
                 {HighSchoolQualificationArray.map((qualification) => 
@@ -190,7 +190,7 @@ const SubmitResults = () => {
           <div className="row">
 
             <Form.Group className="mb-3 col-6" controlId="select">
-              <Form.Label>English Test Submitted</Form.Label>
+              <Form.Label>English Test </Form.Label>
               <Form.Control as="select"
                 onChange={(e) => setEnglishTest(e.target.value)} value={englishTest}>
                 {EnglishArray.map((qualification) => 
