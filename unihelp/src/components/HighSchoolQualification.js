@@ -1,5 +1,4 @@
 export const HighSchoolQualification = {
-    '': {'min': 0, 'max': 0},
     'Cambridge A Level': {'min': 0, 'max': 90},
     'Polytechnic Diploma': {'min': 0, 'max': 4},
     'International Baccalaurate': {'min': 0, 'max': 45},
