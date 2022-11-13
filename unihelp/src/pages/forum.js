@@ -132,8 +132,8 @@ function Forum() {
 
       <div id="forumBoxes">
         {posts && onLoad && <ForumCardList posts={posts.sort((a, b) => b.votes - a.votes)}/>}
-        {posts && newToOld && <ForumCardList posts={posts.sort((a, b) => a.createdAt - b.createdAt)}  />}
-        {posts && oldToNew && <ForumCardList posts={posts.sort((a, b) => b.createdAt - a.createdAt)}  />}
+        {posts && newToOld && <ForumCardList posts={posts.sort((a, b) => b.createdAt - a.createdAt)}  />}
+        {posts && oldToNew && <ForumCardList posts={posts.sort((a, b) => a.createdAt - b.createdAt)}  />}
         {posts && highvotes && <ForumCardList posts={posts.sort((a, b) => b.votes - a.votes)} />}
       </div>
 
