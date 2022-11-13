@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useDocument } from '../../../hooks/useDocument';
 import { useFirestore } from "../../../hooks/useFirestore";
 import { useAuthContext } from "../../../hooks/useAuthContext";
+import Form from 'react-bootstrap/Form';
 
 export default function AddTodo({ uni }) {
   const { user } = useAuthContext()
@@ -60,10 +61,10 @@ export default function AddTodo({ uni }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
         <div className="AddToDo"> 
         <div className="input_container">
-          <input
+          <Form.Control
             className="input_text"
             type="text"
             placeholder="Enter a task..."
@@ -72,8 +73,8 @@ export default function AddTodo({ uni }) {
           />
         </div>
         <div className="input_container">
-          <input
-            className="input_text"
+          <Form.Control
+            className="input_text d-flex justify-content-between"
             type="date"
             placeholder="Enter deadline"
             onChange={(e) => setDeadline(e.target.value)}
@@ -86,6 +87,6 @@ export default function AddTodo({ uni }) {
           </button>
         </div>
         </div>
-    </form>
+    </Form>
   );
 }

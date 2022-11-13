@@ -24,3 +24,20 @@ After signing up, you are free to use all the available features on the app.
 To launch the application, unzip the zip file, then open terminal in the folder directory. Our project folder is inside the unzipped folder, so to access our project, you need to type cd unihelp. The dependencies can be found inThen, install the required dependencies with the following commands: npm install –force
 
 To open the application in localhost, open terminal in the application file directory and type npm start in the terminal. 
+
+
+### API, Library, and Languages Used
+1. React js
+2. Firebase
+3. react-chartjs-2
+4. react-big-calendar
+5. react-client-session
+6. lottie-react
+7. react-hot-toast
+8. react-glitch-effect
+9. react-router-dom
+10. uuid
+11. react-bootstrap
+12. date-fns
+13. react-datepicker
+14. framer-motion

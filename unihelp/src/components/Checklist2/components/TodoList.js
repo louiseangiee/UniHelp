@@ -65,10 +65,9 @@ export default function TodoList({ todo, todos, uni }) {
 
   return (
     <>
-    <div className="list-item">
 
-      <div className="row">
-        <div className="col">
+      <div className="list-item row d-flex justify-content-between">
+        <div className="col-1 d-flex justify-content-start">
           <button
             className="button-complete"
             onClick={() => toggleComplete(todo)}>
@@ -76,21 +75,21 @@ export default function TodoList({ todo, todos, uni }) {
           </button>
         </div>
 
-        <div className="col"> 
+        <div className="col d-flex justify-content-center align-items-center"> 
           <p className="list">{todo.name}</p>
         </div>
         
-        <div className="col"> 
+        {/* <div className="col-5"> 
           <p className="list">{todo.deadline}</p>
-        </div>
+        </div> */}
 
-        <div className="col"> 
+        <div className="col-1 d-flex justify-content-end"> 
           <button className="button-delete"  onClick={() => handleDelete(todo)}>
             <img src= {"logos/delete.png"} className="logo-todo"></img>
           </button>
         </div>
-        </div>
-    </div>
+
+      </div>
       </>
       
       
