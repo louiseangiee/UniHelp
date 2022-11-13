@@ -90,12 +90,6 @@ function Forum() {
 
   const ButtonGroupStyle = {};
 
-  if(!documents){
-    return (
-      <Loading />
-    )
-  }
-
   return (
     <>
       <Toaster
