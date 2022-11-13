@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/UniHelp/static/css/main.53d03e2e.chunk.css",
+    "main.js": "/UniHelp/static/js/main.bf2e8ae5.chunk.js",
+    "main.js.map": "/UniHelp/static/js/main.bf2e8ae5.chunk.js.map",
+    "runtime-main.js": "/UniHelp/static/js/runtime-main.e31439ef.js",
+    "runtime-main.js.map": "/UniHelp/static/js/runtime-main.e31439ef.js.map",
+    "static/css/2.7a03045f.chunk.css": "/UniHelp/static/css/2.7a03045f.chunk.css",
+    "static/js/2.07e1dd7c.chunk.js": "/UniHelp/static/js/2.07e1dd7c.chunk.js",
+    "static/js/2.07e1dd7c.chunk.js.map": "/UniHelp/static/js/2.07e1dd7c.chunk.js.map",
+    "index.html": "/UniHelp/index.html",
+    "precache-manifest.6fccb70ed446991ce5097434619f9ed0.js": "/UniHelp/precache-manifest.6fccb70ed446991ce5097434619f9ed0.js",
+    "service-worker.js": "/UniHelp/service-worker.js",
+    "static/css/2.7a03045f.chunk.css.map": "/UniHelp/static/css/2.7a03045f.chunk.css.map",
+    "static/css/main.53d03e2e.chunk.css.map": "/UniHelp/static/css/main.53d03e2e.chunk.css.map",
+    "static/js/2.07e1dd7c.chunk.js.LICENSE.txt": "/UniHelp/static/js/2.07e1dd7c.chunk.js.LICENSE.txt",
+    "static/media/dashboard.png": "/UniHelp/static/media/dashboard.2c2e3b00.png",
+    "static/media/forum.png": "/UniHelp/static/media/forum.72373715.png",
+    "static/media/img-0.png": "/UniHelp/static/media/img-0.6195f011.png",
+    "static/media/img-1.png": "/UniHelp/static/media/img-1.1580cecb.png",
+    "static/media/img-2.png": "/UniHelp/static/media/img-2.d36fdf42.png",
+    "static/media/notepad.png": "/UniHelp/static/media/notepad.9c0bd100.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e31439ef.js",
+    "static/css/2.7a03045f.chunk.css",
+    "static/js/2.07e1dd7c.chunk.js",
+    "static/css/main.53d03e2e.chunk.css",
+    "static/js/main.bf2e8ae5.chunk.js"
+  ]
+}
