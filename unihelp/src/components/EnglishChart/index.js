@@ -17,43 +17,47 @@ ChartJS.register(
     PointElement
 )
 
-function QuickChart(uni, qualification, HSorEnglish) {
+function EnglishChart(uni, qual) {
     const [data, setData] = useState(null)
     const { documents, error } = useCollection('results');
     const [uniName, setUniName] = useState(null);
 
     useEffect(() => {
-        if (uni.uni === 'nus'){
+        if (uni.uni === 'nus') {
             setUniName('National University of Singapore')
         }
-        if (uni.uni === 'ntu'){
+        if (uni.uni === 'ntu') {
             setUniName('Nanyang Technological University')
         }
-        if (uni.uni === 'smu'){
+        if (uni.uni === 'smu') {
             setUniName('Singapore Management University')
         }
-
         var HSResults = [
             { year: "2018", score: [], avg: 0 }, { year: "2019", score: [], avg: 0 }, { year: "2020", score: [], avg: 0 }, { year: "2021", score: [], avg: 0 }, { year: "2022", score: [], avg: 0 }
         ];
 
-        
+        console.log(uniName)
+        console.log(qual)
         if (documents) {
-            function dataFilter(doc) {
-                return (doc.university === uniName && doc.qualification === "Cambridge A Level" && doc.status === "Admitted")
+            function filterData(doc) {
+                return (doc.university === uniName && doc.status === "Admitted" && doc.englishTest === qual)
             }
-            const filteredData = documents.filter(dataFilter)
-            console.log(filteredData);
+            const filteredData = documents.filter(filterData)
+            
+            if (filteredData) {
+                console.log(filteredData)
+            };
 
-            
-            
-        
+
+
+
             filteredData.forEach(ele => {
                 //console.log(ele.admitYear)
                 if (ele.admitYear >= 2018 && ele.admitYear <= 2022) {
                     HSResults.forEach(res => {
                         if (res.year === ele.admitYear) {
-                            res.score.push(ele.grade)
+                                res.score.push(ele.englishGrade)
+                            
                         }
                     })
                 }
@@ -69,8 +73,8 @@ function QuickChart(uni, qualification, HSorEnglish) {
                 ele.avg = total / count;
             })
             console.log(HSResults)
-        
-            
+
+
             var chartdata = {
                 labels: [],
                 datasets: [{
@@ -90,18 +94,19 @@ function QuickChart(uni, qualification, HSorEnglish) {
             console.log(chartdata)
             setData(chartdata)
 
-            
-        
 
-        //setIsPendingData(false)
-    }}, [documents])
-    
+
+
+            //setIsPendingData(false)
+        }
+    }, [documents])
+
     return (
-         <div style={{ width: '500px', height: '500px' }}>
+        <div style={{ width: '500px', height: '500px' }}>
             {data && <Line data={data}></Line>}
         </div>
     )
 
 }
 
-export default QuickChart
+export default EnglishChart

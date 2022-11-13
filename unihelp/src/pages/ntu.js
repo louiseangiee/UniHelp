@@ -3,7 +3,7 @@ import NavbarMain from '../components/NavbarMain';
 import SidebarHome from '../components/SidebarHome';
 import Footer from '../components/Footer';
 import DataVisualisation from '../components/MUDataVisualisation';
-import QuickChart from '../components/QuickChart';
+import GradeChart from '../components/GradeChart';
 import Checklist2 from '../components/Checklist2';
 
 function NTU() {
@@ -19,7 +19,7 @@ function NTU() {
     <SidebarHome isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     {uni && <DataVisualisation uni = {uni} />}
-    { <Checklist2 /> }
+    { <Checklist2 uni = {uni}/> }
 
     <Footer />
    </> 

@@ -22,7 +22,10 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 import { Column1 } from "../InfoSection/InfoElements";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { projectFirestore } from "../../firebase/config";
-
+import Button from 'react-bootstrap/Button';
+import { HighSchoolQualification, HighSchoolQualificationArray } from '../../components/HighSchoolQualification';
+import { EnglishArray, EnglishTest } from '../../components/EnglishTest';
+import Form from 'react-bootstrap/Form';
 
 function DataVisualisation({ uni }) {
   const { user } = useAuthContext();
