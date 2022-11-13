@@ -18,6 +18,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { ReactSession } from "react-client-session";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
+import Loading from "../components/Loading/Loading"
 ReactSession.setStoreType("localStorage");
 
 function Forum() {
@@ -88,6 +89,12 @@ function Forum() {
     : null;
 
   const ButtonGroupStyle = {};
+
+  if(!documents){
+    return (
+      <Loading />
+    )
+  }
 
   return (
     <>
