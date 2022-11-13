@@ -166,7 +166,7 @@ const SubmitResults = () => {
           <div className="row">
 
             <Form.Group className="mb-3 col-6" controlId="select">
-              <Form.Label>Academic Qualification Submitted</Form.Label>
+              <Form.Label>Academic Qualification</Form.Label>
               <Form.Control as="select"
                 onChange={(e) => setQualification(e.target.value)} value={qualification}>
                 {HighSchoolQualificationArray.map((qualification) => 
@@ -190,7 +190,7 @@ const SubmitResults = () => {
           <div className="row">
 
             <Form.Group className="mb-3 col-6" controlId="select">
-              <Form.Label>English Test Submitted</Form.Label>
+              <Form.Label>English Test </Form.Label>
               <Form.Control as="select"
                 onChange={(e) => setEnglishTest(e.target.value)} value={englishTest}>
                 {EnglishArray.map((qualification) => 
