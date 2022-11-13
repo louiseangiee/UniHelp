@@ -67,6 +67,8 @@ const BigCalendar = (uni) => {
     }
 
     const events = getEvents(uni);
+
+
     //const 
     /*
     const { user } = useAuthContext()
@@ -104,7 +106,6 @@ const BigCalendar = (uni) => {
     */
     return (
         <div className="Cal">
-            <Calendar localizer={localizer} events={allEvents} startAccessor="start" endAccessor="end" />
         </div>
     )
 }
