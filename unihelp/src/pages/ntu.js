@@ -19,7 +19,7 @@ function NTU() {
     <SidebarHome isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     {uni && <DataVisualisation uni = {uni} />}
-    { <Checklist2 /> }
+    { <Checklist2 uni = {uni}/> }
 
     <Footer />
    </> 
