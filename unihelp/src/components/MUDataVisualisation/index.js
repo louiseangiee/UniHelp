@@ -28,27 +28,26 @@ function DataVisualisation({ uni }) {
   const now = 60;
   const { user } = useAuthContext();
   const id = 'progress' + user.uid
+  const [progress, setProgress] = useState('')
+
   const unsub = projectFirestore
     .collection("userProgress")
     .doc(id)
     .onSnapshot((doc) => {
       var data = doc.data();
       console.log(data[uni])
-      let progress = data[uni]
       let count = 0
       let total = 0
-      for(let d of data[uni]){
-        for (let pro in progress) {
-          if (progress[pro].done) {
-            console.log(progress[pro].done)
-            count++
-            total++
-          } else {
-            total++
-          }
+      let obj = data[uni]
+      for (let pro in obj) {
+        if (obj[pro].done) {
+          count++
+          total++
+        } else {
+          total++
         }
       }
-      console.log(count/total * 100)
+      setProgress(count / total * 100)
     })
 
   function setName(name) {
@@ -64,7 +63,7 @@ function DataVisualisation({ uni }) {
 
   return (
     <DVContainer>
-      <ProgressBar animated now={now} label={`${now}%`} />
+      <ProgressBar animated now={now} label={`${progress}%`} />
       <ContentWrapper column={'row'}>
         <Img src={`logos/${uni}_logo.jpg`} />
         <H1>{setName(uni)}</H1>
