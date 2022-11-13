@@ -4,6 +4,7 @@ import SidebarHome from '../components/SidebarHome';
 import Footer from '../components/Footer';
 import DataVisualisation from '../components/MUDataVisualisation';
 import Checklist from '../components/Checklist/checklist';
+import DropdownMyUni from '../components/DropdownMyUni';
 
 function SMU() {
   const [isOpen, setIsOpen]  = useState(false);
@@ -18,6 +19,7 @@ function SMU() {
     <SidebarHome isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     {uni && <DataVisualisation uni = {uni} />}
+    <DropdownMyUni></DropdownMyUni>
     <Footer />
    </> 
   )

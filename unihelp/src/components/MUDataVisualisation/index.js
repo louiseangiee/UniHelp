@@ -31,8 +31,6 @@ function DataVisualisation({ uni }) {
   const { user } = useAuthContext();
   const id = 'progress' + user.uid
   const [progress, setProgress] = useState('')
-  const [qualification, setQualification] = useState('');
-  const [englishTest, setEnglishTest] = useState('');
 
   const unsub = projectFirestore
     .collection("userProgress")
@@ -72,27 +70,6 @@ function DataVisualisation({ uni }) {
         <Img src={`logos/${uni}_logo.jpg`} />
         <H1>{setName(uni)}</H1>
       </ContentWrapper>
-      <Form.Group className="mb-3 col-6" controlId="select">
-        <Form.Label>Academic Qualification Submitted</Form.Label>
-        <Form.Control as="select"
-          onChange={(e) => setQualification(e.target.value)} value={qualification}>
-          {HighSchoolQualificationArray.map((qualification) =>
-            <option key={qualification}>{qualification}</option>
-          )}
-        </Form.Control>
-      </Form.Group>
-
-      <Form.Group className="mb-3 col-6" controlId="select">
-        <Form.Label>English Test Submitted</Form.Label>
-        <Form.Control as="select"
-          onChange={(e) => setEnglishTest(e.target.value)} value={englishTest}>
-          {EnglishArray.map((qualification) =>
-            <option key={qualification}>{qualification}</option>
-          )}
-        </Form.Control>
-      </Form.Group>
-
-
     </DVContainer>
   );
 }
