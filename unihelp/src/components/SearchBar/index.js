@@ -48,7 +48,7 @@ function SearchBar({ placeholder, data }) {
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <a className="dataItem" href={`/forum/${value.id}`} target="_blank">
+              <a className="dataItem" href={`/forum/${value.id}`} target="_blank" style={{textDecoration: 'none'}}>
                 <p>{value.title} </p>
               </a>
             );
