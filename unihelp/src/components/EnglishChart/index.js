@@ -80,8 +80,8 @@ function EnglishChart(uni, qual) {
                 datasets: [{
                     label: 'Average Score',
                     data: [],
-                    backgroundColor: 'FFE052',
-                    Color: 'FFE052'
+                    backgroundColor: '#FFE052',
+                    Color: '#FFE052'
                 }]
             }
 
@@ -103,7 +103,7 @@ function EnglishChart(uni, qual) {
     }, [documents, uni])
 
     return (
-        <div style={{ width: '500px', height: '500px' }}>
+        <div style={{ width: '75%', height: '75%' }}>
             {data && <Line data={data}></Line>}
         </div>
     )
