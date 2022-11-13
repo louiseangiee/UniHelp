@@ -17,56 +17,30 @@ ChartJS.register(
     PointElement
 )
 
-/* function GetScore() {
-    const { user } = useAuthContext();
-    //const [error, setError] = useState(false)
-    const [data, setData] = useState(null)
-    const {documents, error} = useCollection('results');
-    //var englishTest = documents.where("admitYear", "==", 2021)
-    return documents
-
-    //const [isPendingData, setIsPendingData] = useState(false)
-    /* console.log(user.uid)
-    useEffect(() => {
-        //setIsPendingData(true)
-        const scores = projectFirestore.collection('results').onSnapshot((snapshot) => {
-            let result = []
-            //console.log(doc.data())
-            if (snapshot.empty) {
-                //setError('Snapshot is empty')
-                //setIsPendingData(false)
-            }
-            else {
-                snapshot.docs.forEach(doc => {
-                    result.push({ id: doc.id, ...doc.data() })
-                })
-                console.log(result)
-                //setData(result)
-                //setIsPendingData(false)
-                return result
-            }
-            //setError(error.message)
-            //setIsPendingData(false)
-            //console.log(result)
-        })
-        return () => scores
-    })
-    
-}
-*/
-
-function QuickChart() {
+function QuickChart(uni, qualification, HSorEnglish) {
     const [data, setData] = useState(null)
     const { documents, error } = useCollection('results');
+    const [uniName, setUniName] = useState(null);
 
     useEffect(() => {
+        if (uni.uni === 'nus'){
+            setUniName('National University of Singapore')
+        }
+        if (uni.uni === 'ntu'){
+            setUniName('Nanyang Technological University')
+        }
+        if (uni.uni === 'smu'){
+            setUniName('Singapore Management University')
+        }
+
         var HSResults = [
             { year: "2018", score: [], avg: 0 }, { year: "2019", score: [], avg: 0 }, { year: "2020", score: [], avg: 0 }, { year: "2021", score: [], avg: 0 }, { year: "2022", score: [], avg: 0 }
         ];
 
+        
         if (documents) {
             function dataFilter(doc) {
-                return (doc.university === 'National University of Singapore' && doc.qualification === "Cambridge A Level" && doc.status === "Admitted")
+                return (doc.university === uniName && doc.qualification === "Cambridge A Level" && doc.status === "Admitted")
             }
             const filteredData = documents.filter(dataFilter)
             console.log(filteredData);

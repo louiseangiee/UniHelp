@@ -18,7 +18,7 @@ export default function TodoList({ todo, todos }) {
       }
     }
     await updateDocument(`progress${user.uid}`,{
-      ntu: todos
+      nus: todos
     })
   };
 
@@ -30,7 +30,7 @@ export default function TodoList({ todo, todos }) {
     }
 
     await updateDocument(`progress${user.uid}`,{
-      ntu: todos
+      nus: todos
     })
   };
 
