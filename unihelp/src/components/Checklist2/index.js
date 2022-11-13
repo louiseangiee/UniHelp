@@ -16,8 +16,8 @@ function Todo() {
   const { user } = useAuthContext()
   const { document, error } = useDocument('userProgress', `progress${user.uid}`)
 
-  
   return (
+    
     <div>
       <div>
         <Title />
