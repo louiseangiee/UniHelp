@@ -20,8 +20,8 @@ function NUS() {
     <SidebarHome  isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     {uni && <DataVisualisation uni = {uni} />}
-    <QuickChart />
-    { <BigCalendar uni="nus"/>}
+    <QuickChart uni = {uni}/>
+    { <BigCalendar uni = {uni}/>}
     { <Checklist2 /> }
 
     <Footer />
