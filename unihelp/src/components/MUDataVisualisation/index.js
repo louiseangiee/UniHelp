@@ -25,7 +25,6 @@ import { projectFirestore } from "../../firebase/config";
 
 
 function DataVisualisation({ uni }) {
-  const now = 60;
   const { user } = useAuthContext();
   const id = 'progress' + user.uid
   const [progress, setProgress] = useState('')
@@ -63,7 +62,7 @@ function DataVisualisation({ uni }) {
 
   return (
     <DVContainer>
-      <ProgressBar animated now={now} label={`${progress}%`} />
+      <ProgressBar animated now={progress} label={`${progress}%`} />
       <ContentWrapper column={'row'}>
         <Img src={`logos/${uni}_logo.jpg`} />
         <H1>{setName(uni)}</H1>
