@@ -46,12 +46,13 @@ function QuickChart(uni, qualification, HSorEnglish) {
 
             function filterFromQualification(doc2) {
                 if (HSorEnglish === 'HS') {
-                    return (do2.qualification === qualification)
+                    return (doc2.qualification === qualification)
                 }
                 else if (HSorEnglish === 'English') {
-                    return (do2.englishTest === qualification)
+                    return (doc2.englishTest === qualification)
                 }
             }
+            const filteredData = documents.filter(filterFromQualification)
             console.log(filteredData);
 
 
