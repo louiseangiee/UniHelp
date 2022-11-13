@@ -32,7 +32,6 @@ function EnglishChart(uni, qual) {
         if (uni.uni === 'smu') {
             setUniName('Singapore Management University')
         }
-
         var HSResults = [
             { year: "2018", score: [], avg: 0 }, { year: "2019", score: [], avg: 0 }, { year: "2020", score: [], avg: 0 }, { year: "2021", score: [], avg: 0 }, { year: "2022", score: [], avg: 0 }
         ];
