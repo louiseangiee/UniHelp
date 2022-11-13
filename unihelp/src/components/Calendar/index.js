@@ -26,10 +26,7 @@ const BigCalendar = ({ uni }) => {
     });
     console.log(uni)
     const getEvents = (uni) => {
-        var event = []
-        if (uni === "nus") {
-            console.log(uni)
-            event = [
+            events = [
                 {
                     title: "Application Closing Date",
                     start: new Date(2023, 0, 31),
@@ -43,46 +40,10 @@ const BigCalendar = ({ uni }) => {
                 }
                  
             ]
-        }
-
-        if (uni.uni === "ntu") {
-            console.log(uni)
-            event = [
-                {
-                    title: "Application Closing Date",
-                    start: new Date(2023, 1, 21),
-                    end: new Date(2023, 1, 21),
-
-                },
-
-                {
-                    title: "Winter Break",
-                    start: new Date(2022, 11, 4),
-                    end: new Date(2023, 0, 10)
-                }
-            ]
-        }
-
-        if (uni.uni === "smu") {
-            console.log(uni)
-            event = [
-                {
-                    title: "Application Closing Date",
-                    start: new Date(2023, 2, 19),
-                    end: new Date(2023, 2, 19),
-
-                },
-
-                {
-                    title: "Winter Break",
-                    start: new Date(2022, 11, 2),
-                    end: new Date(2023, 0, 9)
-                }
-            ]
-        }
-        console.log(event)
-
-        return event;
+        }   
+        
+        console.log(events)
+        return events;
     }
     //const [allEvents, setAllEvents] = useState([])
     

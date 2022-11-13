@@ -23,9 +23,9 @@ export default function AddTodo({ uni }) {
     if(name.trim() === ''){
       errors.push('name')
     } 
-    if(deadline === ''){
-      errors.push('deadline')
-    }
+    // if(deadline === ''){
+    //   errors.push('deadline')
+    // }
 
     if(errors.length > 0) {
       setErrorMessage(`Please enter ${errors.join(', ')}`)
@@ -72,7 +72,7 @@ export default function AddTodo({ uni }) {
             value={name}
           />
         </div>
-        <div className="input_container">
+        {/* <div className="input_container">
           <Form.Control
             className="input_text d-flex justify-content-between"
             type="date"
@@ -80,7 +80,7 @@ export default function AddTodo({ uni }) {
             onChange={(e) => setDeadline(e.target.value)}
             value={deadline}
           />
-        </div>
+        </div> */}
         <div className="btn_container">
           <button>
             Add Task
