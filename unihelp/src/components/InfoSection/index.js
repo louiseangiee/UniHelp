@@ -159,7 +159,7 @@ const InfoSection3 = ({
                 <TopLine>{topLine}</TopLine>
                 <Heading lightText={lightText}>
                   <Typed
-                    strings={["Create An Account is Extremely Easy"]}
+                    strings={["Creating An Account is Extremely Easy"]}
                     typeSpeed={40}
                     backSpeed={50}
                     loop
