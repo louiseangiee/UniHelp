@@ -55,8 +55,8 @@ export default function PostContent({ post }) {
     <>
     <div style={{margin: '15px'}}>
       
-      <Card className="p-4 w-100" style = {{borderRadius: '10px'}}>
-      <div className="post-content">
+      <Card className=" w-100" style = {{borderRadius: '10px'}}>
+      <div className="post-content p-4">
         
         <h2 style = {{fontWeight: 'bold'}}>{post.title}</h2>
           
