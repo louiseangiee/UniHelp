@@ -38,15 +38,15 @@ function App() {
                 {!user && <SignupPage /> }
             </Route>
             <Route path="/main-page" exact>
-                {!user && <Redirect to="/signin" />}
+                {!user && <Redirect to="/" />}
                 {user && <MainPage />}
             </Route>
             <Route path="/forum" exact>
-                {!user && <Redirect to="/signin" />}
+                {!user && <Redirect to="/" />}
                 {user && <Forum />}
             </Route>
             <Route path="/forum/:id" exact>
-                {!user && <Redirect to="/signin" />}
+                {!user && <Redirect to="/" />}
                 {user && <ForumPost />}
             </Route>
             <Route path="/submit-results" exact>
@@ -58,19 +58,19 @@ function App() {
                 {user && <Settings />}
             </Route>
             <Route path='/smu' exact>
-                {!user && <Redirect to="/signin" />}
+                {!user && <Redirect to="/" />}
                 {user && <SMU />}
             </Route>
             <Route path='/ntu' exact>
-                {!user && <Redirect to="/signin" />}
+                {!user && <Redirect to="/" />}
                 {user && <NTU />}
             </Route>
             <Route path='/nus' exact>
-                {!user && <Redirect to="/signin" />}
+                {!user && <Redirect to="/" />}
                 {user && <NUS />}
             </Route>
             <Route path='/AddPost' exact>
-                {!user && <Redirect to="/signin" />}
+                {!user && <Redirect to="/" />}
                 {user && <AddPost />}
             </Route>
           </Switch>

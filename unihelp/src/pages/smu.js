@@ -19,7 +19,7 @@ function SMU() {
     <SidebarHome isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     {uni && <DataVisualisation uni = {uni} />}
-    { <Checklist2 />}
+    { <Checklist2 uni={uni}/>}
     <DropdownMyUni></DropdownMyUni>
     <Footer />
    </> 

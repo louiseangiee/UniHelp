@@ -41,73 +41,73 @@ const ChooseUni = () => {
   );
 };
 
-const IntroMyUni = ({ intro }) => {
-  const [hover, setHover] = useState(false);
+// const IntroMyUni = ({ intro }) => {
+//   const [hover, setHover] = useState(false);
 
-  const onHover = () => {
-    setHover(!hover);
-  };
-  return (
-    <MUContainer intro={"intro"}>
-      {/* <MUH1 intro={"intro"}>MyUni Dashboard</MUH1> */}
-      <Carousel fade>
-        <CarouselItem interval={2000}>
-          <Img
-            className="d-block w-100 h-100"
-            src="pictures/myuni-gif-2.gif"
-            alt="First slide"
-          />
-          <CarouselCaption>
-            <H1>Applying for Universities in Singapore?</H1>
-            {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
-          </CarouselCaption>
-        </CarouselItem>
-        <CarouselItem interval={2000}>
-          <Img
-            className="d-block w-100 h-100"
-            src="pictures/myuni-3.jpg"
-            alt="Second slide"
-          />
+//   const onHover = () => {
+//     setHover(!hover);
+//   };
+//   return (
+//     <MUContainer intro={"intro"}>
+//       {/* <MUH1 intro={"intro"}>MyUni Dashboard</MUH1> */}
+//       <Carousel fade>
+//         <CarouselItem interval={2000}>
+//           <Img
+//             className="d-block w-100 h-100"
+//             src="pictures/myuni-gif-2.gif"
+//             alt="First slide"
+//           />
+//           <CarouselCaption>
+//             <H1>Applying for Universities in Singapore?</H1>
+//             {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
+//           </CarouselCaption>
+//         </CarouselItem>
+//         <CarouselItem interval={2000}>
+//           <Img
+//             className="d-block w-100 h-100"
+//             src="pictures/myuni-3.jpg"
+//             alt="Second slide"
+//           />
 
-          <CarouselCaption>
-            <H1>
-              Struggling to keep track of all the application requirements and
-              pending deadlines?
-            </H1>
-            {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
-          </CarouselCaption>
-        </CarouselItem>
-        <CarouselItem interval={2000}>
-          <Img
-            className="d-block w-100 h-100"
-            src="pictures/myuni-gif-1.gif"
-            alt="Third slide"
-          />
-          <CarouselCaption>
-            <H1>Organize your college applications with UniHelp!</H1>
-            {/* <CarouselButton href="#chooseUni" className="p-3 my-0">Choose A University To Start</CarouselButton> */}
-            <MyUniBtnWrapper>
-            <Button
-              to="chooseUni"
-              smooth={true}
-              duration={500}
-              spy={true}
-              exact="true"
-              offset={-80}
-              primary="true"
-              dark="true"
-              onMouseEnter={onHover}
-              onMouseLeave={onHover}
-            >
-              Choose A University to Start {hover ? <ArrowForward /> : <ArrowRight />}
-            </Button>
-            </MyUniBtnWrapper>
+//           <CarouselCaption>
+//             <H1>
+//               Struggling to keep track of all the application requirements and
+//               pending deadlines?
+//             </H1>
+//             {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
+//           </CarouselCaption>
+//         </CarouselItem>
+//         <CarouselItem interval={2000}>
+//           <Img
+//             className="d-block w-100 h-100"
+//             src="pictures/myuni-gif-1.gif"
+//             alt="Third slide"
+//           />
+//           <CarouselCaption>
+//             <H1>Organize your college applications with UniHelp!</H1>
+//             {/* <CarouselButton href="#chooseUni" className="p-3 my-0">Choose A University To Start</CarouselButton> */}
+//             <MyUniBtnWrapper>
+//             <Button
+//               to="chooseUni"
+//               smooth={true}
+//               duration={500}
+//               spy={true}
+//               exact="true"
+//               offset={-80}
+//               primary="true"
+//               dark="true"
+//               onMouseEnter={onHover}
+//               onMouseLeave={onHover}
+//             >
+//               Choose A University to Start {hover ? <ArrowForward /> : <ArrowRight />}
+//             </Button>
+//             </MyUniBtnWrapper>
             
-          </CarouselCaption>
-        </CarouselItem>
-      </Carousel>
-    </MUContainer>
-  );
-};
+//           </CarouselCaption>
+//         </CarouselItem>
+//       </Carousel>
+//     </MUContainer>
+//   );
+// };
 
-export { ChooseUni, IntroMyUni };
+export { ChooseUni };

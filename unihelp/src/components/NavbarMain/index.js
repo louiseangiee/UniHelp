@@ -3,10 +3,9 @@ import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
 import Modal from "react-bootstrap/Modal";
-import Button from 'react-bootstrap/Button';
-// import { useLogout } from '../hooks/useLogout';
-// import { ReactSession } from 'react-client-session';
-
+import Button from "react-bootstrap/Button";
+import { useLogout } from "../../hooks/useLogout";
+import { ReactSession } from "react-client-session";
 
 import {
   MobileIcon,
@@ -22,8 +21,12 @@ import {
   DropdownsItems,
   SignOutButton,
 } from "./navbarMainElements";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 function SignOutModal(props) {
+  const { logout, isPending } = useLogout();
+  ReactSession.set("isLoggedout", true);
+
   return (
     <Modal
       {...props}
@@ -32,18 +35,31 @@ function SignOutModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+        <Modal.Title
+          id="contained-modal-title-vcenter"
+          style={{ fontWeight: "700" }}
+        >
           Sign Out
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Are you sure you want to sign out?</h4>
-        <p>
-          We are sad to see you go. Do remember to visit us and finish your university applications. Good luck!
-        </p>
+        <div className="row d-flex flex-row align-items-center">
+          <div className="col-4 d-flex justify-content-center">
+            <img src={"/pictures/sad.gif"}></img>
+          </div>
+          <div className="col-8">
+          <h4>Are you sure you want to sign out?</h4>
+          <p>
+            We are sad to see you go :( Do remember to visit us and finish your
+            university applications. Good luck!
+          </p>
+        </div>
+        </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide} variant="danger">Sign Out</Button>
+        <Button onClick={logout} variant="danger">
+          Sign Out
+        </Button>
         {/* {!isPending && <Button className="mb-3" variant="warning" onClick={logout}>Logout</Button>}
               {isPending && <Button className="mb-3" variant="warning" disabled>Logging out...</Button>} */}
       </Modal.Footer>
@@ -54,8 +70,6 @@ function SignOutModal(props) {
 const NavbarMain = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
   const [modalShow, setModalShow] = React.useState(false);
-  // const { logout, isPending } = useLogout()
-  // ReactSession.set("isLoggedout", true);
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -72,6 +86,8 @@ const NavbarMain = ({ toggle }) => {
   const toggleHome = () => {
     scroll.scrollToTop();
   };
+
+  const { user } = useAuthContext();
 
   const [show, setShow] = useState(false);
 
@@ -167,7 +183,7 @@ const NavbarMain = ({ toggle }) => {
             </NavMenu>
             <NavBtn>
               <SignOutButton onClick={() => setModalShow(true)}>
-                <span>Hi Angie!</span>
+                <span>Hi {user.displayName.split(" ")[0]}!</span>
               </SignOutButton>
               <SignOutModal
                 show={modalShow}
