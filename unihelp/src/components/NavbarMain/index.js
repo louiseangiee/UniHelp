@@ -191,7 +191,7 @@ const NavbarMain = ({ toggle }) => {
                 onHide={() => setModalShow(false)}
               />
               &nbsp;
-              <NavBtnLink to="/settings">
+              <NavBtnLink to="/update-profile">
               <img src={'/svgFiles/profile.svg'} width="30" height="30"></img>
               </NavBtnLink>
             </NavBtn>
