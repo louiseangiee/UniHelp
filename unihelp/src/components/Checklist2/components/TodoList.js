@@ -3,6 +3,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
+
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { useFirestore } from "../../../hooks/useFirestore";
 
@@ -65,18 +66,25 @@ export default function TodoList({ todo, todos, uni }) {
   return (
     <>
     <div className="list-item">
-      <p id="text-complete" className="list">{todo.name}</p>
+
+      <button
+        className="button-complete"
+        onClick={() => toggleComplete(todo)}>
+      <img src= {"logos/complete.png"}></img>
+        {/* <CheckCircleIcon id="i" /> */}
+      </button>
+    
+
+      <p className="list">{todo.name}</p>
       <p className="list">{todo.deadline}</p>
-        <button
-          className="button-complete"
-          onClick={() => toggleComplete(todo)}
-        >
-          <CheckCircleIcon id="i" />
-        </button>
-      
-        <button className="button-delete" onClick={() => handleDelete(todo)}>
-          <DeleteIcon id="i" />
-        </button>
+        
+     
+    
+      <button className="button-delete" onClick={() => handleDelete(todo)}>
+        <img src= {"logos/delete.png"}></img>
+        {/* <DeleteIcon id="i" /> */}
+      </button>
+
     </div>
     </>
   );
