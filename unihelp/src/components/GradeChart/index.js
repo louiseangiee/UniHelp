@@ -81,7 +81,8 @@ function GradeChart(uni, qual) {
                 datasets: [{
                     label: 'Average Score',
                     data: [],
-                    backgroundColor: 'transparent',
+                    backgroundColor: '#5271FF',
+                    borderColor:'#5271FF'
                 }]
             }
 
