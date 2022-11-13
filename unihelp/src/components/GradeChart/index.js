@@ -82,7 +82,7 @@ function GradeChart(uni, qual) {
                     label: 'Average Score',
                     data: [],
                     backgroundColor: '#5271FF',
-                    borderColor:'#5271FF'
+                    borderColor:'#5271FF',        
                 }]
             }
 
