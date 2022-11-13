@@ -21,7 +21,7 @@ function GradeChart(uni, qual) {
     const [data, setData] = useState(null)
     const { documents, error } = useCollection('results');
     const [uniName, setUniName] = useState(null);
-
+    
     useEffect(() => {
         if (uni.uni === 'nus') {
             setUniName('National University of Singapore')
@@ -36,12 +36,12 @@ function GradeChart(uni, qual) {
         var HSResults = [
             { year: "2018", score: [], avg: 0 }, { year: "2019", score: [], avg: 0 }, { year: "2020", score: [], avg: 0 }, { year: "2021", score: [], avg: 0 }, { year: "2022", score: [], avg: 0 }
         ];
-
+        console.log(uni.qual)
         console.log(uniName)
-        console.log(qual)
-        if (documents && uniName && qual ) {
+        
+        if (documents && uniName && uni.qual ) {
             function filterData(doc) {
-                return (doc.university === uniName && doc.status === "Admitted" && doc.qualification === qual)
+                return (doc.university === uniName && doc.status === "Admitted" && doc.qualification === uni.qual)
             }
             const filteredData = documents.filter(filterData)
             
@@ -100,7 +100,7 @@ function GradeChart(uni, qual) {
 
             //setIsPendingData(false)
         }
-    }, [documents])
+    }, [documents, uni])
 
     return (
         <div style={{ width: '500px', height: '500px' }}>

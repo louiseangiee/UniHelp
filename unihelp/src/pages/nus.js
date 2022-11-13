@@ -13,7 +13,7 @@ import Form from 'react-bootstrap/Form';
 import { EnglishArray, EnglishTest } from '../components/EnglishTest';
 import { HighSchoolQualification, HighSchoolQualificationArray } from '../components/HighSchoolQualification';
 
-
+/*
 function DropdownMyUni() {
   ReactSession.setStoreType("localStorage");
   const [qualification, setQualification] = useState('');
@@ -23,6 +23,40 @@ function DropdownMyUni() {
   //console.log(ReactSession.get("qualification"))
   //console.log(ReactSession.get("englishTest"))
   return (
+      <>
+          
+      </>
+  );
+
+}
+*/
+
+function NUS() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  }
+  const [qualification, setQualification] = useState(null);
+  const [englishTest, setEnglishTest] = useState(null)
+  const uni = 'nus'
+  console.log(qualification)
+  console.log(englishTest)
+  // console.log(ReactSession.get('qualification'))
+  /* 
+  useEffect(() => {
+    //ReactSession.setStoreType("localStorage");
+    setQualification(ReactSession.get("qualification"))
+    console.log(qualification)
+    //setEnglishTest(ReactSession.get("englishTest"))
+    //console.log(englishTest)
+    //console.log(qualification)
+  }, [qualification, englishTest]) */
+  
+  return (
+    <>
+      <SidebarHome isOpen={isOpen} toggle={toggle} />
+      <NavbarMain toggle={toggle} />
+      {uni && <DataVisualisation uni={uni} />}
       <>
           <Form.Group className="mb-3 col-6" controlId="select">
               <Form.Label>Academic Qualification Submitted</Form.Label>
@@ -43,39 +77,9 @@ function DropdownMyUni() {
               </Form.Control>
           </Form.Group>
       </>
-  );
 
-}
-
-function NUS() {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  }
-  const [qualification, setQualification] = useState(null);
-  const [englishTest, setEnglishTest] = useState(null)
-  const uni = 'nus'
-  DropdownMyUni()
-  console.log(ReactSession.get('qualification'))
-  /*  
-  useEffect(() => {
-    //ReactSession.setStoreType("localStorage");
-    console.log(ReactSession.get("qualification"))
-    //setQualification(ReactSession.get("qualification"))
-    //console.log(qualification)
-    //setEnglishTest(ReactSession.get("englishTest"))
-    //console.log(englishTest)
-    //console.log(qualification)
-  }, [qualification, englishTest]) */
-  
-  return (
-    <>
-      <SidebarHome isOpen={isOpen} toggle={toggle} />
-      <NavbarMain toggle={toggle} />
-      {uni && <DataVisualisation uni={uni} />}
-      <DropdownMyUni> </DropdownMyUni>
-      <GradeChart uni={uni} qual={qualification} />
-      <EnglishChart uni={uni} qual={englishTest} />
+      {uni && qualification && <GradeChart uni={uni} qual={qualification} />}
+      {uni && englishTest && <EnglishChart uni={uni} qual={englishTest} />}
 
       {<BigCalendar uni={uni} />}
       {<Checklist2 uni={uni} />}

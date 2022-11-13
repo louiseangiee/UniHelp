@@ -44,10 +44,10 @@ function SignOutModal(props) {
       </Modal.Header>
       <Modal.Body>
         <div className="row d-flex flex-row align-items-center">
-          <div className="col-4 d-flex justify-content-center">
+          <div className="col-3 d-flex justify-content-center">
             <img src={"/pictures/sad.gif"}></img>
           </div>
-          <div className="col-8">
+          <div className="col-9">
           <h4>Are you sure you want to sign out?</h4>
           <p>
             We are sad to see you go :( Do remember to visit us and finish your
