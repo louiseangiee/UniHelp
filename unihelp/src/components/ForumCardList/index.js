@@ -12,6 +12,8 @@ import CardHeader from "react-bootstrap/esm/CardHeader";
 import { projectFirestore } from "../../firebase/config";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { maxTime } from "date-fns/constants/index";
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 
 export default function ForumCardList({ posts }) {
   const { user } = useAuthContext();
@@ -84,6 +86,7 @@ export default function ForumCardList({ posts }) {
                     {post.title}{" "}
                   </Card.Title>
                   <p>{post.content}</p>
+                  <p style={{textAlign:'right'}}>{formatDistanceToNow(post.createdAt.toDate(), {addSuffix: true})}</p>
                 </Card.Body>
               </div>
 
