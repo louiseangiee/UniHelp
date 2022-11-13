@@ -10,6 +10,8 @@ import FormText from "react-bootstrap/esm/FormText";
 import { useFirestore } from "../hooks/useFirestore";
 import { useAuthContext } from "../hooks/useAuthContext";
 import AddPostComp from "../components/AddPostComp";
+import { ReactSession } from "react-client-session";
+
 
 // const AddPost = () => {
 
@@ -104,10 +106,13 @@ import AddPostComp from "../components/AddPostComp";
 
 function AddPost() {
   const [isOpen, setIsOpen] = useState(false);
+  ReactSession.setStoreType("localStorage");
+
 
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <>
       <Sidebar isOpen={isOpen} toggle={toggle} />

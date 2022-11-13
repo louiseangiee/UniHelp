@@ -86,6 +86,7 @@ function Settings() {
       gradDate: formGradDate,
       DoB: formDoB
     })
+    user.updateProfile({ displayName: formFullName })
   }
 
   

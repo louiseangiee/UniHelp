@@ -37,10 +37,10 @@ function EnglishChart(uni, qual) {
         ];
 
         console.log(uniName)
-        console.log(qual)
-        if (documents) {
+        console.log(uni.qual)
+        if (documents && uniName && uni.qual) {
             function filterData(doc) {
-                return (doc.university === uniName && doc.status === "Admitted" && doc.englishTest === qual)
+                return (doc.university === uniName && doc.status === "Admitted" && doc.englishTest === uni.qual)
             }
             const filteredData = documents.filter(filterData)
             
@@ -99,7 +99,7 @@ function EnglishChart(uni, qual) {
 
             //setIsPendingData(false)
         }
-    }, [documents])
+    }, [uni.qual])
 
     return (
         <div style={{ width: '500px', height: '500px' }}>
