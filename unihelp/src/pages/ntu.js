@@ -4,6 +4,7 @@ import SidebarHome from '../components/SidebarHome';
 import Footer from '../components/Footer';
 import DataVisualisation from '../components/MUDataVisualisation';
 import QuickChart from '../components/QuickChart';
+import Checklist2 from '../components/Checklist2';
 
 function NTU() {
   const [isOpen, setIsOpen]  = useState(false);
@@ -18,6 +19,8 @@ function NTU() {
     <SidebarHome isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     {uni && <DataVisualisation uni = {uni} />}
+    { <Checklist2 /> }
+
     <Footer />
    </> 
   )
