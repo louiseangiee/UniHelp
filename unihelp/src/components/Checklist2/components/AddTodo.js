@@ -61,27 +61,31 @@ export default function AddTodo({ uni }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="input_container">
-        <input
-          className="input_text"
-          type="text"
-          placeholder="Enter todo..."
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-        />
-      </div>
-      <div className="input_container">
-        <input
-          className="input_text"
-          type="date"
-          placeholder="Enter deadline"
-          onChange={(e) => setDeadline(e.target.value)}
-          value={deadline}
-        />
-      </div>
-      <div className="btn_container">
-        <button>Add</button>
-      </div>
+        <div className="AddToDo"> 
+        <div className="input_container">
+          <input
+            className="input_text"
+            type="text"
+            placeholder="Enter a task..."
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          />
+        </div>
+        <div className="input_container">
+          <input
+            className="input_text"
+            type="date"
+            placeholder="Enter deadline"
+            onChange={(e) => setDeadline(e.target.value)}
+            value={deadline}
+          />
+        </div>
+        <div className="btn_container">
+          <button>
+            Add Task
+          </button>
+        </div>
+        </div>
     </form>
   );
 }
