@@ -115,7 +115,7 @@ const SubmitResults = () => {
       <SidebarHome isOpen={isOpen} toggle={toggle} />
       <NavbarMain toggle={toggle} />
 
-      <div id="form" class="px-5 container col-xl-7" style={{position: "relative",height:'100vh'}}>
+      <div id="form" class="px-5 container col-xl-7" style={{position: "relative",height:'100vh', overflow:'scroll'}}>
         <h1 class="header mx-0 px-0">Submit Your Results</h1>
 
         <Form onSubmit={handleSubmit}>
