@@ -38,7 +38,7 @@ export default function AddTodo() {
     }
 
     await updateDocument(`progress${user.uid}`, {
-      ntu: [...document.ntu, toDoToAdd]
+      nus: [...document.nus, toDoToAdd]
     })
 
     if(!response.error){

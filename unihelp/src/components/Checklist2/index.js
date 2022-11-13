@@ -17,7 +17,7 @@ function Todo() {
   const { document, error } = useDocument('userProgress', `progress${user.uid}`)
 
   return (
-    
+
     <div>
       <div>
         <Title />
@@ -27,8 +27,8 @@ function Todo() {
       </div>
       {document && (
       <div>
-        {document.ntu.map(todo => (
-          <TodoList todo={todo} todos={document.ntu} />
+        {document.nus.map(todo => (
+          <TodoList todo={todo} todos={document.nus} />
         ))}
       </div>
       )}
