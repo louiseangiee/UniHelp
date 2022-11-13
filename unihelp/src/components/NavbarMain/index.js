@@ -184,10 +184,11 @@ const NavbarMain = ({ toggle }) => {
             </NavMenu>
             <NavBtn>
               <SignOutButton onClick={() => setModalShow(true)}>
-                <span>Hi {user.displayName}!</span>
+                <span>Hi {user.displayName.split(' ')[0]}!</span>
               </SignOutButton>
               <SignOutModal
                 show={modalShow}
+                style={{}}
                 onHide={() => setModalShow(false)}
               />
               &nbsp;
