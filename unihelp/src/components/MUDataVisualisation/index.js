@@ -40,16 +40,16 @@ function DataVisualisation({ uni }) {
       for(let d of data[uni]){
         for (let pro in progress) {
           if (progress[pro].done) {
+            console.log(progress[pro].done)
             count++
             total++
-            console.log(count)
-            console.log(total)
           } else {
             total++
           }
         }
       }
-
+      console.log(count)
+      console.log(total)
     })
 
   function setName(name) {
