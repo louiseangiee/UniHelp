@@ -135,9 +135,11 @@ export const SignOutButton = styled(LinkR)`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
+  width: 120px;
 
   &:hover:before {
     content: "Sign Out";
+    text-align: center;
   }
 
   &:hover {
