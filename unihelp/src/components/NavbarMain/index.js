@@ -20,6 +20,7 @@ import {
   Dropdowns,
   DropdownsItems,
   SignOutButton,
+  ProfileIcon,
 } from "./navbarMainElements";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
@@ -44,16 +45,16 @@ function SignOutModal(props) {
       </Modal.Header>
       <Modal.Body>
         <div className="row d-flex flex-row align-items-center">
-          <div className="col-4 d-flex justify-content-center">
+          <div className="col-3 d-flex justify-content-center">
             <img src={"/pictures/sad.gif"}></img>
           </div>
-          <div className="col-8">
-          <h4>Are you sure you want to sign out?</h4>
-          <p>
-            We are sad to see you go :( Do remember to visit us and finish your
-            university applications. Good luck!
-          </p>
-        </div>
+          <div className="col-9">
+            <h4>Are you sure you want to sign out?</h4>
+            <p>
+              We are sad to see you go :( Do remember to visit us and finish
+              your university applications. Good luck!
+            </p>
+          </div>
         </div>
       </Modal.Body>
       <Modal.Footer>
@@ -190,8 +191,8 @@ const NavbarMain = ({ toggle }) => {
                 onHide={() => setModalShow(false)}
               />
               &nbsp;
-              <NavBtnLink to="/settings">
-                <i class="bi bi-gear-fill"></i>
+              <NavBtnLink to="/update-profile">
+              <img src={'/svgFiles/profile.svg'} width="30" height="30"></img>
               </NavBtnLink>
             </NavBtn>
           </NavbarContainer>

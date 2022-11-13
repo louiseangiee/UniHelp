@@ -1,4 +1,5 @@
 import React from "react";
+import "../TodoListStyle.css"
 export default function Title(){
     return (
         <div className="title">

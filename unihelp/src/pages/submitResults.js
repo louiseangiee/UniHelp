@@ -28,7 +28,6 @@ const SubmitResults = () => {
   const [grade, setGrade] = useState('');
   const [englishTest, setEnglishTest] = useState('');
   const [englishGrade, setEnglishGrade] = useState('');
-  const [errorMessage, setErrorMessage] = useState('')
 
   const { user } = useAuthContext()
 
@@ -36,7 +35,7 @@ const SubmitResults = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let error = []
-    setErrorMessage('')
+
 
     if (university === '') {
       error = [...error, 'university']
@@ -68,7 +67,7 @@ const SubmitResults = () => {
     console.log(error)
 
     if (error.length > 0) {
-      setErrorMessage('Please fill in ' + error.join(', '))
+      toast.error('Please fill in ' + error.join(', '))
       return
     }
 
@@ -103,6 +102,8 @@ const SubmitResults = () => {
         toastOptions={{
           // Default options for specific types
           success: {
+            duration: 2000,
+          }, error:{
             duration: 2000,
           },
           style: {
@@ -222,8 +223,6 @@ const SubmitResults = () => {
               Submit
             </Button>
           </div>
-          {errorMessage && <p>{errorMessage}</p>}
-
         </Form>
       </div>
 

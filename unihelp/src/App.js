@@ -53,7 +53,7 @@ function App() {
                 {!user && <Redirect to="/signin" />}
                 {user && <SubmitResults />}
             </Route>
-            <Route path='/settings' exact>
+            <Route path='/update-profile' exact>
                 {!user && <Redirect to="/" />}
                 {user && <Settings />}
             </Route>
