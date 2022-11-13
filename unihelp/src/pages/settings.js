@@ -105,7 +105,7 @@ function Settings() {
         <SidebarHome isOpen={isOpen} toggle={toggle} />
         <NavbarMain toggle={toggle} />
 
-        <div id="form" class="px-5 container col-xl-7" style={{height: '100vh'}}>
+        <div id="form" class="px-5 container col-xl-7" style={{height: '100vh', overflow:"scroll"}}>
           <h1 class="header mx-0 px-0">Settings</h1>
 
           <Form>
