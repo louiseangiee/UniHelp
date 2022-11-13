@@ -19,14 +19,14 @@ function Todo({ uni }) {
   return (
 
     <div>
-      <div>
+      <div className="header">
         <Title />
       </div>
-      <div>
+      <div className="task-input">
         <AddTodo uni={ uni }/>
       </div>
       {document && (
-      <div>
+      <div className="list">
         {document[uni].map(todo => (
           <TodoList todo={todo} todos={document[uni]} uni={ uni }/>
         ))}
