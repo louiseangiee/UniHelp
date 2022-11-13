@@ -20,7 +20,7 @@ function NUS() {
     <DataVisualisation />
     <QuickChart />
     <BigCalendar uni="nus"/>
-    <Checklist2 />
+    {/* <Checklist2 /> */}
 
     <Footer />
    </> 

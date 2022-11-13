@@ -227,8 +227,9 @@ const SubmitResults = () => {
         </Form>
       </div>
 
-
-      <Footer/>
+      <div class="row mt-4">
+        <Footer/>
+      </div>
     </>
   )
 }
