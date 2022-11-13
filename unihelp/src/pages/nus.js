@@ -19,8 +19,8 @@ function NUS() {
     <NavbarMain toggle={toggle} />
     <DataVisualisation />
     <QuickChart />
-    <BigCalendar uni="nus"/>
-    {/* <Checklist2 /> */}
+    { <BigCalendar uni="nus"/>}
+    { <Checklist2 /> }
 
     <Footer />
    </> 
