@@ -6,6 +6,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from 'react-bootstrap/Button';
 // import { useLogout } from '../hooks/useLogout';
 // import { ReactSession } from 'react-client-session';
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 
 import {
@@ -52,6 +53,7 @@ function SignOutModal(props) {
 }
 
 const NavbarMain = ({ toggle }) => {
+  const { user } = useAuthContext()
   const [scrollNav, setScrollNav] = useState(false);
   const [modalShow, setModalShow] = React.useState(false);
   // const { logout, isPending } = useLogout()
@@ -167,7 +169,7 @@ const NavbarMain = ({ toggle }) => {
             </NavMenu>
             <NavBtn>
               <SignOutButton onClick={() => setModalShow(true)}>
-                <span>Hi Angie!</span>
+                <span>Hi {user.displayName.split(' ')[0]}!</span>
               </SignOutButton>
               <SignOutModal
                 show={modalShow}
