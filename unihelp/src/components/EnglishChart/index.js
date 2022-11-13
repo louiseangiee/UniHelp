@@ -99,7 +99,7 @@ function EnglishChart(uni, qual) {
 
             //setIsPendingData(false)
         }
-    }, [uni.qual])
+    }, [documents, uni])
 
     return (
         <div style={{ width: '500px', height: '500px' }}>
