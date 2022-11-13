@@ -48,8 +48,7 @@ function DataVisualisation({ uni }) {
           }
         }
       }
-      console.log(count)
-      console.log(total)
+      console.log(count/total * 100)
     })
 
   function setName(name) {
