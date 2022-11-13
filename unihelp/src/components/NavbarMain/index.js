@@ -4,9 +4,8 @@ import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
 import Modal from "react-bootstrap/Modal";
 import Button from 'react-bootstrap/Button';
-// import { useLogout } from '../hooks/useLogout';
-// import { ReactSession } from 'react-client-session';
-import { useAuthContext } from "../../hooks/useAuthContext";
+import { useLogout } from '../../hooks/useLogout';
+import { ReactSession } from 'react-client-session';
 
 
 import {
@@ -23,8 +22,12 @@ import {
   DropdownsItems,
   SignOutButton,
 } from "./navbarMainElements";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 function SignOutModal(props) {
+  const { logout, isPending } = useLogout()
+  ReactSession.set("isLoggedout", true);
+
   return (
     <Modal
       {...props}
@@ -44,7 +47,7 @@ function SignOutModal(props) {
         </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide} variant="danger">Sign Out</Button>
+        <Button onClick={logout} variant="danger">Sign Out</Button>
         {/* {!isPending && <Button className="mb-3" variant="warning" onClick={logout}>Logout</Button>}
               {isPending && <Button className="mb-3" variant="warning" disabled>Logging out...</Button>} */}
       </Modal.Footer>
@@ -53,11 +56,8 @@ function SignOutModal(props) {
 }
 
 const NavbarMain = ({ toggle }) => {
-  const { user } = useAuthContext()
   const [scrollNav, setScrollNav] = useState(false);
   const [modalShow, setModalShow] = React.useState(false);
-  // const { logout, isPending } = useLogout()
-  // ReactSession.set("isLoggedout", true);
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -74,6 +74,8 @@ const NavbarMain = ({ toggle }) => {
   const toggleHome = () => {
     scroll.scrollToTop();
   };
+
+  const {user} = useAuthContext()
 
   const [show, setShow] = useState(false);
 
