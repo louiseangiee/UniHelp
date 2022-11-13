@@ -63,6 +63,7 @@ export default function AddTodo({ uni }) {
     <form onSubmit={handleSubmit}>
       <div className="input_container">
         <input
+          className="input_text"
           type="text"
           placeholder="Enter todo..."
           onChange={(e) => setName(e.target.value)}
@@ -71,6 +72,7 @@ export default function AddTodo({ uni }) {
       </div>
       <div className="input_container">
         <input
+          className="input_text"
           type="date"
           placeholder="Enter deadline"
           onChange={(e) => setDeadline(e.target.value)}

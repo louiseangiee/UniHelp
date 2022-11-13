@@ -3,7 +3,7 @@ import "../TodoListStyle.css"
 export default function Title(){
     return (
         <div className="title">
-            <h1>Todo App</h1>
+            <h1>To-Do List</h1>
         </div>
     );
 }

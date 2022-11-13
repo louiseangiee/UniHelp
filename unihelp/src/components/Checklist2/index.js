@@ -18,21 +18,25 @@ function Todo({ uni }) {
 
   return (
 
-    <div>
-      <div className="header">
-        <Title />
+    <div className="mainContainer">
+      <div className="app-wrapper"> 
+        <div>
+          <Title />
+        </div>
+        <div>
+          <AddTodo uni={ uni }/>
+        </div>
+        {document && (
+        <div>
+          {document[uni].map(todo => (
+            <TodoList todo={todo} todos={document[uni]} uni={ uni }/>
+          ))}
+        </div>
+        )}
       </div>
-      <div className="task-input">
-        <AddTodo uni={ uni }/>
-      </div>
-      {document && (
-      <div className="list">
-        {document[uni].map(todo => (
-          <TodoList todo={todo} todos={document[uni]} uni={ uni }/>
-        ))}
-      </div>
-      )}
     </div>
+
+    
   );
 }
 export default Todo;
