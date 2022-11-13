@@ -107,7 +107,7 @@ function Settings() {
         <NavbarMain toggle={toggle} />
 
         <div id="form" class="px-5 container col-xl-7" style={{height: '100vh', overflow:"scroll"}}>
-          <h1 class="header mx-0 px-0">Settings</h1>
+          <h1 class="header mx-0 px-0">Update Profile</h1>
 
           <Form>
             <div className="row">

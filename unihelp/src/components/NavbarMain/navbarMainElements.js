@@ -107,7 +107,7 @@ export const NavBtnLink = styled(LinkR)`
   border-radius: 50px;
   background: #5271ff;
   white-space: nowrap;
-  padding: 10px 22px;
+  padding: 10px 10px;
   color: #fff;
   font-size: 16px;
   outline: none;
@@ -116,11 +116,19 @@ export const NavBtnLink = styled(LinkR)`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
 
+  img {
+    filter: invert(1);
+  };
+
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;
     color: #010606;
-  }
+  };
+
+  &:hover img {
+    filter: invert(0);
+  };
 `;
 
 export const SignOutButton = styled(LinkR)`
@@ -151,7 +159,18 @@ export const SignOutButton = styled(LinkR)`
   &:hover span {
     display: none;
   }
+
 `;
+
+export const ProfileIcon = styled.img`
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+
+  &:hover {
+    filter: invert(0);
+  }
+`
 
 export const Dropdowns = styled(Dropdown)`
 color: #fff;
