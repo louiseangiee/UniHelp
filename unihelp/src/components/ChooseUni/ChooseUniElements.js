@@ -87,9 +87,9 @@ export const MUIcon = styled.img`
 `;
 
 export const MUH1 = styled.h1`
-  font-size: 3rem;
+  font-size: 2rem;
   color: ${({ intro }) => (intro ? "#304ED8" : "#fff")};
-  margin-bottom: 64px;
+  margin-bottom: 20px;
   font-weight: 600;
 
   @media screen and (max-width: 480px) {
