@@ -30,42 +30,100 @@ function NUS() {
       <SidebarHome isOpen={isOpen} toggle={toggle} />
       <NavbarMain toggle={toggle} />
       {uni && <DataVisualisation uni={uni} />}
-      <div className="charts row d-flex justify-content-around">
-        <div className="col-6 d-flex flex-column justify-content-center align-items-center">
-          <Form.Group className="mb-3 col-6" controlId="select">
-            <Form.Label>Academic Qualification Submitted</Form.Label>
-            <Form.Control
-              as="select"
-              onChange={(e) => setQualification(e.target.value)}
-              value={qualification}
+      <div
+        className="row d-flex justify-content-around"
+        style={{
+          backgroundColor: "#F2F2F2",
+          borderRadius: "10px",
+          marginLeft: "20px",
+          marginRight: "20px",
+        }}
+      >
+        <div className="col-12 mt-3">
+          <div
+            className="charts row d-flex justify-content-between"
+            style={{ marginLeft: "12px", marginRight: "12px", marginBottom: "12px"}}
+          >
+            <div
+              className="col d-flex flex-column justify-content-center align-items-center py-3"
+              style={{ backgroundColor: "#FFFFFF", borderRadius: "10px" }}
             >
-              {HighSchoolQualificationArray.map((qualification) => (
-                <option key={qualification}>{qualification}</option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-          {uni && qualification && <GradeChart uni={uni} qual={qualification} />}
-        </div>
-        <div className="col-6 d-flex flex-column justify-content-center align-items-center">
-          <Form.Group className="mb-3 col-6" controlId="select">
-            <Form.Label>English Test Submitted</Form.Label>
-            <Form.Control
-              as="select"
-              onChange={(e) => setEnglishTest(e.target.value)}
-              value={englishTest}
+              <Form.Group
+                className="mb-3 col-6 d-flex flex-column justify-content-center align-items-center"
+                controlId="select"
+              >
+                <Form.Label>
+                  <strong>Academic Qualification</strong>
+                </Form.Label>
+                <Form.Control
+                  as="select"
+                  onChange={(e) => setQualification(e.target.value)}
+                  value={qualification}
+                >
+                  {HighSchoolQualificationArray.map((qualification) => (
+                    <option key={qualification}>{qualification}</option>
+                  ))}
+                </Form.Control>
+              </Form.Group>
+              {uni && qualification && (
+                <GradeChart uni={uni} qual={qualification} />
+              )}
+            </div>
+            <div
+              className="col d-flex flex-column justify-content-center align-items-center py-3"
+              style={{
+                backgroundColor: "#FFFFFF",
+                borderRadius: "10px",
+                marginLeft: "12px",
+              }}
             >
-              {EnglishArray.map((qualification) => (
-                <option key={qualification}>{qualification}</option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-          {uni && englishTest && <EnglishChart uni={uni} qual={englishTest} />}
+              <Form.Group
+                className="mb-3 col-6 d-flex flex-column justify-content-center align-items-center"
+                controlId="select"
+              >
+                <Form.Label>
+                  <strong>English Test</strong>
+                </Form.Label>
+                <Form.Control
+                  as="select"
+                  onChange={(e) => setEnglishTest(e.target.value)}
+                  value={englishTest}
+                >
+                  {EnglishArray.map((qualification) => (
+                    <option key={qualification}>{qualification}</option>
+                  ))}
+                </Form.Control>
+              </Form.Group>
+              {uni && englishTest && (
+                <EnglishChart uni={uni} qual={englishTest} />
+              )}
+            </div>
+          </div>
+          <div
+            className="row d-flex justify-content-between"
+            style={{ marginLeft: "12px", marginRight: "12px", marginTop: "12px", marginBottom: "16px" }}
+          >
+            <div
+              className="col d-flex flex-column justify-content-center align-items-center py-3"
+              style={{ backgroundColor: "#FFFFFF", borderRadius: "10px", marginRight: "12px" }}
+            >
+              {<Checklist2 uni={uni} />}
+            </div>
+            <div
+              className="col d-flex flex-column justify-content-center align-items-center py-3"
+              style={{ backgroundColor: "#FFFFFF", borderRadius: "10px" }}
+            >
+              {<BigCalendar uni={uni} />}
+            </div>
+          </div>
         </div>
+        {/* <div className="col-6 mb-3 d-flex justify-content-around">
+        
+        </div>
+        <div className="col-6 mb-3">
+        
+        </div> */}
       </div>
-
-
-      {<BigCalendar uni={uni} />}
-      {<Checklist2 uni={uni} />}
 
       <Footer />
     </>
