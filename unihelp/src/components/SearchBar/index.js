@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SearchBar.css";
 import { FaSearch } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
+import { useAuthContext } from "../../hooks/useAuthContext"
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -47,7 +48,7 @@ function SearchBar({ placeholder, data }) {
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <a className="dataItem" href={value.link} target="_blank">
+              <a className="dataItem" href={`/forum/${value.id}`} target="_blank">
                 <p>{value.title} </p>
               </a>
             );

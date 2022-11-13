@@ -81,9 +81,9 @@ function Forum() {
       {/* Make Searchbar stick to navbar */}
       {error && <p className='error'>{error}</p>}
 
-      {/* <div id = "searchBar">
-      <SearchBar placeholder="Search" data={tempfiletest} />
-    </div> */}
+      <div id = "searchBar">
+      <SearchBar placeholder="Search" data={posts} />
+      </div>
 
       <div id="schoolSelection">
         <h1 class="header">Filter by:</h1>
