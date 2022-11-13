@@ -65,7 +65,7 @@ function DataVisualisation({ uni }) {
 
   return (
     <DVContainer>
-      <ContentWrapper column={'column'}>
+      <ContentWrapper>
         <Img src={`logos/${uni}_logo.jpg`} />
         <H1>{setName(uni)}</H1>
       </ContentWrapper>
