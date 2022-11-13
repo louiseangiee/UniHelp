@@ -10,7 +10,7 @@ import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
 
 
-function Todo() {
+function Todo({ uni }) {
   const { updateDocument, response } = useFirestore('userProgress')
   const [todos, setTodos] = useState([]);
   const { user } = useAuthContext()
@@ -23,12 +23,12 @@ function Todo() {
         <Title />
       </div>
       <div>
-        <AddTodo />
+        <AddTodo uni={ uni }/>
       </div>
       {document && (
       <div>
-        {document.nus.map(todo => (
-          <TodoList todo={todo} todos={document.nus} />
+        {document[uni].map(todo => (
+          <TodoList todo={todo} todos={document[uni]} uni={ uni }/>
         ))}
       </div>
       )}

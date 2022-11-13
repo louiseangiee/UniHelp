@@ -4,7 +4,7 @@ import { useDocument } from '../../../hooks/useDocument';
 import { useFirestore } from "../../../hooks/useFirestore";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 
-export default function AddTodo() {
+export default function AddTodo({ uni }) {
   const { user } = useAuthContext()
   const { updateDocument, response } = useFirestore('userProgress')
   const [name, setName] = useState("");
@@ -37,9 +37,21 @@ export default function AddTodo() {
       done: false
     }
 
-    await updateDocument(`progress${user.uid}`, {
-      nus: [...document.nus, toDoToAdd]
-    })
+    if(uni === 'nus'){
+      await updateDocument(`progress${user.uid}`, {
+        nus: [...document[uni], toDoToAdd]
+      })
+    } else if (uni === 'ntu'){
+      await updateDocument(`progress${user.uid}`, {
+        ntu: [...document[uni], toDoToAdd]
+      })
+    } else if (uni === 'smu'){
+      await updateDocument(`progress${user.uid}`, {
+        smu: [...document[uni], toDoToAdd]
+      })
+    }
+
+    
 
     if(!response.error){
       setName('')
