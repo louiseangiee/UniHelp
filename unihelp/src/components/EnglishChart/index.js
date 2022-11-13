@@ -17,7 +17,7 @@ ChartJS.register(
     PointElement
 )
 
-function QuickChart(uni, qualification, HSorEnglish) {
+function EnglishChart(uni, qual) {
     const [data, setData] = useState(null)
     const { documents, error } = useCollection('results');
     const [uniName, setUniName] = useState(null);
@@ -32,28 +32,21 @@ function QuickChart(uni, qualification, HSorEnglish) {
         if (uni.uni === 'smu') {
             setUniName('Singapore Management University')
         }
-
         var HSResults = [
             { year: "2018", score: [], avg: 0 }, { year: "2019", score: [], avg: 0 }, { year: "2020", score: [], avg: 0 }, { year: "2021", score: [], avg: 0 }, { year: "2022", score: [], avg: 0 }
         ];
 
-
+        console.log(uniName)
+        console.log(qual)
         if (documents) {
-            function filterFromUni(doc) {
-                return (doc.university === uniName && doc.status === "Admitted")
+            function filterData(doc) {
+                return (doc.university === uniName && doc.status === "Admitted" && doc.englishTest === qual)
             }
-            const filteredFromUni = documents.filter(filterFromUni)
-
-            function filterFromQualification(doc2) {
-                if (HSorEnglish === 'HS') {
-                    return (doc2.qualification === qualification)
-                }
-                else if (HSorEnglish === 'English') {
-                    return (doc2.englishTest === qualification)
-                }
-            }
-            const filteredData = documents.filter(filterFromQualification)
-            console.log(filteredData);
+            const filteredData = documents.filter(filterData)
+            
+            if (filteredData) {
+                console.log(filteredData)
+            };
 
 
 
@@ -63,12 +56,8 @@ function QuickChart(uni, qualification, HSorEnglish) {
                 if (ele.admitYear >= 2018 && ele.admitYear <= 2022) {
                     HSResults.forEach(res => {
                         if (res.year === ele.admitYear) {
-                            if (HSorEnglish === 'HS') {
-                                res.score.push(ele.grade)
-                            }
-                            if (HSorEnglish === 'English') {
                                 res.score.push(ele.englishGrade)
-                            }
+                            
                         }
                     })
                 }
@@ -120,4 +109,4 @@ function QuickChart(uni, qualification, HSorEnglish) {
 
 }
 
-export default QuickChart
+export default EnglishChart

@@ -21,7 +21,7 @@ export const useSignup = () => {
       }
 
       // add account details to user
-      // await res.user.updateProfile({ fullName, studentType, HSQualification, gradDate, DoB })
+      await res.user.updateProfile({ displayName: fullName })
 
       // create a user document
       await projectFirestore.collection('accountDetails').doc(res.user.uid).set({

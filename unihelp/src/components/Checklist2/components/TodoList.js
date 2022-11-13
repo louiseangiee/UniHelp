@@ -5,7 +5,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { useFirestore } from "../../../hooks/useFirestore";
 
-export default function TodoList({ todo, todos }) {
+export default function TodoList({ todo, todos, uni }) {
   const { user } =  useAuthContext()
   const { updateDocument, response } = useFirestore('userProgress')
   const [newTitle, setNewTitle] = useState(todo.title)
@@ -14,12 +14,28 @@ export default function TodoList({ todo, todos }) {
   const toggleComplete = async (todo) => {
     for(var i = 0; i < todos.length; i++){
       if(todos[i] === todo){
-        todos[i] = {...todo, done: true}
+        if(todos[i].done === false){
+          todos[i] = {...todo, done: true}
+        } else {
+          todos[i] = {...todo, done: false}
+        }
       }
     }
-    await updateDocument(`progress${user.uid}`,{
-      nus: todos
-    })
+
+    console.log(todos)
+    if(uni === 'nus'){
+      await updateDocument(`progress${user.uid}`,{
+        nus: todos
+      })
+    } else if (uni === 'ntu'){
+      await updateDocument(`progress${user.uid}`,{
+        ntu: todos
+      })
+    } else if (uni === 'smu'){
+      await updateDocument(`progress${user.uid}`,{
+        smu: todos
+      })
+    }
   };
 
   const handleDelete = async (todo) => {
@@ -28,48 +44,37 @@ export default function TodoList({ todo, todos }) {
           todos.splice(i, 1);
       }
     }
-
-    await updateDocument(`progress${user.uid}`,{
-      nus: todos
-    })
+    console.log(todos)
+    if(uni === 'nus'){
+      await updateDocument(`progress${user.uid}`,{
+        nus: todos
+      })
+    } else if (uni === 'ntu'){
+      await updateDocument(`progress${user.uid}`,{
+        ntu: todos
+      })
+    } else if (uni === 'smu'){
+      await updateDocument(`progress${user.uid}`,{
+        smu: todos
+      })
+    }
   };
 
   return (
     <>
     <div className="todo">
-      <input
-        style={{ textDecoration: todo.done && "line-through" }}
-        type="text"
-        value={todo.title === "" ? newTitle : todo.title}
-        className="list"
-        disabled
-        // onChange={handleChange}
-      />
-      <input
-        style={{ textDecoration: todo.done && "line-through" }}
-        type="date"
-        value={todo.title === "" ? newTitle : todo.title}
-        className="list"
-        disabled
-        // onChange={handleChange}
-      />
-      <div>
+      <p>{todo.name}</p>
+      <p>{todo.deadline}</p>
         <button
           className="button-complete"
           onClick={() => toggleComplete(todo)}
         >
           <CheckCircleIcon id="i" />
         </button>
-        <button
-          className="button-edit"
-          // onClick={() => handleEdit(todo, newTitle)}
-        >
-          <EditIcon id="i" />
-        </button>
-        <button className="button-delete" onClick={() => handleDelete(todo.id)}>
+      
+        <button className="button-delete" onClick={() => handleDelete(todo)}>
           <DeleteIcon id="i" />
         </button>
-      </div>
     </div>
     </>
   );

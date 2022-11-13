@@ -165,7 +165,7 @@ function Settings() {
               {isPending && <Button className="mb-3" variant="warning" disabled>Logging out...</Button>}
             </div>
 
-            <p>{formError}</p>
+            <p style={{color: "red"}}>{formError}</p>
 
           </Form>
         </div>

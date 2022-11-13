@@ -123,6 +123,34 @@ export const NavBtnLink = styled(LinkR)`
   }
 `;
 
+export const SignOutButton = styled(LinkR)`
+  border-radius: 50px;
+  background: #5271ff;
+  white-space: nowrap;
+  padding: 10px 22px;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover:before {
+    content: "Sign Out";
+  }
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
+  }
+
+  &:hover span {
+    display: none;
+  }
+`;
+
 export const Dropdowns = styled(Dropdown)`
 color: #fff;
 display: flex;
