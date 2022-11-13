@@ -13,11 +13,13 @@ function NUS() {
   const toggle = () => {
     setIsOpen(!isOpen);
   }
+  const uni = 'nus'
+
   return (
    <>
     <SidebarHome  isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
-    <DataVisualisation />
+    {uni && <DataVisualisation uni = {uni} />}
     <QuickChart />
     <BigCalendar uni="nus"/>
     {/* <Checklist2 /> */}

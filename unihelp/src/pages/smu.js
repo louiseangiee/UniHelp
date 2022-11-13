@@ -8,6 +8,8 @@ import Checklist from '../components/Checklist/checklist';
 function SMU() {
   const [isOpen, setIsOpen]  = useState(false);
 
+  const uni = 'smu'
+
   const toggle = () => {
     setIsOpen(!isOpen);
   }
@@ -15,7 +17,7 @@ function SMU() {
    <>
     <SidebarHome isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
-    <DataVisualisation />
+    {uni && <DataVisualisation uni = {uni} />}
     <Footer />
    </> 
   )
