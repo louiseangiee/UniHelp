@@ -34,6 +34,9 @@ function DataVisualisation({ uni }) {
     .onSnapshot((doc) => {
       var data = doc.data();
       console.log(data[uni])
+      let progress = data[uni]
+      let count = 0
+      let total = 0
       for(let d of data[uni]){
         for (let pro in progress) {
           if (progress[pro].done) {
