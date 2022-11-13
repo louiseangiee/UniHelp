@@ -54,7 +54,7 @@ function MainPage() {
       <NavbarMain toggle={toggle} />
       {/* <SchoolTabs /> */}
       {/* <IntroMyUni /> */}
-        <div style={{position: "relative", overflow: "scroll" }}>
+        <div style={{position: "relative", overflow: "hide" }}>
           <div className="row">
           <ChooseUni />
         </div>
