@@ -23,13 +23,13 @@ function QuickChart(uni, qualification, HSorEnglish) {
     const [uniName, setUniName] = useState(null);
 
     useEffect(() => {
-        if (uni.uni === 'nus'){
+        if (uni.uni === 'nus') {
             setUniName('National University of Singapore')
         }
-        if (uni.uni === 'ntu'){
+        if (uni.uni === 'ntu') {
             setUniName('Nanyang Technological University')
         }
-        if (uni.uni === 'smu'){
+        if (uni.uni === 'smu') {
             setUniName('Singapore Management University')
         }
 
@@ -37,23 +37,37 @@ function QuickChart(uni, qualification, HSorEnglish) {
             { year: "2018", score: [], avg: 0 }, { year: "2019", score: [], avg: 0 }, { year: "2020", score: [], avg: 0 }, { year: "2021", score: [], avg: 0 }, { year: "2022", score: [], avg: 0 }
         ];
 
-        
+
         if (documents) {
-            function dataFilter(doc) {
-                return (doc.university === uniName && doc.qualification === "Cambridge A Level" && doc.status === "Admitted")
+            function filterFromUni(doc) {
+                return (doc.university === uniName && doc.status === "Admitted")
             }
-            const filteredData = documents.filter(dataFilter)
+            const filteredFromUni = documents.filter(filterFromUni)
+
+            function filterFromQualification(doc2) {
+                if (HSorEnglish === 'HS') {
+                    return (do2.qualification === qualification)
+                }
+                else if (HSorEnglish === 'English') {
+                    return (do2.englishTest === qualification)
+                }
+            }
             console.log(filteredData);
 
-            
-            
-        
+
+
+
             filteredData.forEach(ele => {
                 //console.log(ele.admitYear)
                 if (ele.admitYear >= 2018 && ele.admitYear <= 2022) {
                     HSResults.forEach(res => {
                         if (res.year === ele.admitYear) {
-                            res.score.push(ele.grade)
+                            if (HSorEnglish === 'HS') {
+                                res.score.push(ele.grade)
+                            }
+                            if (HSorEnglish === 'English') {
+                                res.score.push(ele.englishGrade)
+                            }
                         }
                     })
                 }
@@ -69,8 +83,8 @@ function QuickChart(uni, qualification, HSorEnglish) {
                 ele.avg = total / count;
             })
             console.log(HSResults)
-        
-            
+
+
             var chartdata = {
                 labels: [],
                 datasets: [{
@@ -90,14 +104,15 @@ function QuickChart(uni, qualification, HSorEnglish) {
             console.log(chartdata)
             setData(chartdata)
 
-            
-        
 
-        //setIsPendingData(false)
-    }}, [documents])
-    
+
+
+            //setIsPendingData(false)
+        }
+    }, [documents])
+
     return (
-         <div style={{ width: '500px', height: '500px' }}>
+        <div style={{ width: '500px', height: '500px' }}>
             {data && <Line data={data}></Line>}
         </div>
     )

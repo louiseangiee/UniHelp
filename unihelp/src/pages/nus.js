@@ -14,13 +14,15 @@ function NUS() {
     setIsOpen(!isOpen);
   }
   const uni = 'nus'
-
+  console.log()
   return (
    <>
     <SidebarHome  isOpen={isOpen} toggle={toggle} />
     <NavbarMain toggle={toggle} />
     {uni && <DataVisualisation uni = {uni} />}
-    <QuickChart uni = {uni}/>
+    <QuickChart uni = {uni} qualification = {qualification} HSorEnglish = "HS"/>
+    <QuickChart uni = {uni} qualification = {qualification} HSorEnglish = "English"/>
+
     { <BigCalendar uni = {uni}/>}
     { <Checklist2 /> }
 
